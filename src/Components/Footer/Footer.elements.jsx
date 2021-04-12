@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const sectionMargin = 12;
 const footerFont = "Helvetica";
 
 export const FooterContainer = styled.main`
@@ -50,5 +48,21 @@ export const FooterLink = styled.li`
 
 export const FooterLinkUrl = styled.a`
   cursor: pointer;
-  text-decoration: inherit;
+  text-decoration: none;
+  :visited,
+  :active,
+  :hover {
+    text-decoration: inherit;
+    color: inherit;
+  }
+`;
+
+export const CompanyDetails = styled.div`
+  width: 100%;
+  font-size: 14px;
+  font-family: ${footerFont};
+  list-style: none;
+  color: #484848;
+  margin-top: 12px;
+  text-align: left;
 `;

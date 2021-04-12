@@ -119,5 +119,23 @@ export const footerData = {
       ],
     },
   ],
-  others: [],
+  companyDetails: {
+    companyName: "HellBnB, Inc.",
+    disclosure: [
+      {
+        title: "Privacy",
+        link:
+          "https://www.airbnb.it/help/article/2855/informativa-sulla-privacy",
+      },
+      {
+        title: "Termini",
+        link: "https://www.airbnb.it/help/article/2908/termini-del-servizio",
+      },
+      { title: "Mappa del sito", link: "https://www.airbnb.it/sitemaps/v2" },
+      {
+        title: "Dettagli dell'azienda",
+        link: "https://www.airbnb.it/about/company-details",
+      },
+    ],
+  },
 };

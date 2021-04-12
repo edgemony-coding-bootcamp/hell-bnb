@@ -5,10 +5,14 @@ import {
   LinksWrapper,
   FooterLink,
   FooterLinkUrl,
+  CompanyDetails,
 } from "./Footer.elements";
 import { footerData } from "./footerData";
 
 const footerSections = footerData.sections;
+const companyDetails = footerData.companyDetails;
+const disclosureLinks = companyDetails.disclosure;
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
@@ -31,6 +35,30 @@ export default function Footer() {
           </FooterSection>
         );
       })}
+
+      <FooterSection>
+        <CompanyDetails>
+          © {currentYear} {companyDetails.companyName}
+        </CompanyDetails>
+        <CompanyDetails>
+          {disclosureLinks.map((element, i) => {
+            const { title, link } = element;
+            if (i + 1 < disclosureLinks.length) {
+              return (
+                <FooterLinkUrl key={i} href={link}>
+                  {title + " · "}
+                </FooterLinkUrl>
+              );
+            } else {
+              return (
+                <FooterLinkUrl key={i} href={link}>
+                  {title}
+                </FooterLinkUrl>
+              );
+            }
+          })}
+        </CompanyDetails>
+      </FooterSection>
     </FooterContainer>
   );
 }
