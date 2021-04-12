@@ -1,9 +1,24 @@
+/* 
+import ActivityCard from './Components/ActivityCard/ActivityCard';
+
+import img from './Components/ActivityCard/img.jpeg';
+
+<ActivityCard
+    img = {img}
+    rate = {4.93}
+    number = {204}
+    country = {'Argentina'}
+    title = {'Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum'}
+    price = {7}/>
+*/
+
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react'
 
-import device from'../Media_query_dimension';
+import device from'../../assets/Media_query_dimension';
 
-const Card_wrapper = styled.div`
+import Rank from './Rank';
+
+const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     /* border: black solid 1px; */
@@ -34,25 +49,15 @@ const Img = styled.img`
     margin: 0px;
 `
 
-const Text_wrapper = styled.div`
+const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0vh 1.5vh 0.5vh 1.5vh;
     font-family: Helvetica;
     width: 100%;
 `
-const Rate = styled.p `
-    font-size: 1em;
-    margin: 1px 0px 0px 0px;
-    color: ${props => props.light ? '#7a7a7a': 'black' };
-`
 
-const Rate_wrapper = styled.div `
-    display: flex;
-    flex-direction: row;
-`
-
-const Description = styled.p `
+const Title = styled.p `
     font-size: 1.1em; 
     margin: 3px 0px 0px 0px;
     height: 28%;
@@ -81,20 +86,22 @@ const Bold = styled.p `
     display: inline;
 `
 
-export const Activity_card = ({img, rate, number, country, description, price})=>{
+export const ActivityCard = ({img, rate, number, country, title, price})=>{
     return(
-        <Card_wrapper>
+        <CardWrapper>
             <Img src={img} alt=""/>
-            <Text_wrapper>
-                <Rate_wrapper>
-                    <Icon color='red' name='star'/>
-                    <Rate>{rate}</Rate>
-                    <Rate light>({number}) - {country}</Rate>
-                </Rate_wrapper>
-                <Description>{description}</Description>
+            <TextWrapper>
+                <Rank
+                    rate = {rate}
+                    number = {number}
+                    country = {country}
+                />
+                <Title>{title}</Title>
                 <Detail><Bold>A partire da {price}€</Bold> a persona</Detail>
-            </Text_wrapper>
-        </Card_wrapper>
+            </TextWrapper>
+        </CardWrapper>
     )
 }
-export default Activity_card;
+export default ActivityCard;
+
+
