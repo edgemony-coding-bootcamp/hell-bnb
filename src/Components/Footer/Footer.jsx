@@ -6,6 +6,8 @@ import {
   FooterLink,
   FooterLinkUrl,
   CompanyDetails,
+  FooterBottomSection,
+  TopFooterSections,
 } from "./Footer.elements";
 import { footerData } from "./footerData";
 
@@ -17,26 +19,28 @@ const currentYear = new Date().getFullYear();
 export default function Footer() {
   return (
     <FooterContainer>
-      {footerSections.map((section, index) => {
-        const { sectionName, listItems } = section;
-        return (
-          <FooterSection key={index}>
-            <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
-            <LinksWrapper>
-              {listItems.map((item, i) => {
-                const { title, link } = item;
-                return (
-                  <FooterLink key={i}>
-                    <FooterLinkUrl href={link}>{title}</FooterLinkUrl>
-                  </FooterLink>
-                );
-              })}
-            </LinksWrapper>
-          </FooterSection>
-        );
-      })}
+      <TopFooterSections>
+        {footerSections.map((section, index) => {
+          const { sectionName, listItems } = section;
+          return (
+            <FooterSection key={index}>
+              <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
+              <LinksWrapper>
+                {listItems.map((item, i) => {
+                  const { title, link } = item;
+                  return (
+                    <FooterLink key={i}>
+                      <FooterLinkUrl href={link}>{title}</FooterLinkUrl>
+                    </FooterLink>
+                  );
+                })}
+              </LinksWrapper>
+            </FooterSection>
+          );
+        })}
+      </TopFooterSections>
 
-      <FooterSection>
+      <FooterBottomSection>
         <CompanyDetails>
           © {currentYear} {companyDetails.companyName}
         </CompanyDetails>
@@ -58,7 +62,7 @@ export default function Footer() {
             }
           })}
         </CompanyDetails>
-      </FooterSection>
+      </FooterBottomSection>
     </FooterContainer>
   );
 }

@@ -10,16 +10,61 @@ export const FooterContainer = styled.main`
   align-items: flex-start;
   flex-direction: column;
   border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 
-  /* testing purpose */
-  margin-top: 50px;
-  /* end testing */
+  @media screen and (min-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 0 80px;
+  }
 `;
 
 export const FooterSection = styled.section`
   width: 100%;
   padding: 32px 0;
   border-bottom: 1px solid #dddddd;
+  padding: 32px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 48px 0;
+    border-bottom: none;
+    height: 100%;
+  }
+`;
+
+export const TopFooterSections = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    border-bottom: 1px solid #dddddd;
+  }
+`;
+
+export const FooterBottomSection = styled.div`
+  width: 100%;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    min-width: 100%;
+    padding: 40px 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 48px 0;
+  }
 `;
 
 export const FooterSectionSubHeading = styled.h1`
@@ -35,6 +80,16 @@ export const LinksWrapper = styled.ul`
   align-items: flex-start;
   text-align: left;
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: column;
+    flex-wrap: no-wrap;
+  }
 `;
 
 export const FooterLink = styled.li`
@@ -44,6 +99,17 @@ export const FooterLink = styled.li`
   list-style: none;
   color: #484848;
   margin-top: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 33%;
+    padding-right: 10px;
+    margin-top: 16px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    margin-top: 22px;
+  }
 `;
 
 export const FooterLinkUrl = styled.a`
@@ -65,4 +131,8 @@ export const CompanyDetails = styled.div`
   color: #484848;
   margin-top: 12px;
   text-align: left;
+
+  @media screen and (min-width: 768px) {
+    text-align: center;
+  }
 `;
