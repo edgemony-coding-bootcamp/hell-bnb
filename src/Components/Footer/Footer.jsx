@@ -1,3 +1,4 @@
+import "semantic-ui-css/semantic.min.css";
 import {
   FooterContainer,
   FooterSection,
@@ -8,6 +9,7 @@ import {
   CompanyDetails,
   FooterBottomSection,
   TopFooterSections,
+  IconContainer,
 } from "./Footer.elements";
 import { footerData } from "./footerData";
 
@@ -15,6 +17,9 @@ const footerSections = footerData.sections;
 const companyDetails = footerData.companyDetails;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
+
+// viewportSize da connettere allo stato di Redux per aggiornare il valore
+let viewportSize = window.innerWidth > 768;
 
 export default function Footer() {
   return (
@@ -41,6 +46,13 @@ export default function Footer() {
       </TopFooterSections>
 
       <FooterBottomSection>
+        {viewportSize && (
+          <IconContainer>
+            <i className="facebook f icon"></i>
+            <i className="twitter icon"></i>
+            <i className="instagram icon"></i>
+          </IconContainer>
+        )}
         <CompanyDetails>
           © {currentYear} {companyDetails.companyName}
         </CompanyDetails>

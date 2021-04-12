@@ -63,7 +63,10 @@ export const FooterBottomSection = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 48px 0;
+    padding: 0;
+    margin: 30px 0;
+    flex-direction: row-reverse;
+    justify-content: center;
   }
 `;
 
@@ -134,5 +137,20 @@ export const CompanyDetails = styled.div`
 
   @media screen and (min-width: 768px) {
     text-align: center;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 0;
+  }
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 25px;
   }
 `;
