@@ -1,8 +1,37 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./Components/Header/Header.jsx";
+import Activities from "./Activities.jsx";
+import BannerWrap from "./Components/BannerCookies/BannerCookies.jsx";
+import {useState,useCallback} from "react"
+
 
 function App() {
+  const [cookie,setCookie]=useState(localStorage.getItem("cookieSession"));
+
+   const cookieSession=useCallback(()=> {
+        const date = JSON.stringify(new Date());
+        localStorage.setItem("cookieSession", `date:${date}`);
+        setCookie(true)
+        return;
+    },[])
+  
+
   return (
-    <div className="App">
-    </div>
+    <>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <BannerWrap cookie={cookie} setCookie={cookieSession}/>
+          </Route>
+          <Route exact path="/activities/:id">
+            <Activities />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+    </>
   );
 }
 
