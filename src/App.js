@@ -23,7 +23,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <BannerWrap cookie={cookie} setCookie={cookieSession}/>
+            <BannerWrap isBannerVisible={isBannerVisible} setVisibleBanner={cookieSession}/>
           </Route>
           <Route exact path="/activities/:id">
             <Activities />

@@ -56,6 +56,7 @@ export const BtnCookies = styled.button`
   border-radius: 8px;
   padding: 10px 0;
   cursor: pointer;
+  margin: 5px 0;
   :hover{
     transition: box-shadow 0.2s ease 0s, transform 0.1s ease 0s;
   }
@@ -63,7 +64,6 @@ export const BtnCookies = styled.button`
       outline:none;
   }
 
-  margin: 5px 0;
   ${(props) =>
     props.accept &&
     css`

@@ -10,10 +10,10 @@ import {
   Icon
 } from "./style.js";
 
-function BannerCookies({ cookie,setCookie }) {
+function BannerCookies({ isBannerVisible,setVisibleBanner }) {
   return (
     <div>
-      {!cookie ? (
+      {!isBannerVisible ? (
         <Wrap>
           <Banner>
             <TitleCookie>La tua privacy <Icon className="lock icon"></Icon></TitleCookie>
@@ -23,14 +23,13 @@ function BannerCookies({ cookie,setCookie }) {
               offrire un'esperienza di utilizzo migliore.Cliccando su OK o
               attivando un'opzione in Preferenze dei cookie, accetti quanto
               indicato come specificato nella nostra
-              <LinkPolicy href="https://www.airbnb.it/help/article/2866/informativa-sui-cookie-di-airbnb">
-                Politica sui cookie
+              <LinkPolicy href="https://www.airbnb.it/help/article/2866/informativa-sui-cookie-di-airbnb"> Politica sui cookie
               </LinkPolicy>
               . Per modificare le preferenze o revocare il consenso, aggiorna le
               tue Preferenze dei cookie.
             </ParagraphCookie>
             <WrapContentCenter>
-              <BtnCookies accept='accept' onClick={()=>setCookie(true)}>OK</BtnCookies>
+              <BtnCookies accept='accept' onClick={()=>setVisibleBanner()}>OK</BtnCookies>
               <BtnCookies preference>Preferenze dei Cookies</BtnCookies>
             </WrapContentCenter>
           </Banner>
