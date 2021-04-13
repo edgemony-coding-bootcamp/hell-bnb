@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header/Header.jsx";
 import Activities from "./Activities.jsx";
 
+
 function App() {
   return (
     <Router>
