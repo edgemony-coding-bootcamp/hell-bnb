@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import device from "../../assets/Media_query_dimension";
 
 const footerFont = "Helvetica";
 
@@ -12,11 +13,11 @@ export const FooterContainer = styled.main`
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     padding: 0 40px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     padding: 0 80px;
   }
 `;
@@ -27,11 +28,11 @@ export const FooterSection = styled.section`
   border-bottom: 1px solid #dddddd;
   padding: 32px 0;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     padding: 40px 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     padding: 48px 0;
     border-bottom: none;
     height: 100%;
@@ -43,7 +44,7 @@ export const TopFooterSections = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     flex-direction: row;
     border-bottom: 1px solid #dddddd;
   }
@@ -57,12 +58,12 @@ export const FooterBottomSection = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     min-width: 100%;
     padding: 40px 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     padding: 0;
     margin: 30px 0;
     flex-direction: row-reverse;
@@ -84,12 +85,12 @@ export const LinksWrapper = styled.ul`
   text-align: left;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     flex-direction: column;
     flex-wrap: no-wrap;
   }
@@ -103,13 +104,13 @@ export const FooterLink = styled.li`
   color: #484848;
   margin-top: 12px;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     width: 33%;
     padding-right: 10px;
     margin-top: 16px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     width: 100%;
     margin-top: 22px;
   }
@@ -135,11 +136,11 @@ export const CompanyDetails = styled.div`
   margin-top: 12px;
   text-align: left;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     text-align: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     margin-top: 0;
   }
 `;
@@ -150,11 +151,11 @@ export const IconContainer = styled.div`
   width: 100%;
   font-size: 30px;
 
-  @media screen and (min-width: 768px) {
+  @media ${device.deviceM} {
     display: flex;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media ${device.deviceXL} {
     font-size: 25px;
   }
 `;
