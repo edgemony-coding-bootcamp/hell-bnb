@@ -46,13 +46,11 @@ export default function Footer() {
       </TopFooterSections>
 
       <FooterBottomSection>
-        {viewportSize && (
-          <IconContainer>
-            <i className="facebook f icon"></i>
-            <i className="twitter icon"></i>
-            <i className="instagram icon"></i>
-          </IconContainer>
-        )}
+        <IconContainer>
+          <i className="facebook f icon"></i>
+          <i className="twitter icon"></i>
+          <i className="instagram icon"></i>
+        </IconContainer>
         <CompanyDetails>
           © {currentYear} {companyDetails.companyName}
         </CompanyDetails>

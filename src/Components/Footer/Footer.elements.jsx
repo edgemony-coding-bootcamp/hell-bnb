@@ -145,10 +145,14 @@ export const CompanyDetails = styled.div`
 `;
 
 export const IconContainer = styled.div`
-  display: flex;
+  display: hidden;
   justify-content: center;
   width: 100%;
   font-size: 30px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 
   @media screen and (min-width: 1200px) {
     font-size: 25px;
