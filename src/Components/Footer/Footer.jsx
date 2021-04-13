@@ -17,8 +17,6 @@ const footerSections = footerData.sections;
 const companyDetails = footerData.companyDetails;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
-
-// viewportSize da connettere allo stato di Redux per aggiornare il valore
 let viewportSize = window.innerWidth > 768;
 
 export default function Footer() {
