@@ -95,6 +95,8 @@ export const ActivityCard = ({img, rate, number, country, title, price})=>{
                     rate = {rate}
                     number = {number}
                     country = {country}
+                    light = {true}
+                    underline = {false}
                 />
                 <Title>{title}</Title>
                 <Detail><Bold>A partire da {price}€</Bold> a persona</Detail>
