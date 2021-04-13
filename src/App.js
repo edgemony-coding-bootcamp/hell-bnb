@@ -6,12 +6,12 @@ import {useState,useCallback} from "react"
 
 
 function App() {
-  const [cookie,setCookie]=useState(localStorage.getItem("cookieSession"));
+  const [isBannerVisible,setIsBannerVisible]=useState(localStorage.getItem("cookieSession"));
 
    const cookieSession=useCallback(()=> {
         const date = JSON.stringify(new Date());
         localStorage.setItem("cookieSession", `date:${date}`);
-        setCookie(true)
+        setIsBannerVisible(true)
         return;
     },[])
   
