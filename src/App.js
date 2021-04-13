@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header/Header.jsx";
 import Activities from "./Activities.jsx";
+import Homepage from "./Components/Homepage/Homepage.jsx"
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-           {/**homepage **/}
+           <Homepage />
           </Route>
           <Route exact path="/activities/:id">
             <Activities />
