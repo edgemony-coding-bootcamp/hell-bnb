@@ -1,3 +1,4 @@
+
 const baseURL = "https://sandbox.musement.com/api/v3"
 
 async function callAPI(endpoint) {
@@ -5,12 +6,11 @@ async function callAPI(endpoint) {
   console.log("response",response)
   const data = await response.json();
   if (response.status >= 400) {
-    throw new Error(data.message);
-    
+    throw new Error(data.message); 
   }
   return data.data;
+  
 }
-
 export async function fetchActivities() {
     return callAPI("activities");
   }
