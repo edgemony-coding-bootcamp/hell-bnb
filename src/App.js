@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header/Header.jsx";
 import Activities from "./Activities.jsx";
-import BannerWrap from "./Components/BannerCookies/BannerCookies.jsx";
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <BannerWrap />
+           {/**homepage **/}
           </Route>
           <Route exact path="/activities/:id">
             <Activities />
