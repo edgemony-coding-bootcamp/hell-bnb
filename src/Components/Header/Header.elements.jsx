@@ -3,6 +3,9 @@ import device from "../../assets/Media_query_dimension";
 import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
+  position: fixed;
+  right: 0;
+  top: 0;
   height: 56px;
   background: #ffffff;
   width: 100vw;
