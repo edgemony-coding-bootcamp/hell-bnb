@@ -9,7 +9,6 @@ function Homepage() {
     const fetch = async () => {
       try {
         const data = await fetchActivities();
-        console.log("data", data);
         setActivities(data);
       } catch (error) {
         console.error(error);
