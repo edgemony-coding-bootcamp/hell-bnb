@@ -12,9 +12,14 @@ import img from './Components/ActivityCard/img.jpeg';
     price = {7}/>
 */
 
+
+
 import styled from 'styled-components';
 
+//assets
+
 import device from'../../assets/Media_query_dimension';
+import colors from '../../assets/Colors';
 
 import Rank from './Rank';
 
@@ -80,7 +85,7 @@ const Detail = styled.p `
     line-height: 0.9em;
 `
 const Bold = styled.p `
-    color: #222222;
+    color: ${colors.darkText};
     margin: 0px;
     font-weight: bold;
     display: inline;
@@ -95,6 +100,8 @@ export const ActivityCard = ({img, rate, number, country, title, price})=>{
                     rate = {rate}
                     number = {number}
                     country = {country}
+                    light = {true}
+                    underline = {false}
                 />
                 <Title>{title}</Title>
                 <Detail><Bold>A partire da {price}€</Bold> a persona</Detail>
