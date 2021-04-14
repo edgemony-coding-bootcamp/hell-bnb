@@ -3,7 +3,7 @@ import Header from "./Components/Header/Header.jsx";
 import Activities from "./Activities.jsx";
 import Homepage from "./Components/Homepage/Homepage.jsx"
 import {useState,useCallback} from "react"
-
+import BannerCookies from "./Components/BannerCookies/BannerCookies.jsx"
 
 function App() {
   const [isBannerVisible,setIsBannerVisible]=useState(localStorage.getItem("cookieSession"));
@@ -29,6 +29,7 @@ function App() {
             <Activities />
           </Route>
         </Switch>
+        <BannerCookies isBannerVisible={isBannerVisible} setVisibleBanner={cookieSession}/>
       </div>
     </Router>
     </>
