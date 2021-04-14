@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import device from "../../assets/Media_query_dimension";
+import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 
 const footerFont = "Helvetica";
+// Remove as soon as global fonts are set
 
 export const FooterContainer = styled.main`
   width: 100vw;
@@ -10,8 +12,8 @@ export const FooterContainer = styled.main`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid ${colors.borderColor};
+  border-bottom: 1px solid ${colors.borderColor};
 
   @media ${device.deviceM} {
     padding: 0 40px;
@@ -25,7 +27,7 @@ export const FooterContainer = styled.main`
 export const FooterSection = styled.section`
   width: 100%;
   padding: 32px 0;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid ${colors.borderColor};
   padding: 32px 0;
 
   @media ${device.deviceM} {
@@ -46,7 +48,7 @@ export const TopFooterSections = styled.div`
 
   @media ${device.deviceXL} {
     flex-direction: row;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid ${colors.borderColor};
   }
 `;
 
@@ -76,6 +78,7 @@ export const FooterSectionSubHeading = styled.h1`
   text-transform: uppercase;
   text-align: left;
   font-family: ${footerFont};
+  color: ${colors.darkText};
 `;
 
 export const LinksWrapper = styled.ul`
@@ -101,7 +104,7 @@ export const FooterLink = styled.li`
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
-  color: #484848;
+  color: ${colors.lightText};
   margin-top: 12px;
 
   @media ${device.deviceM} {
@@ -132,7 +135,7 @@ export const CompanyDetails = styled.div`
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
-  color: #484848;
+  color: ${colors.lightText};
   margin-top: 12px;
   text-align: left;
 
