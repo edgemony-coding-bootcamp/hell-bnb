@@ -4,7 +4,6 @@ import { fetchActivities } from "../../services/api";
 import { useState, useEffect } from "react";
 import Rank from "../Rank/Rank";
 
-import colors from "../../assets/colors";
 
 function Homepage() {
   const [activities, setActivities] = useState([]);
