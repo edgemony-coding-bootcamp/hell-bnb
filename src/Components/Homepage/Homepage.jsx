@@ -3,7 +3,7 @@ import { Title, Wrap, SubTitle } from "./styles.js";
 import { fetchActivities } from "../../services/api";
 import { useState, useEffect } from "react";
 import Rank from "../Rank/Rank";
-
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const [activities, setActivities] = useState([]);
@@ -39,7 +39,13 @@ function Homepage() {
         <>
           <ul>
             {activities.map((activity) => {
-              return <li key={activity.uuid}>{activity.title}</li>;
+              let path = `/activities/${activity.uuid}`;
+
+              return (
+                <Link to={path} key={activity.uuid}>
+                  <li>{activity.title}</li>
+                </Link>
+              );
             })}
           </ul>
         </>

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
-import Activities from "./Activities.jsx";
 import Homepage from "./components/Homepage/Homepage.jsx";
 import { useState, useCallback } from "react";
 import BannerCookies from "./components/BannerCookies/BannerCookies.jsx";
 import Footer from "./components/Footer/Footer";
+import Activity from "./pages/Activity.jsx";
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
@@ -27,8 +27,8 @@ function App() {
             <Route exact path="/">
               <Homepage />
             </Route>
-            <Route exact path="/activities/:id">
-              <Activities />
+            <Route exact path="/activities/:activityUuid">
+              <Activity />
             </Route>
           </Switch>
           <BannerCookies
