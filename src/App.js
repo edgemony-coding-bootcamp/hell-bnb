@@ -4,7 +4,7 @@ import Activities from "./Activities.jsx";
 import Homepage from "./Components/Homepage/Homepage.jsx"
 import {useState,useCallback} from "react"
 import BannerCookies from "./Components/BannerCookies/BannerCookies.jsx"
-
+import "App.css"
 function App() {
   const [isBannerVisible,setIsBannerVisible]=useState(localStorage.getItem("cookieSession"));
 
