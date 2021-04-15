@@ -1,7 +1,8 @@
-import React from "react";
-import { Title, Wrap, SubTitle } from "./styles.js";
-import { fetchActivities } from "../../services/api";
-import { useState, useEffect } from "react";
+
+import React,{ useState, useEffect } from "react";
+import { Title, Wrap, SubTitle } from "./Homepage.element";
+import  fetchActivities  from "../../services/api";
+
 function Homepage() {
   const [activities, setActivities] = useState([]);
   
@@ -23,9 +24,8 @@ function Homepage() {
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
       {activities && <>
             <ul>
-                {activities.map(activity=>{
-                    return <li key={activity.uuid}>{activity.title}</li>
-                })}
+                {activities.map(activity=><li key={activity.uuid}>{activity.title}</li>
+                  )}
             </ul>
            </>}
     </Wrap>

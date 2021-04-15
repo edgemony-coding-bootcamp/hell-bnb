@@ -1,10 +1,11 @@
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./Components/Header/Header.jsx";
-import Activities from "./Activities.jsx";
-import Homepage from "./Components/Homepage/Homepage.jsx"
-import {useState,useCallback} from "react"
-import BannerCookies from "./Components/BannerCookies/BannerCookies.jsx"
-import "App.css"
+import React,{useState,useCallback} from "react"
+import Header from "./components/Header/Header";
+import Activities from "./Activities";
+import Homepage from "./components/Homepage/Homepage"
+import BannerCookies from "./components/BannerCookies/BannerCookies"
+
 function App() {
   const [isBannerVisible,setIsBannerVisible]=useState(localStorage.getItem("cookieSession"));
 
@@ -12,7 +13,6 @@ function App() {
         const date = JSON.stringify(new Date());
         localStorage.setItem("cookieSession", `date:${date}`);
         setIsBannerVisible(true)
-        return;
     },[])
   
 

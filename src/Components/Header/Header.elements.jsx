@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import device from "../../assets/Media_query_dimension";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import {device} from "../../assets/Media_query_dimension";
 
 export const HeaderContainer = styled.header`
   height: 56px;

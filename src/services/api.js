@@ -10,6 +10,6 @@ async function callAPI(endpoint) {
   return data.data;
   
 }
-export async function fetchActivities() {
+export default async function fetchActivities() {
     return callAPI("activities");
   }
