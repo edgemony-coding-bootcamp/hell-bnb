@@ -6,8 +6,7 @@ import {
   RankingWrap,
 } from './styles'
 
-import Rank from '../ActivityCard/Rank'
-
+import Rank from '../Rank/Rank'
 function ActivityTitle({ title, rate, number, country }) {
   return (
     <ActivityTitle_Wrapper>
