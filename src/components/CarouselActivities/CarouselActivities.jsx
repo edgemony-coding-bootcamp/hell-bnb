@@ -1,4 +1,5 @@
 import ActivityCard from "../ActivityCard/ActivityCard";
+import { useRef } from 'react';
 
 //assets
 import {WrapperCarousel,
@@ -9,9 +10,18 @@ import {WrapperCarousel,
         NavBtn,
 } from "./CarouselActivities.elements";
 
+//function getting dinamic window size
 import useWindowDimensions from "./WindowSize";
 
+
 const CarouselActivities = ({activities}) => {
+
+    const myRef = useRef(null);
+
+    const cardWidth = 210;
+    const cardViewed = 3;
+    let scrollSpace = cardWidth*cardViewed;
+
     return(
         <div>
             <HeaderCarousel>
@@ -21,11 +31,16 @@ const CarouselActivities = ({activities}) => {
                 {/* window size */}
                 {(useWindowDimensions().width >= 768)&&<NavigatorCarousel>
                     <CounterSlide> 1/4 </CounterSlide>
-                    <NavBtn> &lsaquo; </NavBtn>
-                    <NavBtn> &rsaquo; </NavBtn>
+                    <NavBtn onClick = {() => myRef.current.scrollLeft-=scrollSpace} > 
+                        &lsaquo;
+                    </NavBtn>
+                    <NavBtn onClick = {() => myRef.current.scrollLeft+=scrollSpace}> 
+                        &rsaquo; 
+                    </NavBtn>
                 </NavigatorCarousel>}
             </HeaderCarousel>
-            <WrapperCarousel>
+            <WrapperCarousel
+                ref = {myRef}>
                 {activities.map((activity) => {
                     return ( 
                         <div 
