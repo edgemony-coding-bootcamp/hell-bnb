@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import device from "../../assets/Media_query_dimension";
+import device from "../../assets/breakpoints";
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;

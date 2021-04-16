@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-
+import colors from "../../assets/colors";
+import device from "../../assets/breakpoints";
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
@@ -10,45 +11,57 @@ export const WrapContentCenter = styled.div`
   align-items: center;
 
   @media (min-width: 1080px) {
-    flex-direction:row;
-  } 
+    flex-direction: row;
+  }
 `;
 export const Banner = styled.div`
-  font-family: Helvetica;
   min-height: 13vh;
-  background-color: whitesmoke;
-  width: 90%;
+  background-color: #ffffff;
+  width: 92%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 1rem;
   position: fixed;
-  bottom: 20px;
-  padding: 3%;
-  border-radius: 20px;
+  bottom: 30px;
+  padding: 5%;
+  box-shadow: 0px 0px 10px 2px ${colors.borderColor};
+  border-radius: 10px;
+  @media ${device.deviceL} {
+    padding: 2%;
+  }
 `;
 
-export const Icon=styled.i`
-  color:rgb(66, 139, 255);
-`
+export const Icon = styled.i`
+  color: rgb(66, 139, 255);
+`;
 
 export const TitleCookie = styled.strong`
   font-size: 1.1rem;
-  color:#484848;
+  color: ${colors.darkText};
+  margin-bottom: 5%;
+  @media ${device.deviceL} {
+    margin-bottom:1%;
+  }
 `;
 
 export const ParagraphCookie = styled.p`
   font-size: 0.9rem;
-  color: #484848;
+  color: ${colors.lightText};
+  letter-spacing: 0.7px;
+  margin-bottom: 7%;
+  @media ${device.deviceL} {
+    margin-bottom:1%;
+  }
 `;
 
-export const LinkPolicy=styled.a`
-  color:black;
+export const LinkPolicy = styled.a`
+  color: black;
   font-weight: bold;
-  :visited{
-    color:black;
+  :visited {
+    color: black;
   }
-`
+`;
 
 export const BtnCookies = styled.button`
   font-size: 1rem;
@@ -57,11 +70,13 @@ export const BtnCookies = styled.button`
   padding: 10px 0;
   cursor: pointer;
   margin: 5px 0;
-  :hover{
+  font-weight:600;
+  border: 1.3px solid ${colors.darkText};
+  :hover {
     transition: box-shadow 0.2s ease 0s, transform 0.1s ease 0s;
   }
-  :focus{
-      outline:none;
+  :focus {
+    outline: none;
   }
 
   ${(props) =>
@@ -69,8 +84,8 @@ export const BtnCookies = styled.button`
     css`
       background-color: rgb(34, 34, 34);
       color: white;
-      :hover{
-        background-color: black;  
+      :hover {
+        background-color: black;
       }
     `}
   ${(props) =>
@@ -78,15 +93,19 @@ export const BtnCookies = styled.button`
     css`
       background-color: white;
       color: rgb(34, 34, 34);
-      border-color:rgb(34, 34, 34);
-      :hover{
-        background-color:rgb(247, 247, 247);
-        color:black
+      border-color: rgb(34, 34, 34);
+      :hover {
+        background-color: rgb(247, 247, 247);
+        color: black;
       }
     `}
     @media (min-width: 1080px) {
-        width: 20%;
-        margin-right:20px;
-  } 
-   
+    width: 20%;
+    margin-right: 10px;
+    ${(props) =>
+      props.accept &&
+      css`
+       width:10%
+      `}
+  }
 `;
