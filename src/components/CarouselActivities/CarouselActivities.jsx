@@ -3,16 +3,26 @@ import ActivityCard from "../ActivityCard/ActivityCard";
 //assets
 import {WrapperCarousel,
         CarouselTitle,
+        HeaderCarousel,
+        NavigatorCarousel,
+        CounterSlide,
+        NavBtn,
 } from "./CarouselActivities.elements";
 
 const CarouselActivities = ({activities}) => {
-    console.log(activities)
     return(
         <div>
-            <CarouselTitle>
-                Esperienze simili
-            </CarouselTitle>
-        
+            <HeaderCarousel>
+                <CarouselTitle>
+                    Esperienze simili
+                </CarouselTitle>
+
+                {(window.innerWidth>=768)&&<NavigatorCarousel>
+                    <CounterSlide> 1/4 </CounterSlide>
+                    <NavBtn> &lsaquo; </NavBtn>
+                    <NavBtn> &rsaquo; </NavBtn>
+                </NavigatorCarousel>}
+            </HeaderCarousel>
             <WrapperCarousel>
                 {activities.map((activity) => {
                     return ( 
