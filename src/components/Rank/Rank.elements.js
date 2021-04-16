@@ -17,4 +17,5 @@ export const Country = styled.a`
   margin: ${(props) => (props.margin ? '0px 0px 0px 10px' : '1px 0px 0px 0px')};
   color: ${(props) => (props.light ? colors.lightText : 'black')};
   text-decoration: ${(props) => (props.underline ? 'underline' : 'none')};
+  cursor: pointer;
 `

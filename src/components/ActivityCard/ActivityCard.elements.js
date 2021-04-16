@@ -36,14 +36,14 @@ export const Img = styled.img`
 
   @media ${device.deviceM} {
     width: 100%;
-    height: 500px;
+    min-height: 144px;
   }
   @media ${device.deviceL} {
    
   }
   @media ${device.deviceXL} {
     
-  }
+  } 
 `;
 
 export const TextWrapper = styled.div`
@@ -64,10 +64,10 @@ export const Title = styled.p`
   /* text-overflow: ellipsis; */
 
   @media ${device.deviceM} {
-    height: 28%;
+    height: 32%;
   }
   @media ${device.deviceXL} {
-    height: 30%;
+    height: 32%;
   }
 `;
 

@@ -9,9 +9,8 @@ export const WrapperCarousel = styled.div `
   display: flex;
   flex-direction: row;
   height: 45vh;
-  width: 55vh;
+  width: 100%;
   /* border : black solid 1px; */
-  overflow-y :scroll;
   overflow: scroll;
   overflow-y: hidden;
   flex-wrap: nowrap;
@@ -19,15 +18,9 @@ export const WrapperCarousel = styled.div `
   ::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none;  
-  scrollbar-width: none;
+  -ms-overflow-style: none;
   
-  @media ${device.deviceL} {
-    display: flex;
-   
-  }
-
-  @media ${device.deviceXL} {
-   
+  @media ${device.deviceM} {
+    height: 100vh;
   }
 `
