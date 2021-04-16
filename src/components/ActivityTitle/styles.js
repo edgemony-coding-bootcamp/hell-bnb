@@ -4,7 +4,7 @@ import { device } from '../../assets/breakpoints'
 
 // Activity Title
 
-export const ActivityTitle_Wrapper = styled.div`
+export const ActivityTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -21,7 +21,7 @@ export const ActivityTitle_Wrapper = styled.div`
   }
 `
 
-export const ActivityTitle_H1 = styled.h1`
+export const ActivityTitleText = styled.h1`
   font-family: Arial, Helvetica, sans-serif;
   align-items: flex-start;
 `
