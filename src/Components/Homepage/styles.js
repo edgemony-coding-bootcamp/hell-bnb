@@ -30,10 +30,12 @@ export const SubTitle = styled.h2`
   }
 `;
 export const CarouselActivities = styled.div `
+
   display: flex;
   flex-direction: column;
+  height: fit-content;
   margin: 10px;
-  width: fit-content;
+  width: 100vh;
 
   @media ${device.deviceL} {
     display: flex;
