@@ -1,5 +1,5 @@
 import ActivityCard from "../ActivityCard/ActivityCard";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 //assets
 import {WrapperCarousel,
@@ -16,12 +16,16 @@ import useWindowDimensions from "./WindowSize";
 
 const CarouselActivities = ({activities}) => {
 
+    //
     const myRef = useRef(null);
-
+    let scrollSpace = useWindowDimensions().width;
+    //
     const cardWidth = 210;
-    const cardViewed = 3;
-    let scrollSpace = cardWidth*cardViewed;
+    let totalScroll = Math.ceil((activities.length*cardWidth)/useWindowDimensions().width);
 
+    //
+    const [scrollNum, setScrollNum] = useState(1);
+    console.log(activities)
     return(
         <div>
             <HeaderCarousel>
@@ -30,11 +34,17 @@ const CarouselActivities = ({activities}) => {
                 </CarouselTitle>
                 {/* window size */}
                 {(useWindowDimensions().width >= 768)&&<NavigatorCarousel>
-                    <CounterSlide> 1/4 </CounterSlide>
-                    <NavBtn onClick = {() => myRef.current.scrollLeft-=scrollSpace} > 
+                    <CounterSlide> {scrollNum}/{totalScroll} </CounterSlide>
+                    <NavBtn onClick = {() => {myRef.current.scrollLeft-=scrollSpace
+                                        if (scrollNum>1) 
+                                        {setScrollNum(scrollNum-1)}
+                                        }}> 
                         &lsaquo;
                     </NavBtn>
-                    <NavBtn onClick = {() => myRef.current.scrollLeft+=scrollSpace}> 
+                    <NavBtn onClick = {() => {myRef.current.scrollLeft+=scrollSpace
+                                        if (scrollNum<totalScroll) 
+                                        {setScrollNum(scrollNum+1)}
+                                        }}> 
                         &rsaquo; 
                     </NavBtn>
                 </NavigatorCarousel>}
@@ -49,8 +59,8 @@ const CarouselActivities = ({activities}) => {
                             <ActivityCard
                                 key={activity.uuid}
                                 img={activity.cover_image_url}
-                                rate={activity.reviews_aggregated_info.reviews_avg}
-                                number={activity.reviews_aggregated_info.reviews_number}
+                                rate={activity.reviews_avg}
+                                number={activity.reviews_number}
                                 country={activity.city.country.name}
                                 title={activity.title}
                                 price={activity.retail_price.formatted_value} 
