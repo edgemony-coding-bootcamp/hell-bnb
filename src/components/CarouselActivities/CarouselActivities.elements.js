@@ -24,3 +24,7 @@ export const WrapperCarousel = styled.div `
     height: 100vh;
   }
 `
+export const CarouselTitle = styled.h3 `
+  color:black;
+  padding-left: 2vh;
+`

@@ -22,7 +22,7 @@ function Homepage() {
     };
     fetch();
   }, []);
-
+  
   return (
     <Wrap>
       <Title>ESPERIENZE HELLBNB</Title>
