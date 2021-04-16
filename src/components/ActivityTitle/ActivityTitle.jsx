@@ -7,6 +7,7 @@ import {
 } from './styles'
 
 import Rank from '../Rank/Rank'
+
 function ActivityTitle({ title, rate, number, country }) {
   return (
     <ActivityTitleWrapper>

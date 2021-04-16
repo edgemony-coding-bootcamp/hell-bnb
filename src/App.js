@@ -5,6 +5,8 @@ import Homepage from './components/Homepage/Homepage'
 import { useState, useCallback } from 'react'
 import BannerCookies from './components/BannerCookies/BannerCookies'
 import Footer from './components/Footer/Footer'
+import PhotoPreview from './components/PhotoPreview/PhotoPreview'
+import Modal from './components/Modal/Modal'
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
@@ -18,11 +20,21 @@ function App() {
     return
   }, [])
 
+  // Modal Logic
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const openModal = () => {
+    setIsOpen((prev) => !prev)
+  }
+
   return (
     <>
       <Router>
         <div className='App'>
+          <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
           <Header />
+          <PhotoPreview openModal={openModal} />
           <Switch>
             <Route exact path='/'>
               <Homepage />
