@@ -8,7 +8,7 @@ import {
   WrapContentCenter,
   LinkPolicy,
   Icon
-} from "./BannerCookies.element.js";
+} from "./style.js";
 
 function BannerCookies({ isBannerVisible,setVisibleBanner }) {
   return (

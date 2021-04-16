@@ -8,15 +8,16 @@ import Footer from "./components/Footer/Footer"
 import "./App.css"
 
 function App() {
-  const [isBannerVisible,setIsBannerVisible]=useState(localStorage.getItem("cookieSession"));
+  const [isBannerVisible, setIsBannerVisible] = useState(
+    localStorage.getItem('cookieSession')
+  )
 
-   const cookieSession=useCallback(()=> {
-        const date = JSON.stringify(new Date());
-        localStorage.setItem("cookieSession", `date:${date}`);
-        setIsBannerVisible(true)
-        return;
-    },[])
-  
+  const cookieSession = useCallback(() => {
+    const date = JSON.stringify(new Date())
+    localStorage.setItem('cookieSession', `date:${date}`)
+    setIsBannerVisible(true)
+    return
+  }, [])
 
   return (
     <>
@@ -36,7 +37,7 @@ function App() {
       </div>
     </Router>
     </>
-  );
+  )
 }
 
 export default App
