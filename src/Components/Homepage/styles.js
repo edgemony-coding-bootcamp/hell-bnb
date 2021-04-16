@@ -2,6 +2,7 @@ import styled from "styled-components";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
+
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,3 +29,26 @@ export const SubTitle = styled.h2`
     font-size: 46px;
   }
 `;
+export const CarouselActivities = styled.div `
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: fit-content;
+
+  @media ${device.deviceL} {
+    display: flex;
+    
+  }
+
+  @media ${device.deviceXL} {
+    
+  }
+
+
+  /* flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30vh;
+  margin-right: 5px; */
+
+
+`
