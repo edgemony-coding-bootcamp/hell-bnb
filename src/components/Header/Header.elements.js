@@ -1,12 +1,16 @@
 import styled from "styled-components";
-import device from "../../assets/Media_query_dimension";
+import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
+  position: fixed;
+  right: 0;
+  top: 0;
   height: 56px;
   background: #ffffff;
   width: 100vw;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid ${colors.borderColor};
   padding: 10px 20px;
 
   @media ${device.deviceM} {
@@ -28,7 +32,7 @@ export const HeaderLink = styled(Link)`
 `;
 
 export const LogoHeading = styled.h1`
-  color: #ff385c;
+  color: ${colors.primaryColor};
   margin: 0 10px;
   font-size: 1.5rem;
   font-family: "Helvetica";

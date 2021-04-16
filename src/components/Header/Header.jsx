@@ -1,6 +1,6 @@
 import React from "react";
-import { HeaderContainer, LogoHeading, HeaderLink } from "./Header.elements";
-import airbnbLogo from "./airbnb_logo.svg";
+import { HeaderContainer, LogoHeading, HeaderLink } from "./Header.elements.js";
+import airbnbLogo from "../../assets/images/airbnb_logo.svg";
 
 function Header() {
   return (
