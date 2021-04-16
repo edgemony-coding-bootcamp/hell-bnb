@@ -173,7 +173,7 @@ export const IconContainer = styled.div`
   justify-content: center;
   width: 100%;
 
-  font-size: 25px;
+  font-size: 18px;
 
   @media ${device.deviceM} {
     display: flex;
