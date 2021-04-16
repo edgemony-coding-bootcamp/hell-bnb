@@ -5,8 +5,18 @@ import Homepage from './Components/Homepage/Homepage'
 import { useState, useCallback } from 'react'
 import BannerCookies from './Components/BannerCookies/BannerCookies'
 import Footer from './Components/Footer/Footer'
+import PhotoPreview from './Components/PhotoPreview/PhotoPreview'
+import Modal from './Components/Modal/Modal'
 
 function App() {
+  // Modal Logic
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const openModal = () => {
+    setIsOpen((prev) => !prev)
+  }
+
   const [isBannerVisible, setIsBannerVisible] = useState(
     localStorage.getItem('cookieSession')
   )
@@ -22,7 +32,9 @@ function App() {
     <>
       <Router>
         <div className='App'>
+          <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
           <Header />
+          <PhotoPreview openModal={openModal} />
           <Switch>
             <Route exact path='/'>
               <Homepage />
