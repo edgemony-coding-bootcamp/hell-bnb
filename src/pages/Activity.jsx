@@ -1,4 +1,4 @@
-import ActivityTitle from '../Components/ActivityTitle/ActivityTitle'
+import ActivityTitle from '../components/ActivityTitle/ActivityTitle'
 
 function Activity({ title, rate, number, country }) {
   return (

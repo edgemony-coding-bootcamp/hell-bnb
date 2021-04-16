@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Header from './Components/Header/Header'
+import Header from './components/Header/Header'
 import Activity from './pages/Activity'
-import Homepage from './Components/Homepage/Homepage'
+import Homepage from './components/Homepage/Homepage'
 import { useState, useCallback } from 'react'
-import BannerCookies from './Components/BannerCookies/BannerCookies'
-import Footer from './Components/Footer/Footer'
+import BannerCookies from './components/BannerCookies/BannerCookies'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
