@@ -29,28 +29,3 @@ export const SubTitle = styled.h2`
     font-size: 46px;
   }
 `;
-export const CarouselActivities = styled.div `
-
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  margin: 10px;
-  width: 100vh;
-
-  @media ${device.deviceL} {
-    display: flex;
-    
-  }
-
-  @media ${device.deviceXL} {
-    
-  }
-
-
-  /* flex-direction: row;
-  justify-content: center;
-  margin-bottom: 30vh;
-  margin-right: 5px; */
-
-
-`
