@@ -5,6 +5,7 @@ import { useState, useCallback } from "react";
 import BannerCookies from "./components/BannerCookies/BannerCookies.jsx";
 import Footer from "./components/Footer/Footer";
 import Activity from "./pages/Activity.jsx";
+import "./App.css";
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
