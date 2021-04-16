@@ -1,33 +1,33 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Header from './components/Header/Header'
-import Activity from './pages/Activity'
-import Homepage from './components/Homepage/Homepage'
-import { useState, useCallback } from 'react'
-import BannerCookies from './components/BannerCookies/BannerCookies'
-import Footer from './components/Footer/Footer'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Activity from "./pages/Activity";
+import { useState, useCallback } from "react";
+import BannerCookies from "./components/BannerCookies/BannerCookies";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home";
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
-    localStorage.getItem('cookieSession')
-  )
+    localStorage.getItem("cookieSession")
+  );
 
   const cookieSession = useCallback(() => {
-    const date = JSON.stringify(new Date())
-    localStorage.setItem('cookieSession', `date:${date}`)
-    setIsBannerVisible(true)
-    return
-  }, [])
+    const date = JSON.stringify(new Date());
+    localStorage.setItem("cookieSession", `date:${date}`);
+    setIsBannerVisible(true);
+    return;
+  }, []);
 
   return (
     <>
       <Router>
-        <div className='App'>
+        <div className="App">
           <Header />
           <Switch>
-            <Route exact path='/'>
-              <Homepage />
+            <Route exact path="/">
+              <Home />
             </Route>
-            <Route exact path='/activities/:id'>
+            <Route exact path="/activities/:id">
               <Activity />
             </Route>
           </Switch>
@@ -39,7 +39,7 @@ function App() {
         </div>
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
