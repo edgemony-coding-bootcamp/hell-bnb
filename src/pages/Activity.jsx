@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchActivities } from "../services/api";
+import { fetchActivityByUuid } from "../services/api";
 import { useParams } from "react-router-dom";
 
 export default function Activity() {
@@ -9,24 +9,17 @@ export default function Activity() {
 
   useEffect(() => {
     setIsLoading(true);
-    // Fetching all activities to find a match with the selected activityId
     const fetchActivity = async () => {
       try {
-        const activities = await fetchActivities();
-
-        // webpack is trying to tell me something here: Array.prototype.find() expects a value to be returned at the end of arrow function array-callback-return
-        const singleActivity = activities.find((activity) => {
-          if (activity.uuid === activityUuid) return activity;
-        });
-        if (!singleActivity) {
-          setIsLoading(false);
+        const activity = await fetchActivityByUuid(activityUuid);
+        if (!activity) {
           throw new Error("Activity not found");
         }
-
-        setSelectedActivity(singleActivity);
+        setSelectedActivity(activity);
         setIsLoading(false);
       } catch (error) {
-        console.error(error);
+        setSelectedActivity(false);
+        setIsLoading(false);
       }
     };
 
