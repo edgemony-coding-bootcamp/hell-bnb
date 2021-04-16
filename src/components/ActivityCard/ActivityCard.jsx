@@ -1,6 +1,13 @@
 import Rank from "../Rank/Rank";
+
+//assets
 import {
-  CardWrapper, Img, TextWrapper, Title, Bold, Detail
+  CardWrapper, 
+  Img, 
+  TextWrapper, 
+  Title,
+  Bold, 
+  Detail
 } from "./ActivityCard.elements.js";
 
 

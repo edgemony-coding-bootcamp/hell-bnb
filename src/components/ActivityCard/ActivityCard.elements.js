@@ -8,12 +8,11 @@ export const CardWrapper = styled.div`
   /* border: black solid 1px; */
   border-radius: 10px;
   background-color: white;
-
-  width: 210px;
-  height: 360px;
+  min-width: 210px;
+  min-height: 360px;
 
   @media ${device.deviceM} {
-    width: 250px;
+    max-width: 250px;
     height: 410px;
   }
   @media ${device.deviceL} {
@@ -27,10 +26,24 @@ export const CardWrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  padding: 1.5vh;
+  padding: 1vh;
   width: 100%;
+  min-height: 144px;
+  height: fit-content;
   border-radius: 10%;
   margin: 0px;
+ 
+
+  @media ${device.deviceM} {
+    width: 100%;
+    height: 500px;
+  }
+  @media ${device.deviceL} {
+   
+  }
+  @media ${device.deviceXL} {
+    
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -42,9 +55,9 @@ export const TextWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin: 3px 0px 0px 0px;
-  height: 28%;
+  height: 40%;
   line-height: 1.2em;
   /* white-space: nowrap; */
   overflow: hidden;

@@ -5,27 +5,29 @@ import device from "../../assets/breakpoints";
 
 
 export const WrapperCarousel = styled.div `
-
+  
   display: flex;
   flex-direction: row;
-  height: fit-content;
-  margin: 10px;
-  width: 100vh;
-
+  height: 45vh;
+  width: 55vh;
+  /* border : black solid 1px; */
+  overflow-y :scroll;
+  overflow: scroll;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  position: relative;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+  
   @media ${device.deviceL} {
     display: flex;
-    
+   
   }
 
   @media ${device.deviceXL} {
-    
+   
   }
-
-
-  /* flex-direction: row;
-  justify-content: center;
-  margin-bottom: 30vh;
-  margin-right: 5px; */
-
-
 `

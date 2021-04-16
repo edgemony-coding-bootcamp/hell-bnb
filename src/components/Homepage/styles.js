@@ -4,12 +4,12 @@ import colors from "../../assets/colors";
 
 
 export const Wrap = styled.div`
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  margin-top: 50px;
   padding-left: 20px;
   @media ${device.deviceXL} {
     width: 50%;
