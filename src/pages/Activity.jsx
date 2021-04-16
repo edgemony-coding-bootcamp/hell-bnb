@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
-  let { activityUuid } = useParams();
+  const { activityUuid } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,7 +18,6 @@ export default function Activity() {
         setSelectedActivity(activity);
         setIsLoading(false);
       } catch (error) {
-        setSelectedActivity(false);
         setIsLoading(false);
       }
     };
