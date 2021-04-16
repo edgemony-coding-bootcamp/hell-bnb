@@ -54,22 +54,35 @@ export const TopFooterSections = styled.div`
 
 export const FooterBottomSection = styled.div`
   width: 100%;
-  padding: 32px 0;
+  padding: 12px 0 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: left;
 
   @media ${device.deviceM} {
+    align-items: center;
     min-width: 100%;
-    padding: 40px 0;
   }
 
   @media ${device.deviceXL} {
-    padding: 0;
-    margin: 30px 0;
+    padding: 18px 0 26px 0;
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: space-between;
+  }
+`;
+
+export const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  @media ${device.deviceXL} {
+    flex-grow: unset;
+    flex-direction: row;
   }
 `;
 
@@ -79,6 +92,8 @@ export const FooterSectionSubHeading = styled.h1`
   text-align: left;
   font-family: ${footerFont};
   color: ${colors.darkText};
+
+  margin: 22px 0;
 `;
 
 export const LinksWrapper = styled.ul`
@@ -104,7 +119,6 @@ export const FooterLink = styled.li`
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
-  color: ${colors.lightText};
   margin-top: 12px;
 
   @media ${device.deviceM} {
@@ -122,11 +136,16 @@ export const FooterLink = styled.li`
 export const FooterLinkUrl = styled.a`
   cursor: pointer;
   text-decoration: none;
+  text-decoration: inherit;
+  color: ${colors.darkText};
   :visited,
   :active,
   :hover {
     text-decoration: inherit;
-    color: inherit;
+    color: ${colors.darkText};
+  }
+  :hover {
+    text-decoration: underline;
   }
 `;
 
@@ -135,30 +154,32 @@ export const CompanyDetails = styled.div`
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
-  color: ${colors.lightText};
+  color: ${colors.darkText};
   margin-top: 12px;
   text-align: left;
-
   @media ${device.deviceM} {
     text-align: center;
   }
 
   @media ${device.deviceXL} {
     margin-top: 0;
+    width: unset;
+    margin-right: 20px;
   }
 `;
 
 export const IconContainer = styled.div`
-  display: hidden;
+  display: none;
   justify-content: center;
   width: 100%;
-  font-size: 30px;
+
+  font-size: 25px;
 
   @media ${device.deviceM} {
     display: flex;
   }
 
   @media ${device.deviceXL} {
-    font-size: 25px;
+    width: unset;
   }
 `;
