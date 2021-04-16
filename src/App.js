@@ -4,6 +4,7 @@ import Activities from "./Activities.jsx";
 import Homepage from "./components/Homepage/Homepage.jsx"
 import {useState,useCallback} from "react"
 import BannerCookies from "./components/BannerCookies/BannerCookies.jsx"
+import Footer from "./components/Footer/Footer"
 import "./App.css"
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           </Route>
         </Switch>
         <BannerCookies isBannerVisible={isBannerVisible} setVisibleBanner={cookieSession}/>
+        <Footer />
       </div>
     </Router>
     </>
