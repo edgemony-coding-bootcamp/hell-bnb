@@ -1,19 +1,18 @@
 import {
-  ActivityTitle_Wrapper,
-  ActivityTitle_H1,
+  ActivityTitleWrapper,
+  ActivityTitleText,
   ShareButton,
   Span,
   RankingWrap,
 } from './styles'
 
-import Rank from '../ActivityCard/Rank'
-
+import Rank from '../Rank/Rank'
 function ActivityTitle({ title, rate, number, country }) {
   return (
-    <ActivityTitle_Wrapper>
-      <ActivityTitle_H1>
+    <ActivityTitleWrapper>
+      <ActivityTitleText>
         Lezione di danza e cultura balinese{title}
-      </ActivityTitle_H1>
+      </ActivityTitleText>
       <RankingWrap>
         <Rank
           light={false}
@@ -29,7 +28,7 @@ function ActivityTitle({ title, rate, number, country }) {
           <Span>Condividi</Span>
         </ShareButton>
       </RankingWrap>
-    </ActivityTitle_Wrapper>
+    </ActivityTitleWrapper>
   )
 }
 
