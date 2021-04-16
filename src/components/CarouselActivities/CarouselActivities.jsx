@@ -9,6 +9,8 @@ import {WrapperCarousel,
         NavBtn,
 } from "./CarouselActivities.elements";
 
+import useWindowDimensions from "./WindowSize";
+
 const CarouselActivities = ({activities}) => {
     return(
         <div>
@@ -16,8 +18,8 @@ const CarouselActivities = ({activities}) => {
                 <CarouselTitle>
                     Esperienze simili
                 </CarouselTitle>
-
-                {(window.innerWidth>=768)&&<NavigatorCarousel>
+                {/* window size */}
+                {(useWindowDimensions().width >= 768)&&<NavigatorCarousel>
                     <CounterSlide> 1/4 </CounterSlide>
                     <NavBtn> &lsaquo; </NavBtn>
                     <NavBtn> &rsaquo; </NavBtn>
