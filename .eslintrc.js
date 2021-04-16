@@ -7,6 +7,8 @@ module.exports = {
     parserOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
+      allowImportExportEverywhere: false , 
+      codeFrame : true,
       ecmaFeatures: {
         jsx: false,
         js:true
@@ -19,8 +21,10 @@ module.exports = {
         version: "detect",
       },
     },
+    parser: "babel-eslint",
     rules: {
       "react/prop-types": "off",   
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], 
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "strict": 0
     },
   };

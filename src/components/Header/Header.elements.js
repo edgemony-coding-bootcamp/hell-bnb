@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { device } from "../../assets/breakpoints";
-import { colors } from "../../assets/colors";
+import  device  from "../../assets/breakpoints";
+import  colors  from "../../assets/colors";
 
 const HeaderContainer = styled.header`
   position: fixed;

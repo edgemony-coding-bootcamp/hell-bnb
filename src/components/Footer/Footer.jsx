@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   FooterContainer,
   FooterSection,
@@ -9,11 +11,11 @@ import {
   FooterBottomSection,
   TopFooterSections,
   IconContainer,
-} from "./Footer.elements.js";
-import { footerData } from "./footerData";
+} from "./Footer.elements";
+import  footerData  from "./footerData";
 
 const footerSections = footerData.sections;
-const companyDetails = footerData.companyDetails;
+const {companyDetails} = footerData.companyDetails;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
 
@@ -43,9 +45,9 @@ export default function Footer() {
 
       <FooterBottomSection>
         <IconContainer>
-          <i className="facebook f icon"></i>
-          <i className="twitter icon"></i>
-          <i className="instagram icon"></i>
+          <i className="facebook f icon"/>
+          <i className="twitter icon" />
+          <i className="instagram icon" />
         </IconContainer>
         <CompanyDetails>
           © {currentYear} {companyDetails.companyName}
@@ -59,14 +61,14 @@ export default function Footer() {
                   {title + " · "}
                 </FooterLinkUrl>
               );
-            } else {
+            }
               return (
                 <FooterLinkUrl key={i} href={link}>
                   {title}
                 </FooterLinkUrl>
               );
             }
-          })}
+        )}
         </CompanyDetails>
       </FooterBottomSection>
     </FooterContainer>

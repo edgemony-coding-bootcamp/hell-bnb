@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {device} from "../../assets/breakpoints";
+import device from "../../assets/breakpoints";
 
 export const Wrap = styled.div`
   display: flex;
