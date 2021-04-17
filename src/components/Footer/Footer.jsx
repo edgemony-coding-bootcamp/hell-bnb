@@ -9,6 +9,7 @@ import {
   FooterBottomSection,
   TopFooterSections,
   IconContainer,
+  DetailsContainer,
 } from "./Footer.elements.js";
 import { footerData } from "./footerData";
 
@@ -47,27 +48,29 @@ export default function Footer() {
           <i className="twitter icon"></i>
           <i className="instagram icon"></i>
         </IconContainer>
-        <CompanyDetails>
-          © {currentYear} {companyDetails.companyName}
-        </CompanyDetails>
-        <CompanyDetails>
-          {disclosureLinks.map((element, i) => {
-            const { title, link } = element;
-            if (i + 1 < disclosureLinks.length) {
-              return (
-                <FooterLinkUrl key={i} href={link}>
-                  {title + " · "}
-                </FooterLinkUrl>
-              );
-            } else {
-              return (
-                <FooterLinkUrl key={i} href={link}>
-                  {title}
-                </FooterLinkUrl>
-              );
-            }
-          })}
-        </CompanyDetails>
+        <DetailsContainer>
+          <CompanyDetails>
+            © {currentYear} {companyDetails.companyName}
+          </CompanyDetails>
+          <CompanyDetails>
+            {disclosureLinks.map((element, i) => {
+              const { title, link } = element;
+              if (i + 1 < disclosureLinks.length) {
+                return (
+                  <FooterLinkUrl key={i} href={link}>
+                    {title + " · "}
+                  </FooterLinkUrl>
+                );
+              } else {
+                return (
+                  <FooterLinkUrl key={i} href={link}>
+                    {title}
+                  </FooterLinkUrl>
+                );
+              }
+            })}
+          </CompanyDetails>
+        </DetailsContainer>
       </FooterBottomSection>
     </FooterContainer>
   );
