@@ -1,16 +1,14 @@
 import {
-  PhotoPreview_Wrapper,
+  Grid_Wrapper,
   ImageWrapper,
   Image,
   ImageColumnWrap,
-} from './PhotoPreview.elements'
+} from './Grid.elements'
 import { BtnCookies } from '../BannerCookies/style'
 
-import device from '../../assets/breakpoints'
-
-function PhotoPreview({ openModal, display, top, bottom, zero, left }) {
+function Grid({ openModal, display, top, bottom, grow }) {
   return (
-    <PhotoPreview_Wrapper>
+    <Grid_Wrapper>
       <ImageWrapper>
         <Image
           src='https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
@@ -18,6 +16,7 @@ function PhotoPreview({ openModal, display, top, bottom, zero, left }) {
           height={true}
           width={true}
           display={display}
+          grow={grow}
         />
         <Image
           src='https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
@@ -25,7 +24,7 @@ function PhotoPreview({ openModal, display, top, bottom, zero, left }) {
           height={true}
           width={true}
           none={true}
-          zero={zero}
+          grow={grow}
         />
         <ImageColumnWrap>
           <Image
@@ -33,14 +32,12 @@ function PhotoPreview({ openModal, display, top, bottom, zero, left }) {
             alt='yo'
             top={top}
             display={display}
-            zero={zero}
           />
 
           <Image
             src='https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
             alt='yo'
             bottom={bottom}
-            zero={zero}
             display={display}
           />
         </ImageColumnWrap>
@@ -52,14 +49,14 @@ function PhotoPreview({ openModal, display, top, bottom, zero, left }) {
           width={true}
           none={true}
           bottom={true}
-          left={true}
+          grow={grow}
         />
       </ImageWrapper>
       <BtnCookies onClick={() => openModal()}>CIAOOOO</BtnCookies>
-    </PhotoPreview_Wrapper>
+    </Grid_Wrapper>
   )
 }
 
 // onClick={() => setVisibleBanner()}
 
-export default PhotoPreview
+export default Grid

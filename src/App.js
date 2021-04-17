@@ -6,7 +6,10 @@ import { useState, useCallback } from 'react'
 import BannerCookies from './components/BannerCookies/BannerCookies'
 import Footer from './components/Footer/Footer'
 import PhotoPreview from './components/PhotoPreview/PhotoPreview'
+
 import Modal from './components/Modal/Modal'
+
+import { Main } from './assets/App.elements'
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
@@ -31,10 +34,18 @@ function App() {
   return (
     <>
       <Router>
-        <div className='App'>
+        <Main>
           <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
           <Header />
-          <PhotoPreview openModal={openModal} />
+
+          <PhotoPreview
+            openModal={openModal}
+            both={true}
+            top={true}
+            bottom={true}
+            zero={true}
+            left={true}
+          />
           <Switch>
             <Route exact path='/'>
               <Homepage />
@@ -48,7 +59,7 @@ function App() {
             setVisibleBanner={cookieSession}
           />
           <Footer />
-        </div>
+        </Main>
       </Router>
     </>
   )
