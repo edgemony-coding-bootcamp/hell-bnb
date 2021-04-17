@@ -39,13 +39,13 @@ const CarouselActivities = ({activities}) => {
                                         if (scrollNum>1) 
                                         {setScrollNum(scrollNum-1)}
                                         }}> 
-                        &lsaquo;
+                        <span>&lsaquo;</span>
                     </NavBtn>
                     <NavBtn onClick = {() => {myRef.current.scrollLeft+=scrollSpace
                                         if (scrollNum<totalScroll) 
                                         {setScrollNum(scrollNum+1)}
                                         }}> 
-                        &rsaquo; 
+                        <span>&rsaquo;</span>
                     </NavBtn>
                 </NavigatorCarousel>}
             </HeaderCarousel>
