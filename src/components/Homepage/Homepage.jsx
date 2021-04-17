@@ -5,9 +5,6 @@ import { useState, useEffect } from "react";
 import Rank from "../Rank/Rank";
 
 
-import CarouselActivities from "../CarouselActivities/CarouselActivities";
-
-
 function Homepage() {
   const [activities, setActivities] = useState([]);
 
@@ -36,10 +33,7 @@ function Homepage() {
         light={true}
         underline={false}
       />
-      
 
-      {activities && <CarouselActivities
-        activities = {activities}/>}
     </Wrap>
   );
 }

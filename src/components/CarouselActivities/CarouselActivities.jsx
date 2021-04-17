@@ -1,3 +1,9 @@
+// import CarouselActivities from "../CarouselActivities/CarouselActivities"; 
+//in Homepage
+//{activities && <CarouselActivities
+// activities = {activities}/>}
+//fetch Homepage
+
 import ActivityCard from "../ActivityCard/ActivityCard";
 import { useRef, useState } from 'react';
 
