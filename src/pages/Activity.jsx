@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { fetchActivityByUuid } from "../services/api";
+import React,{ useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { fetchActivityByUuid } from "../services/api";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);

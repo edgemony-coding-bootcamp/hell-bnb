@@ -1,4 +1,4 @@
-export const footerData = {
+ const footerData = {
   sections: [
     {
       sectionName: "informazioni",
@@ -139,3 +139,5 @@ export const footerData = {
     ],
   },
 };
+
+export default footerData;

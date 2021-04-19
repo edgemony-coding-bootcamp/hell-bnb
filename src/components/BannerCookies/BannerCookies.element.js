@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import colors from "../../assets/colors";
 import device from "../../assets/breakpoints";
+
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;

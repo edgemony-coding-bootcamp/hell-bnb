@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderContainer, LogoHeading, HeaderLink } from "./Header.elements.js";
+import { HeaderContainer, LogoHeading, HeaderLink } from "./Header.elements";
 import airbnbLogo from "../../assets/images/airbnb_logo.svg";
 
 function Header() {
