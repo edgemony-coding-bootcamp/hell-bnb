@@ -12,6 +12,7 @@ function Home() {
         const data = await fetchActivities();
         setActivities(data);
       } catch (error) {
+        // eslint-disable-next-line
         console.error(error);
       }
     };
