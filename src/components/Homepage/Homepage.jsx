@@ -1,11 +1,11 @@
 import React from "react";
-import { Title, Wrap, SubTitle } from "./Home.elements.js";
-import { fetchActivities } from "../services/api";
+import { Title, Wrap, SubTitle } from "./styles.js";
+import { fetchActivities } from "../../services/api";
 import { useState, useEffect } from "react";
-import Rank from "../components/Rank/Rank";
+import Rank from "../Rank/Rank";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Homepage() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
@@ -54,4 +54,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homepage;

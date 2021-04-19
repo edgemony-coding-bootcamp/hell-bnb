@@ -5,6 +5,7 @@ import { useState, useCallback } from "react";
 import BannerCookies from "./components/BannerCookies/BannerCookies";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
+import "./App.css";
 
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(
@@ -27,7 +28,7 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/activities/:id">
+            <Route exact path="/activities/:activityUuid">
               <Activity />
             </Route>
           </Switch>
