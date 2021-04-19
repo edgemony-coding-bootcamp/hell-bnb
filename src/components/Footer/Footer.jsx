@@ -15,7 +15,7 @@ import {
 import  footerData  from "./footerData";
 
 const footerSections = footerData.sections;
-const {companyDetails} = footerData.companyDetails;
+const {companyDetails} = footerData;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
 
@@ -25,14 +25,16 @@ export default function Footer() {
       <TopFooterSections>
         {footerSections.map((section, index) => {
           const { sectionName, listItems } = section;
+          const sectionKey=`${section}_${index}`
           return (
-            <FooterSection key={index}>
+            <FooterSection key={sectionKey}>
               <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
               <LinksWrapper>
                 {listItems.map((item, i) => {
+                  const itemsKey=`${item}_${i}`
                   const { title, link } = item;
                   return (
-                    <FooterLink key={i}>
+                    <FooterLink key={itemsKey}>
                       <FooterLinkUrl href={link}>{title}</FooterLinkUrl>
                     </FooterLink>
                   );
@@ -54,16 +56,17 @@ export default function Footer() {
         </CompanyDetails>
         <CompanyDetails>
           {disclosureLinks.map((element, i) => {
+            const disclosureLinkKey=`${element}_${i}`
             const { title, link } = element;
             if (i + 1 < disclosureLinks.length) {
               return (
-                <FooterLinkUrl key={i} href={link}>
-                  {title + " · "}
+                <FooterLinkUrl key={disclosureLinkKey} href={link}>
+                  {`${title} ·`}
                 </FooterLinkUrl>
               );
             }
               return (
-                <FooterLinkUrl key={i} href={link}>
+                <FooterLinkUrl key={disclosureLinkKey} href={link}>
                   {title}
                 </FooterLinkUrl>
               );

@@ -6,6 +6,7 @@ import  fetchActivities  from "../../services/api";
 function Homepage() {
   const [activities, setActivities] = useState([]);
 
+
   useEffect(() => {
     const fetch = async () => {
       try {
