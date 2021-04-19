@@ -1,151 +1,95 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { device } from '../../assets/breakpoints'
+import { device } from '../../assets/breakpoints';
 
-// export const Modal_Wrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-//   width: 100vh;
-//   z-index: 3;
-//   position: absolute;
-//   background-color: black;
-
-//   @media ${device.deviceL} {
-//     height: 100px;
-//     margin: 55px 25px 25px 125px;
-//     transition: all 0.2s ease-in-out;
-//   }
-// `
-
-export const Background = styled.div`
+export const ActivityModal = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   height: 100vh;
   width: 100vw;
-  z-index: 3;
+  z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: flex;
-  align-items: center;
   background-color: black;
   transition: all 0.2s ease-in-out;
+`;
 
-  @media ${device.deviceL} {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    z-index: 3;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: flex;
-    align-items: center;
-    background-color: black;
-    transition: all 0.2s ease-in-out;
-  }
-`
-
-export const Modal_Wrapper = styled.div`
+export const PhotoCounterWrapper = styled.div`
   display: flex;
-  /* grid-template-columns: 1fr 1fr; */
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  color: #000;
-  height: 85%;
-  width: 90%;
-  border-radius: 10px;
-  position: relative;
-  z-index: 10;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px;
+  height: 92px;
+  width: 100%;
   transition: all 0.2s ease-in-out;
+`;
 
-  background: url('https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-    no-repeat center center/cover;
-  top: 0;
-  left: 0;
-  border: 10px solid blue;
+export const PhotoCounterNum = styled.span`
+  color: white;
+  height: 20px;
+  font-size: 12px;
+  text-align: center;
+  display: ${(props) => (props.mobile ? 'block' : 'none')};
+  width: ${(props) => (props.center ? 'calc( 100% - 40px )' : '20px')};
 
-  object-fit: scale-down;
-  @media ${device.deviceL} {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-    color: #000;
-    height: 85%;
-    width: 90%;
-    border-radius: 10px;
-    position: relative;
-    z-index: 10;
-    transition: all 0.2s ease-in-out;
-
-    background: url('https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-      no-repeat center center/cover;
-    top: 0;
-    left: 0;
-    border: 10px solid blue;
+  :hover {
+    border-radius: 50%;
+    background: ${(props) => (props.grey ? 'grey' : 'black')};
   }
-`
 
-export const Modal_Image = styled.image`
+  @media ${device.deviceL} {
+    display: ${(props) => (props.desktop ? 'block' : 'none')};
+    width: ${(props) => (props.center ? 'calc( 100% - 160px )' : '80px')};
+
+    :hover {
+      border-radius: 5px;
+    }
+  }
+`;
+
+export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85%;
-  width: 90%;
-  border: 5px solid red;
-  z-index: 4;
+  flex-grow: 1;
+  max-height: calc(100% - 92px);
+  width: 100%;
+  overflow-y: hidden;
+`;
+
+export const ModalImage = styled.img`
+  min-height: 300px;
+  width: 100%;
+  max-width: 320px;
+  padding-bottom: 92px;
 
   @media ${device.deviceL} {
-    height: 100px;
-    margin: 55px 25px 25px 125px;
-    transition: all 0.2s ease-in-out;
+    width: unset;
+    height: 100%;
   }
-`
+`;
 
-export const ArrowModalBtn = styled.button`
-  position: absolute;
+export const ArrowBtn = styled.button`
+  @media ${device.deviceL} {
+  }
+`;
+
+export const CloseBox = styled.div`
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  flex-direction: flex-start;
-  top: -50px;
-  left: 80px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  z-index: 10;
+  display: ${(props) => (props.display ? 'block' : props.none ? 'none' : '')};
+
   @media ${device.deviceL} {
-    /* height: 100px;
-    margin: 55px 25px 25px 125px;
-    transition: all 0.2s ease-in-out; */
+    display: ${(props) => (props.display ? 'none' : props.none ? 'block' : '')};
+    width: 7%;
+    margin-right: 10px;
+    background: black;
+    color: white;
+    border-style: none;
   }
-`
-
-// export const Modal_Wrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 10px;
-//   flex-basis: 100%;
-//   flex: 1;
-//   margin-top: 200px;
-//   height: 400px;
-//   /*
-//   border: 4px red solid; */
-//   box-sizing: border-box;
-//   object-fit: cover;
-
-//   @media ${device.deviceL} {
-//     height: 100px;
-//     margin: 55px 25px 25px 125px;
-//     transition: all 0.2s ease-in-out;
-//   }
-// `
+`;
