@@ -1,5 +1,5 @@
-import colors from '../../assets/colors'
 import styled from 'styled-components'
+import colors from '../../assets/colors'
 
 export const RateWrapper = styled.div`
   display: flex;
