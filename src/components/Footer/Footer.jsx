@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   FooterContainer,
@@ -12,10 +12,10 @@ import {
   TopFooterSections,
   IconContainer,
 } from "./Footer.elements";
-import  footerData  from "./footerData";
+import footerData from "./footerData";
 
 const footerSections = footerData.sections;
-const {companyDetails} = footerData;
+const { companyDetails } = footerData;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
 
@@ -25,13 +25,13 @@ export default function Footer() {
       <TopFooterSections>
         {footerSections.map((section, index) => {
           const { sectionName, listItems } = section;
-          const sectionKey=`${section}_${index}`
+          const sectionKey = `${section}_${index}`;
           return (
             <FooterSection key={sectionKey}>
               <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
               <LinksWrapper>
                 {listItems.map((item, i) => {
-                  const itemsKey=`${item}_${i}`
+                  const itemsKey = `${item}_${i}`;
                   const { title, link } = item;
                   return (
                     <FooterLink key={itemsKey}>
@@ -47,7 +47,7 @@ export default function Footer() {
 
       <FooterBottomSection>
         <IconContainer>
-          <i className="facebook f icon"/>
+          <i className="facebook f icon" />
           <i className="twitter icon" />
           <i className="instagram icon" />
         </IconContainer>
@@ -56,7 +56,7 @@ export default function Footer() {
         </CompanyDetails>
         <CompanyDetails>
           {disclosureLinks.map((element, i) => {
-            const disclosureLinkKey=`${element}_${i}`
+            const disclosureLinkKey = `${element}_${i}`;
             const { title, link } = element;
             if (i + 1 < disclosureLinks.length) {
               return (
@@ -65,13 +65,12 @@ export default function Footer() {
                 </FooterLinkUrl>
               );
             }
-              return (
-                <FooterLinkUrl key={disclosureLinkKey} href={link}>
-                  {title}
-                </FooterLinkUrl>
-              );
-            }
-        )}
+            return (
+              <FooterLinkUrl key={disclosureLinkKey} href={link}>
+                {title}
+              </FooterLinkUrl>
+            );
+          })}
         </CompanyDetails>
       </FooterBottomSection>
     </FooterContainer>

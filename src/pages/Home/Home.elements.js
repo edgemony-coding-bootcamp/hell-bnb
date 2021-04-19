@@ -9,7 +9,7 @@ export const Wrap = styled.div`
   width: 100%;
   height: 100vh;
   margin-top: 50px;
-  padding-left:20px;
+  padding-left: 20px;
   @media ${device.deviceXL} {
     width: 50%;
     margin-left: 50px;
@@ -28,4 +28,3 @@ export const SubTitle = styled.h2`
     font-size: 46px;
   }
 `;
-

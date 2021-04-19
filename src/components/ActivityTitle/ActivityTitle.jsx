@@ -1,12 +1,14 @@
+import React from "react";
 import {
   ActivityTitleWrapper,
   ActivityTitleText,
   ShareButton,
   Span,
   RankingWrap,
-} from './styles'
+} from "./styles";
 
-import Rank from '../Rank/Rank'
+import Rank from "../Rank/Rank";
+
 function ActivityTitle({ title, rate, number, country }) {
   return (
     <ActivityTitleWrapper>
@@ -16,20 +18,20 @@ function ActivityTitle({ title, rate, number, country }) {
       <RankingWrap>
         <Rank
           light={false}
-          underline={true}
-          bold={true}
-          margin={true}
+          underline
+          bold
+          margin
           rate={rate}
           number={number}
           country={country}
         />
-        <ShareButton type='button'>
-          <i className='share square icon' />
+        <ShareButton type="button">
+          <i className="share square icon" />
           <Span>Condividi</Span>
         </ShareButton>
       </RankingWrap>
     </ActivityTitleWrapper>
-  )
+  );
 }
 
-export default ActivityTitle
+export default ActivityTitle;
