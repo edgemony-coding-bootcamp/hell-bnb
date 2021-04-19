@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 
 export const Wrap = styled.div`
   display: flex;
@@ -15,12 +16,12 @@ export const Wrap = styled.div`
   }
 `;
 export const Title = styled.h1`
-  color: rgb(72, 72, 72);
+  color: ${colors.darkText};
   font-size: 12px;
   margin-bottom: 5px;
 `;
 export const SubTitle = styled.h2`
-  color: rgb(72, 72, 72);
+  color: ${colors.darkText};
   margin-top: 5px;
   font-size: 38px;
   @media ${device.deviceXL} {
