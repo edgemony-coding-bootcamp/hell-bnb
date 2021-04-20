@@ -1,4 +1,4 @@
-import React,{useState,useCallback} from "react"
+import React, { useState, useCallback } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Activity from "./pages/Activity";
@@ -13,10 +13,10 @@ function App() {
   );
 
   const cookieSession = useCallback(() => {
-    const date = JSON.stringify(new Date())
-    localStorage.setItem('cookieSession', `date:${date}`)
-    setIsBannerVisible(true)
-  }, [])
+    const date = JSON.stringify(new Date());
+    localStorage.setItem("cookieSession", `date:${date}`);
+    setIsBannerVisible(true);
+  }, []);
 
   return (
     <>
