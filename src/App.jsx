@@ -1,10 +1,10 @@
+import React, { useState, useCallback } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header.jsx";
-import Homepage from "./components/Homepage/Homepage.jsx";
-import { useState, useCallback } from "react";
-import BannerCookies from "./components/BannerCookies/BannerCookies.jsx";
+import Header from "./components/Header/Header";
+import Activity from "./pages/Activity";
+import BannerCookies from "./components/BannerCookies/BannerCookies";
 import Footer from "./components/Footer/Footer";
-import Activity from "./pages/Activity.jsx";
+import Home from "./pages/Home/Home";
 import "./App.css";
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
     const date = JSON.stringify(new Date());
     localStorage.setItem("cookieSession", `date:${date}`);
     setIsBannerVisible(true);
-    return;
   }, []);
 
   return (
@@ -26,7 +25,7 @@ function App() {
           <Header />
           <Switch>
             <Route exact path="/">
-              <Homepage />
+              <Home />
             </Route>
             <Route exact path="/activities/:activityUuid">
               <Activity />

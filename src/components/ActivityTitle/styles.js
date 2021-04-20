@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import { device } from '../../assets/breakpoints'
+import device from "../../assets/breakpoints";
 
 // Activity Title
 
@@ -19,12 +19,12 @@ export const ActivityTitleWrapper = styled.div`
     margin: 55px 25px 25px 125px;
     transition: all 0.2s ease-in-out;
   }
-`
+`;
 
 export const ActivityTitleText = styled.h1`
   font-family: Arial, Helvetica, sans-serif;
   align-items: flex-start;
-`
+`;
 
 // Share div
 
@@ -37,7 +37,7 @@ export const RankingWrap = styled.div`
     height: 100px;
     transition: all 0.2s ease-in-out;
   }
-`
+`;
 
 export const ShareButton = styled.button`
   display: none;
@@ -47,7 +47,7 @@ export const ShareButton = styled.button`
     background-color: white;
     border: none;
   }
-`
+`;
 
 export const Span = styled.span`
   @media ${device.deviceL} {
@@ -55,4 +55,4 @@ export const Span = styled.span`
     margin-left: 5px;
     text-decoration: underline;
   }
-`
+`;

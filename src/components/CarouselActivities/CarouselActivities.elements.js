@@ -1,22 +1,21 @@
-
 import styled from "styled-components";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
-export const HeaderCarousel = styled.div `
+export const HeaderCarousel = styled.div`
   display: flex;
   justify-content: space-between;
-`
-export const NavigatorCarousel = styled.div `
+`;
+export const NavigatorCarousel = styled.div`
   display: flex;
   margin-right: 5vh;
-`
-export const CounterSlide = styled.p `
+`;
+export const CounterSlide = styled.p`
   font-size: 1rem;
   padding-right: 5px;
   margin: 0px;
-`
-export const NavBtn = styled.button `
+`;
+export const NavBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,18 +29,21 @@ export const NavBtn = styled.button `
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   margin-left: 3px;
   cursor: pointer;
-  :focus { outline: none; }
+  :focus {
+    outline: none;
+  }
 
-  transition: transform .1s;                      //transition button
-  :hover {transform: scale(1.1);}
-`
+  transition: transform 0.1s; //transition button
+  :hover {
+    transform: scale(1.1);
+  }
+`;
 
-export const CarouselTitle = styled.h3 `
-  color:black;
+export const CarouselTitle = styled.h3`
+  color: black;
   padding-left: 2vh;
-`
-export const WrapperCarousel = styled.div `
-  
+`;
+export const WrapperCarousel = styled.div`
   display: flex;
   flex-direction: row;
   height: 45vh;
@@ -55,9 +57,9 @@ export const WrapperCarousel = styled.div `
     display: none;
   }
   -ms-overflow-style: none;
-  
+
   @media ${device.deviceM} {
     height: 100vh;
     overflow: hidden;
   }
-`
+`;

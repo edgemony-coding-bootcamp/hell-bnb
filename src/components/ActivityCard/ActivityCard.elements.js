@@ -32,18 +32,15 @@ export const Img = styled.img`
   height: fit-content;
   border-radius: 10%;
   margin: 0px;
- 
 
   @media ${device.deviceM} {
     width: 100%;
     min-height: 144px;
   }
   @media ${device.deviceL} {
-   
   }
   @media ${device.deviceXL} {
-    
-  } 
+  }
 `;
 
 export const TextWrapper = styled.div`

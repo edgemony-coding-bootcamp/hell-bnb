@@ -86,7 +86,7 @@ export const DetailsContainer = styled.div`
   }
 `;
 
-export const FooterSectionSubHeading = styled.h1`
+export const FooterSectionSubHeading = styled.h4`
   font-size: 12px;
   text-transform: uppercase;
   text-align: left;
@@ -182,4 +182,10 @@ export const IconContainer = styled.div`
   @media ${device.deviceXL} {
     width: unset;
   }
+`;
+
+export const DotSpan = styled.span`
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 10px;
 `;

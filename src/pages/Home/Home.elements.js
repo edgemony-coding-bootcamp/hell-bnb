@@ -2,7 +2,6 @@ import styled from "styled-components";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
-
 export const Wrap = styled.div`
   margin-top: 10vh;
   display: flex;
