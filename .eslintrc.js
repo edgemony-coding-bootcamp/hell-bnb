@@ -23,7 +23,12 @@ module.exports = {
   },
   parser: "babel-eslint",
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     "react/prop-types": "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     strict: 0,
