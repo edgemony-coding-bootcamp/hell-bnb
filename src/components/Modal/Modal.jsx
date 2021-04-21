@@ -5,9 +5,32 @@ import {
   PhotoCounterWrapper,
   PhotoCounterNum,
   CloseBox,
+  ArrowBtn,
 } from './Modal.elements';
 
-function Modal({ isOpen, totalPhoto, counter, setIsOpen }) {
+import { useState } from 'react';
+
+import { ActivitiesData } from '../../assets/ActivitiesData';
+
+function Modal({ isOpen, setIsOpen, slides }) {
+  const [current, setCurrent] = useState(0);
+
+  const length = slides.length;
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  console.log(current);
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
+
   return (
     <>
       {isOpen ? (
@@ -23,15 +46,32 @@ function Modal({ isOpen, totalPhoto, counter, setIsOpen }) {
             </CloseBox>
 
             <PhotoCounterNum center mobile desktop>
-              1{counter} / 16{totalPhoto}
+              {current} &nbsp; / &nbsp; {slides.length}
             </PhotoCounterNum>
           </PhotoCounterWrapper>
-          <ImageContainer>
-            <ModalImage
-              src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1740697-poster/original/f3c99a17-0b54-4862-9a3c-e1b681968765.jpeg?im_w=320"
-              alt="no-image"
-            />
-          </ImageContainer>
+
+          <ArrowBtn mobile left onClick={prevSlide}>
+            {' '}
+            &#x21E6;{' '}
+          </ArrowBtn>
+
+          {ActivitiesData.map((activity, index) => {
+            return (
+              <ImageContainer
+                classname={index === current ? 'slide active' : 'slide'}
+                key={index}
+              >
+                {index === current && (
+                  <ModalImage src={activity.image} alt="no-image" />
+                )}
+              </ImageContainer>
+            );
+          })}
+
+          <ArrowBtn mobile right onClick={nextSlide}>
+            {' '}
+            &#x21E8;{' '}
+          </ArrowBtn>
         </ActivityModal>
       ) : null}
     </>

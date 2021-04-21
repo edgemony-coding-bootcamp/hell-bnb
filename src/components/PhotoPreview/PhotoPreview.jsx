@@ -2,64 +2,55 @@ import {
   PhotoPreviewWrapper,
   ImageWrapper,
   ImageRowWrapper,
-  ImageColumnWrap,
+  ImageColumnContainer,
   ImageRow,
   ImageColumn,
   ShowBtn,
 } from './PhotoPreview.elements';
-import { BtnCookies } from '../BannerCookies/style';
 
-function PhotoPreview({ openModal, display, top, bottom, zero }) {
+function PhotoPreview({ openModal }) {
   return (
     <>
       <PhotoPreviewWrapper>
         <ImageWrapper>
           <ImageRowWrapper>
             <ImageRow
-              src="https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1654801-media_library/original/1ad97a42-0606-4401-a631-aa88b6acdd77.jpeg?im_w=240"
               alt="no-image"
-              height={true}
-              width={true}
-              left={true}
-              display={display}
+              left
             />
             <ImageRow
-              src="https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1654801-media_library/original/f37ea5bd-37d2-436e-953d-73cb93f6c030.jpeg?im_w=240"
               alt="no-image"
-              height={true}
-              width={true}
-              none={true}
-              zero={zero}
+              hidden
+              zero
             />
-            <ImageColumnWrap>
+            <ImageColumnContainer>
               <ImageColumn
-                src="https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1654801-active_media/original/670ddd5a-d08d-4d23-a002-ca240d562b0b.jpeg?im_w=240"
                 alt="no-image"
-                top={top}
-                display={display}
-                zero={zero}
+                topRight
+                zero
               />
 
               <ImageColumn
-                src="https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1654801-media_library/original/797cb9f5-cd90-4bc6-9688-f6407fb4b384.jpeg?im_w=240"
                 alt="no-image"
-                bottom={bottom}
-                zero={zero}
-                display={display}
+                top
+                zero
               />
-            </ImageColumnWrap>
+            </ImageColumnContainer>
 
             <ImageRow
-              src="https://images.pexels.com/photos/2613949/pexels-photo-2613949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              src="https://a0.muscache.com/im/pictures/lombard/MtTemplate-1654801-active_media/original/85368d46-21b2-4c07-924a-ac99dfe19d82.jpeg?im_w=320"
               alt="no-image"
-              height={true}
-              width={true}
-              none={true}
-              bottom={true}
+              hidden
             />
           </ImageRowWrapper>
         </ImageWrapper>
-        <BtnCookies onClick={() => openModal()}>Show other photos</BtnCookies>
+        <ShowBtn hide onClick={() => openModal()}>
+          Mostra tutte le 7 foto
+        </ShowBtn>
       </PhotoPreviewWrapper>
     </>
   );
