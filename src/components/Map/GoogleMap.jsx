@@ -3,26 +3,26 @@ import { GoogleApiWrapper, Marker } from "google-maps-react";
 import { GoogleMap as Map } from "./Map.elements";
 
 function MapContainer(props) {
-  const { google } = props;
+  const { google, lat, lng } = props;
 
   return (
     <Map
       google={google}
       zoom={16}
       initialCenter={{
-        lat: 38.0337,
-        lng: 14.0174,
+        lat,
+        lng,
       }}
     >
       <Marker
-        name="Sticazzi"
-        position={{ lat: 38.034, lng: 14.0174 }}
-        icon={{
-          url:
-            "https://icons-for-free.com/iconfiles/png/512/location+maker+map+icon-1320166084997417306.png",
-          scaledSize: { width: 30, height: 30 },
+        position={{
+          lat,
+          lng,
         }}
-        //   Personalizzabile
+        icon={{
+          url: "https://img.icons8.com/color/48/000000/marker--v1.png",
+          scaledSize: { width: 60, height: 60 },
+        }}
       />
     </Map>
   );

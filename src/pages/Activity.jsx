@@ -32,13 +32,19 @@ export default function Activity() {
       {isLoading ? (
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
-        <h1 style={{ marginTop: "200px" }}>
-          {selectedActivity
-            ? selectedActivity.title
-            : "Impossibile trovare l'evento selezionato."}
-        </h1>
+        <>
+          {selectedActivity ? (
+            <>
+              <h1 style={{ marginTop: "200px" }}>{selectedActivity.title}</h1>
+              <Map activityData={selectedActivity} />
+            </>
+          ) : (
+            <h1 style={{ marginTop: "200px" }}>
+              Impossibile trovare evento selezionato.
+            </h1>
+          )}
+        </>
       )}
-      <Map />
     </>
   );
 }

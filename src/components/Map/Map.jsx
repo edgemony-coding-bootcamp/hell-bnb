@@ -12,28 +12,26 @@ import {
 } from "./Map.elements";
 import GoogleMap from "./GoogleMap";
 
-export default function Map() {
+export default function Map({ activityData }) {
+  const { latitude, longitude, city } = activityData;
+  const country = city.country.name;
+
   return (
     <SectionContainer>
       <SubContainer>
         <SectionHeader>Dove ti troverai</SectionHeader>
         <MapWindow>
           <MapContainer>
-            <GoogleMap />
+            <GoogleMap lat={latitude} lng={longitude} />
           </MapContainer>
           <MapWindowInfo>
             <InfoHeader>Dove ci incontreremo</InfoHeader>
-            <InfoDesc>Dummy Address, Zurigo</InfoDesc>
+            <InfoDesc>
+              {city.name}, {country}
+            </InfoDesc>
           </MapWindowInfo>
         </MapWindow>
-        <ActivityDescription>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
-          quibusdam maxime beatae quas nihil enim quidem laudantium, corporis
-          error laboriosam minus qui tempore? At ullam voluptatem excepturi
-          laborum perspiciatis soluta? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Veniam harum voluptatibus eaque magnam. Quae
-          repellat, adipisci fugit nemo cupiditate autem.
-        </ActivityDescription>
+        <ActivityDescription>{activityData.meeting_point}</ActivityDescription>
       </SubContainer>
     </SectionContainer>
   );
