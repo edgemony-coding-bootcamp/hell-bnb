@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchActivityByUuid } from "../services/api";
+import Map from "../components/Map/Map";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +38,7 @@ export default function Activity() {
             : "Impossibile trovare l'evento selezionato."}
         </h1>
       )}
+      <Map />
     </>
   );
 }
