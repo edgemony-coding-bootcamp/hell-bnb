@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Title, Wrap, SubTitle } from "./Home.elements";
 import { fetchActivities } from "../../services/api";
+import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
 
 function Home() {
   const [activities, setActivities] = useState([]);
@@ -23,7 +24,7 @@ function Home() {
     <Wrap>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-
+      {activities && <CarouselActivities activities={activities} />}
       {activities && (
         <>
           <ul>

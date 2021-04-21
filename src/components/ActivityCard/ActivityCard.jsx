@@ -19,7 +19,9 @@ const ActivityCard = ({ img, rate, number, country, title, price }) => (
         rate={rate}
         number={number}
         country={country}
-        light
+        margin={10}
+        // eslint-disable-next-line
+        light={true}
         underline={false}
       />
       <Title>{title}</Title>
