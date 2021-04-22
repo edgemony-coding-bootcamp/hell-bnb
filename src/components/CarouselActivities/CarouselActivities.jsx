@@ -50,7 +50,9 @@ const CarouselActivities = ({ activities }) => {
                     }
                   }}
                 >
-                  <span>&lsaquo;</span>
+                  <span>
+                    <i className="tiny chevron left icon" />
+                  </span>
                 </NavBtn>
                 <NavBtn
                   onClick={() => {
@@ -60,7 +62,9 @@ const CarouselActivities = ({ activities }) => {
                     }
                   }}
                 >
-                  <span>&rsaquo;</span>
+                  <span>
+                    <i className="tiny chevron right icon" />
+                  </span>
                 </NavBtn>
               </NavigatorCarousel>
             )}

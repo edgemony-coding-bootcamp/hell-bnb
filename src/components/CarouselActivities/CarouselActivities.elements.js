@@ -8,11 +8,12 @@ export const HeaderCarousel = styled.div`
 `;
 export const NavigatorCarousel = styled.div`
   display: flex;
-  margin-right: 5vh;
+  margin-right: 5px;
 `;
 export const CounterSlide = styled.p`
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding-right: 5px;
+  padding-top: 4px;
   margin: 0px;
 `;
 export const NavBtn = styled.button`
@@ -23,11 +24,13 @@ export const NavBtn = styled.button`
   border-radius: 50%;
   background-color: white;
   color: black;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   font-size: 1.5rem;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-left: 3px;
+  margin-left: 8px;
+  padding-left: 5px;
+  padding-bottom: 3px;
   cursor: pointer;
   :focus {
     outline: none;
@@ -57,9 +60,11 @@ export const WrapperCarousel = styled.div`
     display: none;
   }
   -ms-overflow-style: none;
+  margin: 1vh;
 
   @media ${device.deviceM} {
     height: 100vh;
     overflow: hidden;
+    margin: 1vh;
   }
 `;
