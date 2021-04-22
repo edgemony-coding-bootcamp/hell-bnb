@@ -54,11 +54,13 @@ export const TextWrapper = styled.div`
 export const Title = styled.p`
   font-size: 0.9em;
   margin: 3px 0px 0px 0px;
-  height: 40%;
-  line-height: 1.2em;
   /* white-space: nowrap; */
+  text-overflow: ellipsis;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
   @media ${device.deviceM} {
     height: 32%;
