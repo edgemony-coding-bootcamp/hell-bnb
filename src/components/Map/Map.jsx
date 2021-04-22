@@ -20,17 +20,20 @@ export default function Map({ activityData }) {
     <SectionContainer>
       <SubContainer>
         <SectionHeader>Dove ti troverai</SectionHeader>
-        <MapWindow>
-          <MapContainer>
-            <GoogleMap lat={latitude} lng={longitude} />
-          </MapContainer>
-          <MapWindowInfo>
-            <InfoHeader>Dove ci incontreremo</InfoHeader>
-            <InfoDesc>
-              {city.name}, {country}
-            </InfoDesc>
-          </MapWindowInfo>
-        </MapWindow>
+        {latitude && longitude && (
+          <MapWindow>
+            <MapContainer>
+              <GoogleMap lat={latitude} lng={longitude} />
+            </MapContainer>
+
+            <MapWindowInfo>
+              <InfoHeader>Dove ci incontreremo</InfoHeader>
+              <InfoDesc>
+                {city.name}, {country}
+              </InfoDesc>
+            </MapWindowInfo>
+          </MapWindow>
+        )}
         <ActivityDescription>{activityData.meeting_point}</ActivityDescription>
       </SubContainer>
     </SectionContainer>
