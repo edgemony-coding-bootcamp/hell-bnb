@@ -4,7 +4,6 @@
 // activities = {activities}/>}
 // fetch Homepage
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import ActivityCard from "../ActivityCard/ActivityCard";
 // assets
 import {
@@ -14,6 +13,7 @@ import {
   NavigatorCarousel,
   CounterSlide,
   NavBtn,
+  StyledLink,
 } from "./CarouselActivities.elements";
 
 // function getting dinamic window size
@@ -73,7 +73,7 @@ const CarouselActivities = ({ activities }) => {
             {activities.map((activity) => {
               const path = `/activities/${activity.uuid}`;
               return (
-                <Link to={path} key={activity.uuid}>
+                <StyledLink to={path} key={activity.uuid}>
                   <ActivityCard
                     key={activity.uuid}
                     img={activity.cover_image_url}
@@ -83,7 +83,7 @@ const CarouselActivities = ({ activities }) => {
                     title={activity.title}
                     price={activity.retail_price.formatted_value}
                   />
-                </Link>
+                </StyledLink>
               );
             })}
           </WrapperCarousel>{" "}

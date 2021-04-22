@@ -1,7 +1,21 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: black;
+  }
+`;
 export const HeaderCarousel = styled.div`
   display: flex;
   justify-content: space-between;
