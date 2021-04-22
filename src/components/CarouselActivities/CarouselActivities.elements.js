@@ -8,7 +8,7 @@ export const HeaderCarousel = styled.div`
 `;
 export const NavigatorCarousel = styled.div`
   display: flex;
-  margin-right: 5px;
+  margin-right: 0px;
 `;
 export const CounterSlide = styled.p`
   font-size: 1.3rem;
