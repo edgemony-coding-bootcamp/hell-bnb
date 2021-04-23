@@ -63,12 +63,10 @@ export default function Footer() {
               const { title, link } = element;
               if (i + 1 < disclosureLinks.length) {
                 return (
-                  <>
-                    <FooterLinkUrl key={disclosureLinkKey} href={link}>
-                      {`${title}`}
-                    </FooterLinkUrl>
+                  <FooterLinkUrl key={disclosureLinkKey} href={link}>
+                    {`${title}`}
                     <DotSpan>·</DotSpan>
-                  </>
+                  </FooterLinkUrl>
                 );
               }
               return (
