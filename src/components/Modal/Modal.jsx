@@ -9,12 +9,10 @@ import {
 } from './Modal.elements';
 
 import { useState } from 'react';
-
 import { ActivitiesData } from '../../assets/ActivitiesData';
 
 function Modal({ isOpen, setIsOpen, slides }) {
   const [current, setCurrent] = useState(0);
-
   const length = slides.length;
 
   const prevSlide = () => {
@@ -24,8 +22,6 @@ function Modal({ isOpen, setIsOpen, slides }) {
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
-
-  console.log(current);
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
@@ -38,29 +34,25 @@ function Modal({ isOpen, setIsOpen, slides }) {
           <PhotoCounterWrapper>
             <CloseBox onClick={() => setIsOpen((prev) => !prev)}>
               <PhotoCounterNum mobile grey>
-                &#60;
+                <i class="chevron left icon"></i>
               </PhotoCounterNum>
-              <PhotoCounterNum desktop grey>
-                X Close
+              <PhotoCounterNum desktop close grey>
+                X &nbsp; Close
               </PhotoCounterNum>
             </CloseBox>
 
             <PhotoCounterNum center mobile desktop>
-              {current} &nbsp; / &nbsp; {slides.length}
+              {current + 1} &nbsp; / &nbsp; {slides.length}
             </PhotoCounterNum>
           </PhotoCounterWrapper>
 
           <ArrowBtn mobile left onClick={prevSlide}>
-            {' '}
-            &#x21E6;{' '}
+            <i class="chevron left icon"></i>
           </ArrowBtn>
 
           {ActivitiesData.map((activity, index) => {
             return (
-              <ImageContainer
-                classname={index === current ? 'slide active' : 'slide'}
-                key={index}
-              >
+              <ImageContainer key={index}>
                 {index === current && (
                   <ModalImage src={activity.image} alt="no-image" />
                 )}
@@ -69,8 +61,7 @@ function Modal({ isOpen, setIsOpen, slides }) {
           })}
 
           <ArrowBtn mobile right onClick={nextSlide}>
-            {' '}
-            &#x21E8;{' '}
+            <i class="chevron right icon"></i>
           </ArrowBtn>
         </ActivityModal>
       ) : null}

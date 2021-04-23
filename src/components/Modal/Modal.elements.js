@@ -8,14 +8,15 @@ export const ActivityModal = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
   background-color: black;
   transition: all 0.2s ease-in-out;
+  overflow-y: hidden;
 `;
 
 export const PhotoCounterWrapper = styled.div`
@@ -26,20 +27,25 @@ export const PhotoCounterWrapper = styled.div`
   height: 92px;
   width: 100%;
   transition: all 0.2s ease-in-out;
+
   @media ${device.deviceL} {
     height: 10%;
   }
 `;
 
 export const CloseBox = styled.div`
+  display: flex;
+  justify-content: center;
   font-size: 1rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
   border-radius: 8px;
   cursor: pointer;
   display: ${(props) => (props.display ? 'block' : props.none ? 'none' : '')};
 
   @media ${device.deviceL} {
     display: ${(props) => (props.display ? 'none' : props.none ? 'block' : '')};
-    width: 7%;
+    width: 10%;
     margin-right: 10px;
     background: black;
     color: white;
@@ -67,6 +73,13 @@ export const PhotoCounterNum = styled.span`
     :hover {
       border-radius: 5px;
     }
+
+    ${(props) =>
+      props.close &&
+      css`
+        width: 300px;
+        height: 100px;
+      `}
   }
 `;
 
@@ -76,16 +89,16 @@ export const ImageContainer = styled.div`
   align-items: center;
   flex-grow: 1;
   max-height: calc(100% - 92px);
-  width: 100%;
   overflow-y: hidden;
 `;
 
 export const ModalImage = styled.img`
+  width: 100%;
+  min-width: 100%;
   min-height: 300px;
   padding-bottom: 92px;
 
   @media ${device.deviceL} {
-    width: unset;
     height: 40%;
     max-width: 70%;
     min-height: 600px;
@@ -95,11 +108,15 @@ export const ModalImage = styled.img`
 export const ArrowBtn = styled.button`
   color: white;
   background: black;
-  height: 40px;
-  width: 40px;
+  height: 80px;
+  width: 80px;
   font-size: 30px;
-  text-align: center;
-  border: none;
+
+  border: white 3px solid;
+  border-radius: 50%;
+
+  font-size: 1.3rem;
+
   display: ${(props) => (props.mobile ? 'none' : 'block')};
 
   :hover {
@@ -108,14 +125,10 @@ export const ArrowBtn = styled.button`
   }
 
   @media ${device.deviceL} {
-    background: black;
-    color: white;
-
     ${(props) =>
       props.left &&
       css`
         display: block;
-
         position: fixed;
         top: 50%;
         left: 2%;

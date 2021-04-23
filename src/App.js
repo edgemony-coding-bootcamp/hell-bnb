@@ -5,9 +5,6 @@ import Homepage from './components/Homepage/Homepage';
 import { useState, useCallback } from 'react';
 import BannerCookies from './components/BannerCookies/BannerCookies';
 import Footer from './components/Footer/Footer';
-import PhotoPreview from './components/PhotoPreview/PhotoPreview';
-
-import Modal from './components/Modal/Modal';
 
 import { Main } from './assets/App.elements';
 
@@ -25,27 +22,12 @@ function App() {
 
   // Modal Logic
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
     <>
       <Router>
         <Main>
-          <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
           <Header />
 
-          <PhotoPreview
-            openModal={openModal}
-            both={true}
-            top={true}
-            bottom={true}
-            zero={true}
-            left={true}
-          />
           <Switch>
             <Route exact path="/">
               <Homepage />

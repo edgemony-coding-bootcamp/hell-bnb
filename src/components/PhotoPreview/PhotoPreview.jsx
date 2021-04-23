@@ -49,7 +49,7 @@ function PhotoPreview({ openModal }) {
           </ImageRowWrapper>
         </ImageWrapper>
         <ShowBtn hide onClick={() => openModal()}>
-          Mostra tutte le 7 foto
+          <i class="expand arrows alternate icon"></i> Mostra tutte le 5 foto
         </ShowBtn>
       </PhotoPreviewWrapper>
     </>
