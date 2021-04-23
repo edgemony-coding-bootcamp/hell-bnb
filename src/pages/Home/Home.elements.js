@@ -3,16 +3,25 @@ import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
 export const Wrap = styled.div`
+  margin-top: 13vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  height: 100vh;
-  margin-top: 50px;
-  padding-left: 20px;
+  height: 100%;
+  padding: 0px 4vh 0px 4vh;
+  @media ${device.deviceM} {
+    margin-top: 10vh;
+  }
+  @media ${device.deviceL} {
+    margin-top: 12vh;
+    padding: 0px 3vh 0px 3vh;
+  }
   @media ${device.deviceXL} {
-    width: 50%;
-    margin-left: 50px;
+    width: 92%;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding: 0px 13vh 0px 13vh;
   }
 `;
 export const Title = styled.h1`
