@@ -17,13 +17,13 @@ export const AnchorTag = styled.a`
   transition: color 0.333s ease-in;
 
   :visited,
-  :active,
-  :hover {
+  :active {
     text-decoration: underline;
-    color: ${colors.lightText};
+    color: ${colors.darkText};
   }
   :hover {
     text-decoration: none;
+    color: ${colors.lightText};
   }
 `;
 
