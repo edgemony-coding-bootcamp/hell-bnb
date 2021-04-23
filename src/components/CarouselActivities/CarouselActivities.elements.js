@@ -6,6 +6,7 @@ import colors from "../../assets/colors";
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
+  height: fit-content;
 
   &:focus,
   &:hover,
@@ -19,10 +20,11 @@ export const StyledLink = styled(Link)`
 export const HeaderCarousel = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2vh;
 `;
 export const NavigatorCarousel = styled.div`
   display: flex;
-  margin-right: 0px;
+  /* margin-right: 0px; */
 `;
 export const CounterSlide = styled.p`
   font-size: 1.3rem;
@@ -42,7 +44,7 @@ export const NavBtn = styled.button`
   height: 30px;
   font-size: 1.5rem;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-left: 8px;
+  margin-left: 13px;
   padding-left: 5px;
   padding-bottom: 3px;
   cursor: pointer;
@@ -58,12 +60,13 @@ export const NavBtn = styled.button`
 
 export const CarouselTitle = styled.h3`
   color: black;
-  padding-left: 2vh;
+  margin-bottom: 0px;
+  padding-top: 5px;
 `;
 export const WrapperCarousel = styled.div`
   display: flex;
   flex-direction: row;
-  height: 45vh;
+  height: fit-content;
   width: 100%;
   /* border : black solid 1px; */
   overflow: scroll;
@@ -74,11 +77,8 @@ export const WrapperCarousel = styled.div`
     display: none;
   }
   -ms-overflow-style: none;
-  margin: 1vh;
 
   @media ${device.deviceM} {
-    height: 100vh;
     overflow: hidden;
-    margin: 1vh;
   }
 `;

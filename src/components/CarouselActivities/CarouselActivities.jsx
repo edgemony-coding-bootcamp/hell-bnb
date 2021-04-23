@@ -80,6 +80,7 @@ const CarouselActivities = ({ activities }) => {
                     rate={activity.reviews_avg}
                     number={activity.reviews_number}
                     country={activity.city.country.name}
+                    viewCountry
                     title={activity.title}
                     price={activity.retail_price.formatted_value}
                   />
