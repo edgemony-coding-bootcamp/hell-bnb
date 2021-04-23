@@ -14,27 +14,36 @@ import GoogleMap from "./GoogleMap";
 
 export default function Map({ activityData }) {
   const { latitude, longitude, city } = activityData;
+  const meetingPoint = activityData.meeting_point;
+  const checkCoords = !!(latitude && longitude);
   const country = city.country.name;
+
+  if (!(checkCoords || meetingPoint)) {
+    return null;
+  }
 
   return (
     <SectionContainer>
       <SubContainer>
-        <SectionHeader>Dove ti troverai</SectionHeader>
-        {latitude && longitude && (
-          <MapWindow>
-            <MapContainer>
-              <GoogleMap lat={latitude} lng={longitude} />
-            </MapContainer>
+        {checkCoords && (
+          <>
+            <SectionHeader>Dove ti troverai</SectionHeader>
 
-            <MapWindowInfo>
-              <InfoHeader>Dove ci incontreremo</InfoHeader>
-              <InfoDesc>
-                {city.name}, {country}
-              </InfoDesc>
-            </MapWindowInfo>
-          </MapWindow>
+            <MapWindow>
+              <MapContainer>
+                <GoogleMap latitude={latitude} longitude={longitude} />
+              </MapContainer>
+
+              <MapWindowInfo>
+                <InfoHeader>Dove ci incontreremo</InfoHeader>
+                <InfoDesc>
+                  {city.name}, {country}
+                </InfoDesc>
+              </MapWindowInfo>
+            </MapWindow>
+          </>
         )}
-        <ActivityDescription>{activityData.meeting_point}</ActivityDescription>
+        <ActivityDescription>{meetingPoint}</ActivityDescription>
       </SubContainer>
     </SectionContainer>
   );

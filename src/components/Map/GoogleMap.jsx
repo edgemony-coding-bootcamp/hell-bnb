@@ -1,32 +1,68 @@
+// import React from "react";
+// import { GoogleApiWrapper, Marker } from "google-maps-react";
+// import { GoogleMap as Map } from "./Map.elements";
+
+// function MapContainer(props) {
+//   const { google, lat, lng } = props;
+
+//   return (
+//     <Map
+//       google={google}
+//       zoom={16}
+//       initialCenter={{
+//         lat,
+//         lng,
+//       }}
+//     >
+//       <Marker
+//         position={{
+//           lat,
+//           lng,
+//         }}
+//         icon={{
+//           url: "https://img.icons8.com/color/48/000000/marker--v1.png",
+//           scaledSize: { width: 60, height: 60 },
+//         }}
+//       />
+//     </Map>
+//   );
+// }
+// export default GoogleApiWrapper({
+//   apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
+// })(MapContainer);
+
+// Old version
+
 import React from "react";
-import { GoogleApiWrapper, Marker } from "google-maps-react";
-import { GoogleMap as Map } from "./Map.elements";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { containerStyle } from "./Map.elements";
+import apiKey from "../../assets/googleApiKey";
 
-function MapContainer(props) {
-  const { google, lat, lng } = props;
+function MyComponent(props) {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: apiKey,
+  });
 
-  return (
-    <Map
-      google={google}
-      zoom={16}
-      initialCenter={{
-        lat,
-        lng,
-      }}
-    >
+  const { latitude, longitude } = props;
+  const center = {
+    lat: latitude,
+    lng: longitude,
+  };
+
+  return isLoaded ? (
+    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={16}>
       <Marker
-        position={{
-          lat,
-          lng,
-        }}
+        position={center}
         icon={{
           url: "https://img.icons8.com/color/48/000000/marker--v1.png",
           scaledSize: { width: 60, height: 60 },
         }}
       />
-    </Map>
+    </GoogleMap>
+  ) : (
+    <></>
   );
 }
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
-})(MapContainer);
+
+export default React.memo(MyComponent);

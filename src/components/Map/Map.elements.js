@@ -1,12 +1,6 @@
 import styled from "styled-components";
-import { Map } from "google-maps-react";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
-
-export const GoogleMap = styled(Map)`
-  width: 100%;
-  height: 100%;
-`;
 
 export const SectionContainer = styled.section`
   width: 100%;
@@ -68,6 +62,13 @@ export const MapContainer = styled.div`
     height: 100%;
   }
 `;
+
+// Style attributes to the prop mapContainerStyle of GoogleMap
+export const containerStyle = {
+  width: "100%",
+  height: "100%",
+};
+// End style attributes
 
 export const MapWindowInfo = styled.div`
   display: flex;
