@@ -36,7 +36,7 @@ export default function Activity() {
           {selectedActivity
             ? selectedActivity.title
             : "Impossibile trovare l'evento selezionato."}
-          <Breadcrump />
+          <Breadcrump activityInfo={selectedActivity} />
         </h1>
       )}
     </>

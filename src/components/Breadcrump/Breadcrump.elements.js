@@ -11,7 +11,6 @@ export const BreadcrumpContainer = styled.section`
 export const AnchorTag = styled.a`
   text-decoration: underline;
   color: ${colors.darkText};
-  text-transform: capitalize;
   font-size: 14px;
   font-weight: 300;
   transition: color 0.333s ease-in;
