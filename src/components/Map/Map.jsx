@@ -25,24 +25,25 @@ export default function Map({ activityData }) {
   return (
     <SectionContainer>
       <SubContainer>
+        <SectionHeader>
+          {checkCoords ? "Dove ti troverai" : "Come trovarci"}
+        </SectionHeader>
+
         {checkCoords && (
-          <>
-            <SectionHeader>Dove ti troverai</SectionHeader>
+          <MapWindow>
+            <MapContainer>
+              <GoogleMap latitude={latitude} longitude={longitude} />
+            </MapContainer>
 
-            <MapWindow>
-              <MapContainer>
-                <GoogleMap latitude={latitude} longitude={longitude} />
-              </MapContainer>
-
-              <MapWindowInfo>
-                <InfoHeader>Dove ci incontreremo</InfoHeader>
-                <InfoDesc>
-                  {city.name}, {country}
-                </InfoDesc>
-              </MapWindowInfo>
-            </MapWindow>
-          </>
+            <MapWindowInfo>
+              <InfoHeader>Dove ci incontreremo</InfoHeader>
+              <InfoDesc>
+                {city.name}, {country}
+              </InfoDesc>
+            </MapWindowInfo>
+          </MapWindow>
         )}
+
         <ActivityDescription>{meetingPoint}</ActivityDescription>
       </SubContainer>
     </SectionContainer>
