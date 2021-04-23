@@ -27,13 +27,13 @@ export default function Footer() {
       <TopFooterSections>
         {footerSections.map((section, index) => {
           const { sectionName, listItems } = section;
-          const sectionKey = `${section}_${index}`;
+          const sectionKey = `${sectionName}_${index}`;
           return (
             <FooterSection key={sectionKey}>
               <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
               <LinksWrapper>
                 {listItems.map((item, i) => {
-                  const itemsKey = `${item}_${i}`;
+                  const itemsKey = `${sectionKey}_${i}`;
                   const { title, link } = item;
                   return (
                     <FooterLink key={itemsKey}>
