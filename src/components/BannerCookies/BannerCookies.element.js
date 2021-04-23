@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components'
-
-import colors from '../../assets/colors'
+import styled, { css } from "styled-components";
+import colors from "../../assets/colors";
+import device from "../../assets/breakpoints";
 
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 export const WrapContentCenter = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,35 +14,47 @@ export const WrapContentCenter = styled.div`
   @media (min-width: 1080px) {
     flex-direction: row;
   }
-`
+`;
 export const Banner = styled.div`
-  font-family: Helvetica;
   min-height: 13vh;
-  background-color: whitesmoke;
-  width: 90%;
+  background-color: #ffffff;
+  width: 92%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 1rem;
   position: fixed;
-  bottom: 20px;
-  padding: 3%;
-  border-radius: 20px;
-`
+  bottom: 30px;
+  padding: 5%;
+  box-shadow: 0px 0px 10px 2px ${colors.borderColor};
+  border-radius: 10px;
+  @media ${device.deviceL} {
+    padding: 2%;
+  }
+`;
 
 export const Icon = styled.i`
   color: rgb(66, 139, 255);
-`
+`;
 
 export const TitleCookie = styled.strong`
   font-size: 1.1rem;
-  color: #484848;
-`
+  color: ${colors.darkText};
+  margin-bottom: 5%;
+  @media ${device.deviceL} {
+    margin-bottom: 1%;
+  }
+`;
 
 export const ParagraphCookie = styled.p`
   font-size: 0.9rem;
-  color: #484848;
-`
+  color: ${colors.lightText};
+  letter-spacing: 0.7px;
+  margin-bottom: 7%;
+  @media ${device.deviceL} {
+    margin-bottom: 1%;
+  }
+`;
 
 export const LinkPolicy = styled.a`
   color: black;
@@ -50,7 +62,7 @@ export const LinkPolicy = styled.a`
   :visited {
     color: black;
   }
-`
+`;
 
 export const BtnCookies = styled.button`
   font-size: 1rem;
@@ -96,4 +108,4 @@ export const BtnCookies = styled.button`
         width: 10%;
       `}
   }
-`
+`;

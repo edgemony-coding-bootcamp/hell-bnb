@@ -1,4 +1,4 @@
-const baseURL = 'https://sandbox.musement.com/api/v3';
+const baseURL = "https://sandbox.musement.com/api/v3";
 
 async function callAPI(endpoint) {
   const response = await fetch(`${baseURL}/${endpoint}`);
@@ -9,7 +9,7 @@ async function callAPI(endpoint) {
   return data.data;
 }
 export async function fetchActivities() {
-  return callAPI('activities');
+  return callAPI("activities");
 }
 export async function fetchActivityByUuid(activityUuid) {
   const response = await fetch(`${baseURL}/activities/${activityUuid}`);

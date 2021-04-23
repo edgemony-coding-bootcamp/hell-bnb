@@ -1,11 +1,9 @@
-import React from "react";
-import { Title, Wrap, SubTitle } from "./styles.js";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Title, Wrap, SubTitle } from "./Home.elements";
 import { fetchActivities } from "../../services/api";
-import { useState, useEffect } from "react";
-import Rank from "../Rank/Rank";
 
-
-function Homepage() {
+function Home() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
@@ -14,6 +12,7 @@ function Homepage() {
         const data = await fetchActivities();
         setActivities(data);
       } catch (error) {
+        // eslint-disable-next-line
         console.error(error);
       }
     };
@@ -25,21 +24,17 @@ function Homepage() {
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
 
-      {/* Component Rank Visual Test */}
-      <Rank
-        rate={3}
-        number={99}
-        country={"Italy"}
-        light={true}
-        underline={false}
-      />
-      {/* End of Visual Test */}
-
       {activities && (
         <>
           <ul>
             {activities.map((activity) => {
-              return <li key={activity.uuid}>{activity.title}</li>;
+              const path = `/activities/${activity.uuid}`;
+
+              return (
+                <Link to={path} key={activity.uuid}>
+                  <li>{activity.title}</li>
+                </Link>
+              );
             })}
           </ul>
         </>
@@ -48,4 +43,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Home;

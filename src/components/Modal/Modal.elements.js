@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
-import { device } from '../../assets/breakpoints';
+import styled, { css } from "styled-components";
+import device from "../../assets/breakpoints";
 
 export const ActivityModal = styled.div`
   display: flex;
@@ -41,10 +40,11 @@ export const CloseBox = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 8px;
   cursor: pointer;
-  display: ${(props) => (props.display ? 'block' : props.none ? 'none' : '')};
+  display: ${(props) => ((props.display ? "block" : props.none) ? "none" : "")};
 
   @media ${device.deviceL} {
-    display: ${(props) => (props.display ? 'none' : props.none ? 'block' : '')};
+    display: ${(props) =>
+      (props.display ? "none" : props.none) ? "block" : ""};
     width: 10%;
     margin-right: 10px;
     background: black;
@@ -58,17 +58,17 @@ export const PhotoCounterNum = styled.span`
   height: 20px;
   font-size: 20px;
   text-align: center;
-  display: ${(props) => (props.mobile ? 'block' : 'none')};
-  width: ${(props) => (props.center ? 'calc( 100% - 40px )' : '20px')};
+  display: ${(props) => (props.mobile ? "block" : "none")};
+  width: ${(props) => (props.center ? "calc( 100% - 40px )" : "20px")};
 
   :hover {
     border-radius: 50%;
-    background: ${(props) => (props.grey ? 'grey' : 'black')};
+    background: ${(props) => (props.grey ? "grey" : "black")};
   }
 
   @media ${device.deviceL} {
-    display: ${(props) => (props.desktop ? 'block' : 'none')};
-    width: ${(props) => (props.center ? 'calc( 100% - 160px )' : '80px')};
+    display: ${(props) => (props.desktop ? "block" : "none")};
+    width: ${(props) => (props.center ? "calc( 100% - 160px )" : "80px")};
 
     :hover {
       border-radius: 5px;
@@ -117,11 +117,11 @@ export const ArrowBtn = styled.button`
 
   font-size: 1.3rem;
 
-  display: ${(props) => (props.mobile ? 'none' : 'block')};
+  display: ${(props) => (props.mobile ? "none" : "block")};
 
   :hover {
     border-radius: 50%;
-    background: ${(props) => (props.grey ? 'black' : 'grey')};
+    background: ${(props) => (props.grey ? "black" : "grey")};
   }
 
   @media ${device.deviceL} {

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import colors from '../../assets/colors';
-import { device } from '../../assets/breakpoints';
+import styled from "styled-components";
+import colors from "../../assets/colors";
+import device from "../../assets/breakpoints";
 
 export const PhotoPreviewWrapper = styled.div`
   padding-top: 20px;
@@ -86,10 +86,10 @@ export const ImageRow = styled.img`
   cursor: pointer;
 
   border-radius: ${(props) =>
-    props.left ? '15px 0px 0px 15px' : '0px 0px 0px 0px'};
+    props.left ? "15px 0px 0px 15px" : "0px 0px 0px 0px"};
 
   display: ${(props) =>
-    props.hidden ? 'none' : props.display ? 'block' : 'block'};
+    (props.hidden ? "none" : props.display) ? "block" : "block"};
 
   :hover {
     opacity: 0.9;
@@ -99,14 +99,12 @@ export const ImageRow = styled.img`
     height: 70%;
     object-fit: contain;
 
-    display: ${(props) => (props.hidden ? 'block' : 'block')};
+    display: ${(props) => (props.hidden ? "block" : "block")};
 
     border-radius: ${(props) =>
-      props.zero
-        ? '0px 0px 0px 0px'
-        : props.left
-        ? '40px 0px 0px 40px'
-        : '0px 40px 40px 0px'};
+      (props.zero ? "0px 0px 0px 0px" : props.left)
+        ? "40px 0px 0px 40px"
+        : "0px 40px 40px 0px"};
   }
 
   @media ${device.deviceXL} {
@@ -122,10 +120,10 @@ export const ImageColumn = styled.img`
   cursor: pointer;
   object-fit: cover;
   border-radius: ${(props) =>
-    props.topRight ? '0px 15px 0px 0px' : '0px 0px 15px 0px'};
+    props.topRight ? "0px 15px 0px 0px" : "0px 0px 15px 0px"};
 
   display: ${(props) =>
-    props.hidden ? 'none' : props.display ? 'block' : 'block'};
+    (props.hidden ? "none" : props.display) ? "block" : "block"};
 
   :hover {
     opacity: 0.9;
@@ -133,14 +131,12 @@ export const ImageColumn = styled.img`
 
   @media ${device.deviceL} {
     height: 70%;
-    display: ${(props) => (props.hidden ? 'block' : 'block')};
+    display: ${(props) => (props.hidden ? "block" : "block")};
 
     border-radius: ${(props) =>
-      props.zero
-        ? '0px 0px 0px 0px'
-        : props.left
-        ? '0px 40px 40px 0px'
-        : '40px 0px 0px 40px'};
+      (props.zero ? "0px 0px 0px 0px" : props.left)
+        ? "0px 40px 40px 0px"
+        : "40px 0px 0px 40px"};
   }
   @media ${device.deviceXL} {
     height: 67%;

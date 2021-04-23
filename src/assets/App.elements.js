@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Main = styled.main`
+const Main = styled.div`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,3 +8,5 @@ export const Main = styled.main`
   margin-left: 15px;
   margin-right: 10px;
 `;
+
+export default Main;

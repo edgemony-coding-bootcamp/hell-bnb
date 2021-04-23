@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
-import { Link } from "react-router-dom";
 
-export const HeaderContainer = styled.header`
+const HeaderContainer = styled.header`
   position: fixed;
   right: 0;
   top: 0;
@@ -12,6 +12,7 @@ export const HeaderContainer = styled.header`
   width: 100vw;
   border-bottom: 1px solid ${colors.borderColor};
   padding: 10px 20px;
+  z-index: 100;
 
   @media ${device.deviceM} {
     height: 72px;
@@ -24,14 +25,13 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const HeaderLink = styled(Link)`
+const HeaderLink = styled(Link)`
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
-
-export const LogoHeading = styled.h1`
+const LogoHeading = styled.h1`
   color: ${colors.primaryColor};
   margin: 0 10px;
   font-size: 1.5rem;
@@ -46,3 +46,5 @@ export const LogoHeading = styled.h1`
     font-size: 2rem;
   }
 `;
+
+export { LogoHeading, HeaderLink, HeaderContainer };

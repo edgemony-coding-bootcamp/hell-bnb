@@ -1,7 +1,8 @@
-import styled from 'styled-components'
-import device from '../../assets/breakpoints'
-import colors from '../../assets/colors'
-const footerFont = 'Helvetica'
+import styled from "styled-components";
+import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
+
+const footerFont = "Helvetica";
 // Remove as soon as global fonts are set
 export const FooterContainer = styled.main`
   width: 100vw;
@@ -17,55 +18,81 @@ export const FooterContainer = styled.main`
   }
   @media ${device.deviceXL} {
     padding: 0 80px;
+    align-items: center;
   }
-`
-export const FooterSection = styled.section`
-  width: 100%;
-  padding: 32px 0;
-  border-bottom: 1px solid ${colors.borderColor};
-  padding: 32px 0;
-  @media ${device.deviceM} {
-    padding: 40px 0;
-  }
-  @media ${device.deviceXL} {
-    padding: 48px 0;
-    border-bottom: none;
-    height: 100%;
-  }
-`
+`;
 export const TopFooterSections = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 1624px;
+
   @media ${device.deviceXL} {
     flex-direction: row;
     border-bottom: 1px solid ${colors.borderColor};
   }
-`
+`;
 export const FooterBottomSection = styled.div`
   width: 100%;
   padding: 12px 0 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: left;
+
   @media ${device.deviceM} {
+    align-items: center;
     min-width: 100%;
   }
   @media ${device.deviceXL} {
     padding: 18px 0 26px 0;
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: space-between;
+    min-width: unset;
+    max-width: 1624px;
   }
-`
-export const FooterSectionSubHeading = styled.h1`
+`;
+
+export const FooterSection = styled.section`
+  width: 100%;
+  padding: 32px 0;
+  border-bottom: 1px solid ${colors.borderColor};
+  padding: 32px 0;
+
+  @media ${device.deviceM} {
+    padding: 40px 0;
+  }
+
+  @media ${device.deviceXL} {
+    padding: 48px 0;
+    border-bottom: none;
+    height: 100%;
+  }
+`;
+
+export const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  @media ${device.deviceXL} {
+    flex-grow: unset;
+    flex-direction: row;
+  }
+`;
+
+export const FooterSectionSubHeading = styled.h4`
   font-size: 12px;
   text-transform: uppercase;
   text-align: left;
   font-family: ${footerFont};
   color: ${colors.darkText};
-  margin: 22px 0;
-`
+  margin: 0;
+`;
+
 export const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: column;
@@ -80,7 +107,7 @@ export const LinksWrapper = styled.ul`
     flex-direction: column;
     flex-wrap: no-wrap;
   }
-`
+`;
 export const FooterLink = styled.li`
   width: 100%;
   font-size: 14px;
@@ -94,30 +121,29 @@ export const FooterLink = styled.li`
   }
   @media ${device.deviceXL} {
     width: 100%;
-    margin-top: 22px;
   }
-`
+`;
 export const FooterLinkUrl = styled.a`
   cursor: pointer;
   text-decoration: none;
   text-decoration: inherit;
-  color: ${colors.lightText};
+  color: ${colors.darkText};
   :visited,
   :active,
   :hover {
     text-decoration: inherit;
-    color: ${colors.lightText};
+    color: ${colors.darkText};
   }
   :hover {
     text-decoration: underline;
   }
-`
+`;
 export const CompanyDetails = styled.div`
   width: 100%;
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
-  color: ${colors.lightText};
+  color: ${colors.darkText};
   margin-top: 12px;
   text-align: left;
   @media ${device.deviceM} {
@@ -125,17 +151,27 @@ export const CompanyDetails = styled.div`
   }
   @media ${device.deviceXL} {
     margin-top: 0;
+    width: unset;
+    margin-right: 20px;
   }
-`
+`;
 export const IconContainer = styled.div`
   display: none;
   justify-content: center;
   width: 100%;
-  font-size: 30px;
+
+  font-size: 18px;
+
   @media ${device.deviceM} {
     display: flex;
   }
   @media ${device.deviceXL} {
-    font-size: 25px;
+    width: unset;
   }
-`
+`;
+
+export const DotSpan = styled.span`
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 10px;
+`;

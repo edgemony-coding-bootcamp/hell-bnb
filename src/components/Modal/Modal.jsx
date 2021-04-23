@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   ActivityModal,
   ImageContainer,
@@ -6,14 +7,12 @@ import {
   PhotoCounterNum,
   CloseBox,
   ArrowBtn,
-} from './Modal.elements';
-
-import { useState } from 'react';
-import { ActivitiesData } from '../../assets/ActivitiesData';
+} from "./Modal.elements";
+import ActivitiesData from "../../assets/ActivitiesData";
 
 function Modal({ isOpen, setIsOpen, slides }) {
   const [current, setCurrent] = useState(0);
-  const length = slides.length;
+  const { length } = slides;
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
@@ -34,7 +33,7 @@ function Modal({ isOpen, setIsOpen, slides }) {
           <PhotoCounterWrapper>
             <CloseBox onClick={() => setIsOpen((prev) => !prev)}>
               <PhotoCounterNum mobile grey>
-                <i class="chevron left icon"></i>
+                <i className="chevron left icon" />
               </PhotoCounterNum>
               <PhotoCounterNum desktop close grey>
                 X &nbsp; Close
@@ -47,12 +46,13 @@ function Modal({ isOpen, setIsOpen, slides }) {
           </PhotoCounterWrapper>
 
           <ArrowBtn mobile left onClick={prevSlide}>
-            <i class="chevron left icon"></i>
+            <i className="chevron left icon" />
           </ArrowBtn>
 
           {ActivitiesData.map((activity, index) => {
+            const activitiesKeys = `${activity}-${index}`;
             return (
-              <ImageContainer key={index}>
+              <ImageContainer key={activitiesKeys}>
                 {index === current && (
                   <ModalImage src={activity.image} alt="no-image" />
                 )}
@@ -61,7 +61,7 @@ function Modal({ isOpen, setIsOpen, slides }) {
           })}
 
           <ArrowBtn mobile right onClick={nextSlide}>
-            <i class="chevron right icon"></i>
+            <i className="chevron right icon" />
           </ArrowBtn>
         </ActivityModal>
       ) : null}

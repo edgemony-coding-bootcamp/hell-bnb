@@ -1,3 +1,4 @@
+import React from "react";
 import {
   PhotoPreviewWrapper,
   ImageWrapper,
@@ -6,7 +7,7 @@ import {
   ImageRow,
   ImageColumn,
   ShowBtn,
-} from './PhotoPreview.elements';
+} from "./PhotoPreview.elements";
 
 function PhotoPreview({ openModal }) {
   return (
@@ -49,7 +50,7 @@ function PhotoPreview({ openModal }) {
           </ImageRowWrapper>
         </ImageWrapper>
         <ShowBtn hide onClick={() => openModal()}>
-          <i class="expand arrows alternate icon"></i> Mostra tutte le 5 foto
+          <i className="expand arrows alternate icon" /> Mostra tutte le 5 foto
         </ShowBtn>
       </PhotoPreviewWrapper>
     </>

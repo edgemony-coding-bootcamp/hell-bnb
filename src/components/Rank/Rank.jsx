@@ -1,9 +1,10 @@
-import { RateWrapper, Rate, Country } from './Rank.elements.js'
+import React from "react";
+import { RateWrapper, Rate, Country } from "./Rank.elements";
 
-export const Rank = ({ rate, number, country, margin, light, underline }) => {
+function Rank({ rate, number, country, margin, light, underline }) {
   return (
     <RateWrapper>
-      <i className='red star icon' />
+      <i className="red star icon" />
       <Rate margin={margin}>{rate}</Rate>
       <Rate margin={margin} light={light}>
         ({number}) &nbsp; ·&nbsp;
@@ -12,6 +13,6 @@ export const Rank = ({ rate, number, country, margin, light, underline }) => {
         {country}
       </Country>
     </RateWrapper>
-  )
+  );
 }
-export default Rank
+export default Rank;
