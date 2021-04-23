@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchActivityByUuid } from "../services/api";
+import Breadcrump from "../components/Breadcrump/Breadcrump";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ export default function Activity() {
           {selectedActivity
             ? selectedActivity.title
             : "Impossibile trovare l'evento selezionato."}
+          <Breadcrump />
         </h1>
       )}
     </>
