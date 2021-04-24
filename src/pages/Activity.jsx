@@ -1,11 +1,13 @@
 import React,{ useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comments from "../components/Comments/Comments"
 import { fetchActivityByUuid } from "../services/api";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
   const { activityUuid } = useParams();
+  
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,12 +33,14 @@ export default function Activity() {
       {isLoading ? (
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
+        <>
         <h1 style={{ marginTop: "200px" }}>
           {selectedActivity
-            ? selectedActivity.title
+            ? selectedActivity.title 
             : "Impossibile trovare l'evento selezionato."}
-        </h1>
+        </h1>  </>
       )}
+      <Comments pageId = {activityUuid}/>
     </>
   );
 }
