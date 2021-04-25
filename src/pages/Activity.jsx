@@ -4,7 +4,6 @@ import { fetchActivityByUuid } from "../services/api";
 import Modal from "../components/Modal/Modal";
 import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
-import Main from "../assets/App.elements";
 import ActivitiesData from "../assets/ActivitiesData";
 
 export default function Activity() {
@@ -41,7 +40,7 @@ export default function Activity() {
       {isLoading ? (
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
-        <Main>
+        <>
           <Modal
             slides={ActivitiesData}
             isOpen={isOpen}
@@ -50,7 +49,7 @@ export default function Activity() {
 
           <ActivityTitle title={selectedActivity} />
           <PhotoPreview openModal={openModal} both top bottom zero left />
-        </Main>
+        </>
       )}
     </>
   );

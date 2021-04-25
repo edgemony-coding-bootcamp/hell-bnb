@@ -1,4 +1,4 @@
-const baseURL = "https://sandbox.musement.com/api/v3";
+const baseURL = "https://api.musement.com/api/v3";
 
 async function callAPI(endpoint) {
   const response = await fetch(`${baseURL}/${endpoint}`);

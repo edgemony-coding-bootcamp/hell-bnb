@@ -11,7 +11,6 @@ export const ActivityTitleWrapper = styled.div`
   justify-content: center;
   height: 100px;
   width: 100vw;
-  margin: 25px 15px 15px;
 
   @media ${device.deviceL} {
     width: 100vw;
