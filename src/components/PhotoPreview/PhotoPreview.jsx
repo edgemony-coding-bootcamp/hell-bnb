@@ -6,7 +6,8 @@ import {
   ImageColumnContainer,
   ImageRow,
   ImageColumn,
-  ShowBtn,
+  OpenModalBtn,
+  IconContainer,
 } from "./PhotoPreview.elements";
 
 function PhotoPreview({ openModal }) {
@@ -49,9 +50,13 @@ function PhotoPreview({ openModal }) {
             />
           </ImageRowWrapper>
         </ImageWrapper>
-        <ShowBtn hide onClick={() => openModal()}>
-          <i className="expand arrows alternate icon" /> Mostra tutte le 5 foto
-        </ShowBtn>
+
+        <OpenModalBtn hide onClick={() => openModal()}>
+          <IconContainer>
+            <i className="expand arrows alternate icon" />
+          </IconContainer>{" "}
+          Mostra tutte le 5 foto
+        </OpenModalBtn>
       </PhotoPreviewWrapper>
     </>
   );
