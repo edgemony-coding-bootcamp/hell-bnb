@@ -42,7 +42,7 @@ export const TitleCookie = styled.strong`
   color: ${colors.darkText};
   margin-bottom: 5%;
   @media ${device.deviceL} {
-    margin-bottom:1%;
+    margin-bottom: 1%;
   }
 `;
 
@@ -52,7 +52,7 @@ export const ParagraphCookie = styled.p`
   letter-spacing: 0.7px;
   margin-bottom: 7%;
   @media ${device.deviceL} {
-    margin-bottom:1%;
+    margin-bottom: 1%;
   }
 `;
 
@@ -71,7 +71,7 @@ export const BtnCookies = styled.button`
   padding: 10px 0;
   cursor: pointer;
   margin: 5px 0;
-  font-weight:600;
+  font-weight: 600;
   border: 1.3px solid ${colors.darkText};
   :hover {
     transition: box-shadow 0.2s ease 0s, transform 0.1s ease 0s;
@@ -106,7 +106,7 @@ export const BtnCookies = styled.button`
     ${(props) =>
       props.accept &&
       css`
-       width:10%
+        width: 10%;
       `}
   }
 `;

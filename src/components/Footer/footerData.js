@@ -1,4 +1,4 @@
- const footerData = {
+const footerData = {
   sections: [
     {
       sectionName: "informazioni",

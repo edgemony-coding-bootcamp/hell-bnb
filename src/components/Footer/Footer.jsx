@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   FooterContainer,
@@ -11,11 +11,13 @@ import {
   FooterBottomSection,
   TopFooterSections,
   IconContainer,
+  DetailsContainer,
+  DotSpan,
 } from "./Footer.elements";
-import  footerData  from "./footerData";
+import footerData from "./footerData";
 
 const footerSections = footerData.sections;
-const {companyDetails} = footerData;
+const { companyDetails } = footerData;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
 
@@ -25,13 +27,13 @@ export default function Footer() {
       <TopFooterSections>
         {footerSections.map((section, index) => {
           const { sectionName, listItems } = section;
-          const sectionKey=`${section}_${index}`
+          const sectionKey = `${sectionName}_${index}`;
           return (
             <FooterSection key={sectionKey}>
               <FooterSectionSubHeading>{sectionName}</FooterSectionSubHeading>
               <LinksWrapper>
                 {listItems.map((item, i) => {
-                  const itemsKey=`${item}_${i}`
+                  const itemsKey = `${sectionKey}_${i}`;
                   const { title, link } = item;
                   return (
                     <FooterLink key={itemsKey}>
@@ -47,32 +49,36 @@ export default function Footer() {
 
       <FooterBottomSection>
         <IconContainer>
-          <i className="facebook f icon"/>
+          <i className="facebook f icon" />
           <i className="twitter icon" />
           <i className="instagram icon" />
         </IconContainer>
-        <CompanyDetails>
-          © {currentYear} {companyDetails.companyName}
-        </CompanyDetails>
-        <CompanyDetails>
-          {disclosureLinks.map((element, i) => {
-            const disclosureLinkKey=`${element}_${i}`
-            const { title, link } = element;
-            if (i + 1 < disclosureLinks.length) {
-              return (
-                <FooterLinkUrl key={disclosureLinkKey} href={link}>
-                  {`${title} ·`}
-                </FooterLinkUrl>
-              );
-            }
+        <DetailsContainer>
+          <CompanyDetails>
+            © {currentYear} {companyDetails.companyName}
+          </CompanyDetails>
+          <CompanyDetails>
+            {disclosureLinks.map((element, i) => {
+              const disclosureLinkKey = `${element}_${i}`;
+              const { title, link } = element;
+              if (i + 1 < disclosureLinks.length) {
+                return (
+                  <>
+                    <FooterLinkUrl key={disclosureLinkKey} href={link}>
+                      {`${title}`}
+                    </FooterLinkUrl>
+                    <DotSpan>·</DotSpan>
+                  </>
+                );
+              }
               return (
                 <FooterLinkUrl key={disclosureLinkKey} href={link}>
                   {title}
                 </FooterLinkUrl>
               );
-            }
-        )}
-        </CompanyDetails>
+            })}
+          </CompanyDetails>
+        </DetailsContainer>
       </FooterBottomSection>
     </FooterContainer>
   );

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import  device  from "../../assets/breakpoints";
-import  colors  from "../../assets/colors";
+import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -12,6 +12,7 @@ const HeaderContainer = styled.header`
   width: 100vw;
   border-bottom: 1px solid ${colors.borderColor};
   padding: 10px 20px;
+  z-index: 100;
 
   @media ${device.deviceM} {
     height: 72px;
@@ -46,4 +47,4 @@ const LogoHeading = styled.h1`
   }
 `;
 
-export {LogoHeading,HeaderLink,HeaderContainer}
+export { LogoHeading, HeaderLink, HeaderContainer };
