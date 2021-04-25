@@ -7,26 +7,21 @@ export const CommentsWrapper = styled.div `
     min-height: 358px;
     padding: 32px 0px;
     margin-left:24px;
+   
 `
 
 export const ReviewContainer = styled.div`
     display: flex;
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: row;
-    justify-content: flex-start;
+    flex-wrap: nowrap;
     overflow-x: auto;
-    ${(props) =>
-        props.modalScroll &&
-        css`
-        overflow-y: auto;
-        overflow-x: none;
-        flex-direction: column;
-    `}
+  
     @media ${device.deviceM} {
        padding: 0;
        width:100%;
-       height: 648px;
+       min-height: 648px;
        flex-direction: column;
        flex-wrap: nowrap;
        margin: 0px -8px
@@ -35,6 +30,9 @@ export const ReviewContainer = styled.div`
     @media ${device.deviceXL} {
        flex-direction: column;
        flex-wrap: wrap;
+       min-height: 866px;
+       max-height: 910px;
+       padding: 48px 0px 48px 0px;
     }
     
 
@@ -43,25 +41,25 @@ export const ReviewContainer = styled.div`
 export const GuestReview = styled.div`
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
-    height: 236px;
-    min-width: 329px;
+    min-height: 202px;
+    box-sizing: border-box;
     padding: 16px;
-    margin: 0px 12px 0px 0px;
-    
+    margin: 0px 10px 0px 0px;
+    min-width:75%;
     ${(props) =>
     props.noBorder &&
     css`
     border:none;
-    padding: 0;
     margin:0px 0px 32px;
-    max-width: 350px;
+    width: 90%;
     height: fit-content;
    `}
-
-    
+  
    @media ${device.deviceM} {
        margin-bottom: 40px;
-       height: 168px;
+       min-height:140px;
+       max-height:140px;
+       border:none;
        ${(props) =>
         props.modal &&
         css`
@@ -70,7 +68,11 @@ export const GuestReview = styled.div`
         margin-bottom: 32px;
    `}
    }
-   
+   @media ${device.deviceXL}{
+       min-width: 394px;
+       max-width: 449px;
+       min-height: 168px;
+   }
 `
 export const GuestData = styled.div `
     display: flex;
@@ -80,24 +82,32 @@ export const GuestData = styled.div `
 export const GuestImage = styled.img `
     display: block;
     width: 40px;
-    height: 40px;
+    height: 100%;
     border-radius: 50%;
+    @media ${device.deviceM} {
+        width: 56px;
+       
+    }
 `
 export const DataContainer = styled.div `
     display: flex;
     flex-direction: row;
     margin-bottom: 12px;
-    
+    height: 40px;
+    align-items: center;
+    @media ${device.deviceM} {
+        height: 56px;
+    }
 `
 export const GuestName = styled.span `
-    display: block;
+   
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
     margin-left: 12px;
 `
 export const GuestRevDate = styled.span `
-    display: block;
+    
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
@@ -107,6 +117,8 @@ export const GuestRevDate = styled.span `
 export const GuestComment = styled.p`
     font-size: 16px;
     margin: 10px 0px;
+    line-height: 24px;
+    padding-bottom: 8px;
     ${(props) =>
         props.modalComment &&
         css`

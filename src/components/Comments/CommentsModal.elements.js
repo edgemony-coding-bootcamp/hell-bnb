@@ -12,6 +12,7 @@ import device from "../../assets/breakpoints";
     pointer-events: none;
     padding: 0px 8px 8px;
     z-index: 1000;
+    
    
     ${(props) =>
         props.modalIsOpen &&
@@ -80,8 +81,6 @@ export const ModalOverlay = styled.div`
       css`
       opacity: 0.6;
       background-color: rgba(0,0,0,.87);
-      display: flex;
-      justify-content: center;
       `}
 `;
 
@@ -95,7 +94,6 @@ export const ModalBody = styled.div `
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 0px 24px 24px 24px;
     box-sizing: border-box;
     box-shadow: 0 2px 36px rgba(0, 0, 0, 0.25);
     opacity: 1;
@@ -105,27 +103,25 @@ export const ModalBody = styled.div `
     border-radius: 13px;
 
     @media ${device.deviceM} {
-      min-width: 780px;
-      max-width: 780px;
-      max-height: 100%;
-      width: 90vw;
-      height: 89vh;
+      width: 740px;
+      height: 92vh;
       top: 50%;
       left: 50%;
       overflow: auto;
-      transform: translate(-50%, -50%);
-      padding-top: 45px;
+      transform: translate(-45%, -49%);
+      
+      
   }
-  @media ${device.deviceL}{
-    border-top-left-radius: 13px;
-    border-bottom-right-radius: 13px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+  @media ${device.deviceXL}{
+    width: 780px;
+    height: 88vh;
+    top: 48%;
+    
   }
     
 `
 export const ModalWrapper = styled.div `
-  padding: 0px 8px 8px 8px;
+  padding: 0px 24px 24px 24px;
   margin-top: 30px;
 `
 export const ModalRank = styled.div ` 
@@ -133,4 +129,6 @@ export const ModalRank = styled.div `
   height: 26px;
   width: 100%;
   margin-bottom: 32px;
+  margin-top: 40px;
+  padding-left: 16px;
 `
