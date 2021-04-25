@@ -8,15 +8,15 @@ function CommentsModal({modalComments, isOpen, setIsOpen}) {
             {isOpen ?( <> 
             
             <Modal modalIsOpen = {isOpen}>
+                
+            <ModalOverlay overlay/>
+            <ReviewContainer modalScroll>
+            <ModalBody>
                 <ModalHead>
                     <ModalHeadBtnDiv>
                     <ModalHeadBtn type = "button" onClick = {() => setIsOpen(false)}> <i className="chevron left icon"/> </ModalHeadBtn>
                     </ModalHeadBtnDiv>
                 </ModalHead>
-                
-            <ModalOverlay overlay/>
-            <ReviewContainer modalScroll>
-            <ModalBody>
             <ModalWrapper> 
             <ModalRank>Rank</ModalRank>  
             {modalComments.map ((guest, i) => {
@@ -24,7 +24,7 @@ function CommentsModal({modalComments, isOpen, setIsOpen}) {
                         return (
                             <>
                             
-                            <GuestReview noBorder>
+                            <GuestReview noBorder modal>
                             <div key =  {guestId}>
                             <DataContainer>
                                         <GuestImage img src={guest.image} alt="author_avatar"/> 

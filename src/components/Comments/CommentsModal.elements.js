@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import device from "../../assets/breakpoints";
 
  export const Modal = styled.div`
     
@@ -12,7 +12,7 @@ import styled, { css } from "styled-components";
     pointer-events: none;
     padding: 0px 8px 8px;
     z-index: 1000;
-    
+   
     ${(props) =>
         props.modalIsOpen &&
         css`
@@ -32,16 +32,24 @@ export const ModalHead = styled.div `
     top: 0px;
     right: 0px;
     z-index: 1;
+
+    @media ${device.deviceM} {
+    position: absolute;
+  }   
     
         
 `
 export const ModalHeadBtnDiv = styled.div `
-      height: 25px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 4px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    @media ${device.deviceM}{
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
 `
 export const ModalHeadBtn = styled.button `
     display: block;
@@ -52,25 +60,29 @@ export const ModalHeadBtn = styled.button `
     height: 32px;
     border: none;
     background-color: white; 
-    font-size: 16px;    
-`
+    font-size: 16px; 
+      
+` 
 
 export const ModalOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(222, 222, 222, 0.85);
-  cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
-  ${(props) =>
-    props.overlay &&
-    css`
-    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(222, 222, 222, 0.85);
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
     
-    `}
+    ${(props) =>
+      props.overlay &&
+      css`
+      opacity: 0.6;
+      background-color: rgba(0,0,0,.87);
+      display: flex;
+      justify-content: center;
+      `}
 `;
 
 export const ModalBody = styled.div `
@@ -89,7 +101,27 @@ export const ModalBody = styled.div `
     opacity: 1;
     overflow-y: scroll;
     align-items: center;
-    
+    border: 1px solid black;
+    border-radius: 13px;
+
+    @media ${device.deviceM} {
+      min-width: 780px;
+      max-width: 780px;
+      max-height: 100%;
+      width: 90vw;
+      height: 89vh;
+      top: 50%;
+      left: 50%;
+      overflow: auto;
+      transform: translate(-50%, -50%);
+      padding-top: 45px;
+  }
+  @media ${device.deviceL}{
+    border-top-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
     
 `
 export const ModalWrapper = styled.div `

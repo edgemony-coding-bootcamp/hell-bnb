@@ -57,11 +57,18 @@ export const GuestReview = styled.div`
     max-width: 350px;
     height: fit-content;
    `}
+
+    
    @media ${device.deviceM} {
-       border: none;
        margin-bottom: 40px;
-       width: 410px;
        height: 168px;
+       ${(props) =>
+        props.modal &&
+        css`
+        min-width: 700px;
+        height: fit-content;
+        margin-bottom: 32px;
+   `}
    }
    
 `
@@ -110,15 +117,21 @@ export const GuestComment = styled.p`
         `}
 `
 export const ReviewBtnDiv = styled.div `
+    display: flex;
     width: 100%;
-    height: 100px;
+    max-height: 48px;
     margin-top: 24px;
+    
+   @media ${device.deviceM}{
+       max-width: 100%;
+       margin-top: 8px; 
+       
+   }
 `
 export const ReviewBtn = styled.button `
     display: block;
     position: relative;
-    max-width: 366px;
-    width:100%;
+    width:95%;
     height: 48px;
     cursor: pointer; 
     text-align: center;
@@ -134,4 +147,10 @@ export const ReviewBtn = styled.button `
     color: #222222 ;
     margin: 0px;
     font-weight: 400;
+    @media ${device.deviceM}{
+       width: 100%;
+       padding: 13px 23px;
+       max-width: 279px;
+       font-weight: 600;
+   }
 `
