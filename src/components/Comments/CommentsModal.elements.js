@@ -103,6 +103,7 @@ export const ModalBody = styled.div`
     left: 50%;
     overflow: auto;
     transform: translate(-45%, -49%);
+    align-items: flex-start;
   }
   @media ${device.deviceXL} {
     width: 780px;

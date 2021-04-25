@@ -29,9 +29,9 @@ export const ReviewContainer = styled.div`
   @media ${device.deviceXL} {
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 866px;
+    min-height: 746px;
     max-height: 910px;
-    padding: 48px 0px 48px 0px;
+    padding: 48px 0px 32px 0px;
   }
 `;
 
@@ -66,9 +66,18 @@ export const GuestReview = styled.div`
       `}
   }
   @media ${device.deviceXL} {
-    min-width: 394px;
-    max-width: 449px;
+    padding-bottom: 8px;
     min-height: 168px;
+    max-width: 394px;
+    min-width: 476px;
+    ${(props) =>
+      props.modal &&
+      css`
+        min-width: 700px;
+        min-height: 100px;
+        margin-bottom: 32px;
+        padding-bottom: 0px;
+      `}
   }
 `;
 export const GuestData = styled.div`
