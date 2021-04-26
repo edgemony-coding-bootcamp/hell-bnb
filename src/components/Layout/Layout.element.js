@@ -157,6 +157,7 @@ const WrapHeader = styled.div`
   justify-content: start;
   width: 20%;
   max-height: 56px;
+  align-items: center;
   @media ${device.deviceM} {
     max-height: 72px;
   }
