@@ -11,6 +11,8 @@ export const Modal = styled.div`
   pointer-events: none;
   padding: 0px 8px 8px;
   z-index: 1000;
+  align-items: center;
+  justify-content: center;
 
   ${(props) =>
     props.modalIsOpen &&
@@ -51,13 +53,16 @@ export const ModalHeadBtnDiv = styled.div`
 export const ModalHeadBtn = styled.button`
   display: block;
   position: absolute;
-  margin-left: 24px;
+  margin-left: 48px;
   z-index: 1;
   width: 32px;
   height: 32px;
   border: none;
   background-color: white;
   font-size: 16px;
+  @media ${device.deviceM} {
+    margin-left: 0;
+  }
 `;
 
 export const ModalOverlay = styled.div`
@@ -80,11 +85,9 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalBody = styled.div`
-  position: absolute;
-  top: 40px;
-  left: 0;
   width: 100%;
   height: 100vh;
+  margin: 0;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -92,34 +95,33 @@ export const ModalBody = styled.div`
   box-shadow: 0 2px 36px rgba(0, 0, 0, 0.25);
   opacity: 1;
   overflow-y: scroll;
+  overflow-x: hidden;
   align-items: center;
   border: 1px solid black;
-  border-radius: 13px;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   @media ${device.deviceM} {
     width: 740px;
-    height: 92vh;
+    height: 90vh;
     top: 50%;
     left: 50%;
-    overflow: auto;
-    transform: translate(-45%, -49%);
-    align-items: flex-start;
+    transform: translate(-50%, -50%);
   }
   @media ${device.deviceXL} {
     width: 780px;
-    height: 88vh;
-    top: 48%;
   }
 `;
 export const ModalWrapper = styled.div`
   padding: 0px 24px 24px 24px;
-  margin-top: 30px;
 `;
 export const ModalRank = styled.div`
   font-size: 22px;
   height: 26px;
   width: 100%;
   margin-bottom: 32px;
-  margin-top: 40px;
+  margin-top: 70px;
   padding-left: 16px;
 `;

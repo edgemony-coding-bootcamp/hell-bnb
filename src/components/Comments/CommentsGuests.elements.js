@@ -12,7 +12,6 @@ export const CommentsWrapper = styled.div`
 export const ReviewContainer = styled.div`
   display: flex;
   height: 100%;
-  /* width: 100%; */
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -51,6 +50,13 @@ export const GuestReview = styled.div`
       width: 90%;
       height: fit-content;
     `}
+  ${(props) =>
+    props.modal &&
+    css`
+      margin: 0;
+      min-width: 100%;
+    `}  
+
 
   @media ${device.deviceM} {
     margin-bottom: 40px;
@@ -61,7 +67,7 @@ export const GuestReview = styled.div`
       props.modal &&
       css`
         min-width: 700px;
-        height: fit-content;
+        max-height: fit-content;
         margin-bottom: 32px;
       `}
   }
