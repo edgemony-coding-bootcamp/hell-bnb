@@ -24,6 +24,10 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
     };
   });
 
+  function getPhotoNumber(index) {
+    console.log(index);
+    setCurrent(index);
+  }
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
@@ -61,7 +65,7 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
             </ArrowBtn>
           )}
 
-          <ImageContainer id="wrapImage">
+          <ImageContainer id="wrapImage" draggable>
             {ActivitiesData.map((activity, index) => {
               const activitiesKeys = `${activity}-${index}`;
               return (
@@ -71,6 +75,8 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
                       key={activitiesKeys}
                       src={activity.image}
                       alt="no-image"
+                      draggable
+                      onTouchMoveCapture={() => getPhotoNumber(index)}
                     />
                   ) : (
                     <>
