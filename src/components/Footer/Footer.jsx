@@ -75,7 +75,8 @@ export default function Footer() {
                 }
                 return (
                   <FooterLinkUrl key={disclosureLinkKey} href={link}>
-                    {title}
+                    {`${title}`}
+                    <DotSpan>·</DotSpan>
                   </FooterLinkUrl>
                 );
               })}
