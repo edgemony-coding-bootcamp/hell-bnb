@@ -15,7 +15,7 @@ export const ActivityModal = styled.div`
   background-color: black;
 `;
 
-export const PhotoCounterWrapper = styled.div`
+export const CounterWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -87,13 +87,17 @@ export const PhotoCounterNum = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
   max-height: 90%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 `;
 
 export const ModalImage = styled.img`
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   object-fit: contain;
 `;
@@ -105,7 +109,7 @@ export const ArrowBtn = styled.button`
   width: 50px;
   border: white 2px solid;
   border-radius: 50%;
-  display: ${(props) => (props.mobile ? "none" : "block")};
+  display: none;
 
   :hover {
     border-radius: 50%;
@@ -113,6 +117,11 @@ export const ArrowBtn = styled.button`
   }
 
   @media ${device.deviceM} {
+    ${(props) =>
+      props.none &&
+      css`
+        display: none;
+      `}
     ${(props) =>
       props.left &&
       css`
@@ -122,6 +131,7 @@ export const ArrowBtn = styled.button`
         left: 2%;
         z-index: 30;
       `}
+
 
     ${(props) =>
       props.right &&
