@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import {
   ActivityModal,
@@ -16,7 +15,6 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
   const [current, setCurrent] = useState(0);
   const { length } = slides;
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
-  console.log();
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);

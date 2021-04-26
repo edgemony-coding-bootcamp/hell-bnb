@@ -9,6 +9,7 @@ export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
   const { activityUuid } = useParams();
+  // eslint-disable-next-line
   console.log(selectedActivity);
 
   const [ModalIsOpen, setModalIsOpen] = useState(false);
