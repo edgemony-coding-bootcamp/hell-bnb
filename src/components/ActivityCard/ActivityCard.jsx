@@ -28,7 +28,7 @@ const ActivityCard = ({
     <TextWrapper>
       <RankCountryWrapper>
         {!!rate && <Rank rate={rate} number={number} margin light />}
-        {!!rate && viewCountry && <Dot>&nbsp;·&nbsp;</Dot>}
+        {!!rate && viewCountry && <Dot>·</Dot>}
         {viewCountry && <Country>{country}</Country>}
       </RankCountryWrapper>
       <Title>{title}</Title>

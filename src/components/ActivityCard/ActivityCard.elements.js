@@ -53,7 +53,7 @@ export const Img = styled.div`
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5vh 0vh 0vh 0vh;
+  padding-top: 10px;
   font-family: Helvetica;
   width: 100%;
 `;
@@ -96,4 +96,5 @@ export const Dot = styled.span`
   font-size: 1em;
   margin: 4px 0px 0px 2px;
   color: ${colors.lightText};
+  padding: 0px 6px 0px 6px;
 `;
