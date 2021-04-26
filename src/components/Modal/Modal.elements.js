@@ -100,6 +100,7 @@ export const ModalImage = styled.img`
   min-width: 100%;
   height: 100%;
   object-fit: contain;
+  scroll-snap-align: start;
 `;
 
 export const ArrowBtn = styled.button`
