@@ -1,43 +1,71 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import device from "../../assets/breakpoints";
-import deviceMargin from "../../assets/margin";
 
 const MainWrap = styled.div`
-  width: 100vw;
   display: flex;
+  width: 100vw;
   margin: 0;
-  margin-top: 130px;
+  padding: 130px 24px 0px 24px;
   background-color: white;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  @media ${device.deviceXXL} {
-    width: 100vw;
+  justify-content: center;
+  box-sizing: margin-box;
+  ${(props) =>
+    props.noPadding &&
+    css`
+      max-height: 80;
+      justify-content: center;
+      padding-top: 0;
+    `}
+  @media ${device.deviceM} {
+    padding: 130px 40px 0px 40px;
+    ${(props) =>
+      props.noPadding &&
+      css`
+        max-height: 80;
+        justify-content: center;
+        padding-top: 0;
+      `}
+  }
+  @media ${device.deviceL} {
+    padding: 130px 80px 0px 80px;
+    ${(props) =>
+      props.noPadding &&
+      css`
+        max-height: 80;
+        justify-content: center;
+        padding-top: 0;
+      `}
+  }
+  @media ${device.deviceXL} {
+    padding: 130px auto 0px auto;
+    ${(props) =>
+      props.header &&
+      css`
+        max-height: 80;
+        justify-content: center;
+        padding-top: 0;
+      `}
   }
 `;
 
 const ContentWrap = styled.div`
-  width: calc(100% - 48px);
   display: flex;
-  height: 100%;
+  min-width: 100%;
   margin-top: 10px;
-  background-color: white;
-  border: 1px solid red;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: start;
   align-items: flex-start;
   position: relative;
   box-sizing: border-box;
-  @media ${device.deviceM} {
-    width: calc(100% - 80px);
-  }
-  @media ${device.deviceL} {
-    width: calc(100% - 160px);
-  }
   @media ${device.deviceXL} {
-    width: ${deviceMargin.deviceXL};
+    min-width: 1128px;
+    ${(props) =>
+      props.header &&
+      css`
+        max-height: 80;
+        justify-content: start;
+        padding-top: 0;
+      `}
   }
 `;
 
@@ -124,6 +152,19 @@ const WrapGeneric = styled.div`
     (props.carousel && `lightGoldenRodYellow`)};
 `;
 
+const WrapHeader = styled.div`
+  display: flex;
+  justify-content: start;
+  width: 20%;
+  max-height: 56px;
+  @media ${device.deviceM} {
+    max-height: 72px;
+  }
+  @media ${device.deviceL} {
+    max-height: 84px;
+  }
+`;
+
 export {
   MainWrap,
   ContentWrap,
@@ -134,4 +175,5 @@ export {
   WrapHost,
   WrapExperiences,
   WrapGeneric,
+  WrapHeader,
 };
