@@ -25,7 +25,6 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
   });
 
   function getPhotoNumber(index) {
-    console.log(index);
     setCurrent(index);
   }
   const prevSlide = () => {
@@ -67,7 +66,7 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
 
           <ImageContainer id="wrapImage" draggable>
             {ActivitiesData.map((activity, index) => {
-              const activitiesKeys = `${activity}-${index}`;
+              const activitiesKeys = `${activity.uuid}-${index}`;
               return (
                 <>
                   {widthWindow < 768 ? (
