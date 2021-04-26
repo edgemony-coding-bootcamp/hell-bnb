@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { fetchActivityByUuid } from "../services/api";
 import Modal from "../components/Modal/Modal";
 import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
-import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import ActivitiesData from "../assets/ActivitiesData";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
   const { activityUuid } = useParams();
+  console.log(selectedActivity);
 
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
@@ -47,7 +47,6 @@ export default function Activity() {
             setIsOpen={setIsOpen}
           />
 
-          <ActivityTitle title={selectedActivity} />
           <PhotoPreview openModal={openModal} both top bottom zero left />
         </>
       )}
