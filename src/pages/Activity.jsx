@@ -11,9 +11,10 @@ export default function Activity() {
   const { activityUuid } = useParams();
   console.log(selectedActivity);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => {
-    setIsOpen((prev) => !prev);
+  const [ModalIsOpen, setModalIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalIsOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -31,6 +32,12 @@ export default function Activity() {
       }
     };
 
+    if (ModalIsOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
     fetchActivity();
   }, [activityUuid]);
 
@@ -43,11 +50,11 @@ export default function Activity() {
         <>
           <Modal
             slides={ActivitiesData}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
+            ModalIsOpen={ModalIsOpen}
+            toggleModal={toggleModal}
           />
 
-          <PhotoPreview openModal={openModal} both top bottom zero left />
+          <PhotoPreview toggleModal={toggleModal} both top bottom zero left />
         </>
       )}
     </>

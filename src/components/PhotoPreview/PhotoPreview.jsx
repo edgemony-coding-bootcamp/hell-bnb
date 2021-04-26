@@ -10,7 +10,7 @@ import {
   IconContainer,
 } from "./PhotoPreview.elements";
 
-function PhotoPreview({ openModal }) {
+function PhotoPreview({ toggleModal }) {
   return (
     <PhotoPreviewContainer>
       <PhotoPreviewSubContainer>
@@ -43,7 +43,7 @@ function PhotoPreview({ openModal }) {
           />
         </ImageWrapper>
 
-        <OpenModalBtn hide onClick={() => openModal()}>
+        <OpenModalBtn hide onClick={() => toggleModal()}>
           <IconContainer>
             <i className="expand arrows alternate icon" />
           </IconContainer>{" "}

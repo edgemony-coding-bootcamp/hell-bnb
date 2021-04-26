@@ -1,21 +1,18 @@
 import styled, { css } from "styled-components";
 import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 
 export const ActivityModal = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
-  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  z-index: 120;
   position: fixed;
   top: 0;
   left: 0;
   background-color: black;
-  transition: all 0.2s ease-in-out;
-  overflow-y: hidden;
 `;
 
 export const PhotoCounterWrapper = styled.div`
@@ -24,107 +21,98 @@ export const PhotoCounterWrapper = styled.div`
   align-items: flex-start;
   padding: 15px;
   height: 92px;
+  min-height: 92px;
   width: 100%;
   transition: all 0.2s ease-in-out;
-
-  @media ${device.deviceL} {
-    height: 10%;
-  }
 `;
 
 export const CloseBox = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 1rem;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 8px;
   cursor: pointer;
   display: ${(props) => ((props.display ? "block" : props.none) ? "none" : "")};
-
-  @media ${device.deviceL} {
-    display: ${(props) =>
-      (props.display ? "none" : props.none) ? "block" : ""};
-    width: 10%;
-    margin-right: 10px;
-    background: black;
-    color: white;
-    border-style: none;
-  }
 `;
 
-export const PhotoCounterNum = styled.span`
+export const CloseIcon = styled.span`
   color: white;
-  height: 20px;
-  font-size: 20px;
+  min-height: 35px;
+  min-width: 35px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  display: ${(props) => (props.mobile ? "block" : "none")};
-  width: ${(props) => (props.center ? "calc( 100% - 40px )" : "20px")};
+  display: ${(props) => (props.mobile ? "flex" : "none")};
 
   :hover {
     border-radius: 50%;
-    background: ${(props) => (props.grey ? "grey" : "black")};
+    background: ${colors.darkText};
   }
 
-  @media ${device.deviceL} {
+  @media ${device.deviceM} {
+    padding-top: 6px;
     display: ${(props) => (props.desktop ? "block" : "none")};
     width: ${(props) => (props.center ? "calc( 100% - 160px )" : "80px")};
+    width: 100px;
 
     :hover {
       border-radius: 5px;
     }
+  }
+`;
 
-    ${(props) =>
-      props.close &&
-      css`
-        width: 300px;
-        height: 100px;
-      `}
+export const PhotoCounterNum = styled.div`
+  color: white;
+  min-height: 35px;
+  min-width: 35px;
+  font-size: 16px;
+  text-align: center;
+  flex-grow: 1;
+  padding-right: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: ${(props) => (props.mobile ? "flex" : "none")};
+
+  @media ${device.deviceM} {
+    padding-right: 100px;
   }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  max-height: calc(100% - 92px);
-  overflow-y: hidden;
+  max-height: 90%;
 `;
 
 export const ModalImage = styled.img`
   width: 100%;
-  min-width: 100%;
-  min-height: 300px;
-  padding-bottom: 92px;
-
-  @media ${device.deviceL} {
-    height: 40%;
-    max-width: 70%;
-    min-height: 600px;
-  }
+  height: 100%;
+  object-fit: contain;
 `;
 
 export const ArrowBtn = styled.button`
   color: white;
   background: black;
-  height: 80px;
-  width: 80px;
-  font-size: 30px;
-
-  border: white 3px solid;
+  height: 50px;
+  width: 50px;
+  border: white 2px solid;
   border-radius: 50%;
-
-  font-size: 1.3rem;
-
   display: ${(props) => (props.mobile ? "none" : "block")};
 
   :hover {
     border-radius: 50%;
-    background: ${(props) => (props.grey ? "black" : "grey")};
+    background: ${colors.darkText};
   }
 
-  @media ${device.deviceL} {
+  @media ${device.deviceM} {
     ${(props) =>
       props.left &&
       css`

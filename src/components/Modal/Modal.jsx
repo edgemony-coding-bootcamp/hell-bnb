@@ -7,10 +7,11 @@ import {
   PhotoCounterNum,
   CloseBox,
   ArrowBtn,
+  CloseIcon,
 } from "./Modal.elements";
 import ActivitiesData from "../../assets/ActivitiesData";
 
-function Modal({ isOpen, setIsOpen, slides }) {
+function Modal({ ModalIsOpen, toggleModal, slides }) {
   const [current, setCurrent] = useState(0);
   const { length } = slides;
 
@@ -28,29 +29,30 @@ function Modal({ isOpen, setIsOpen, slides }) {
 
   return (
     <>
-      {isOpen ? (
-        <ActivityModal isOpen={isOpen}>
+      {ModalIsOpen ? (
+        <ActivityModal>
           <PhotoCounterWrapper>
-            <CloseBox onClick={() => setIsOpen((prev) => !prev)}>
-              <PhotoCounterNum mobile grey>
+            <CloseBox onClick={() => toggleModal((prev) => !prev)}>
+              <CloseIcon mobile>
                 <i className="chevron left icon" />
-              </PhotoCounterNum>
-              <PhotoCounterNum desktop close grey>
-                X &nbsp; Close
-              </PhotoCounterNum>
+              </CloseIcon>
+              <CloseIcon desktop>
+                <p>X &nbsp; Chiudi</p>
+              </CloseIcon>
             </CloseBox>
 
             <PhotoCounterNum center mobile desktop>
-              {current + 1} &nbsp; / &nbsp; {slides.length}
+              {current + 1}&nbsp;/&nbsp;{slides.length}
             </PhotoCounterNum>
           </PhotoCounterWrapper>
 
           <ArrowBtn mobile left onClick={prevSlide}>
-            <i className="chevron left icon" />
+            <i className="small chevron left icon" />
           </ArrowBtn>
 
           {ActivitiesData.map((activity, index) => {
             const activitiesKeys = `${activity}-${index}`;
+
             return (
               <ImageContainer key={activitiesKeys}>
                 {index === current && (
@@ -60,8 +62,10 @@ function Modal({ isOpen, setIsOpen, slides }) {
             );
           })}
 
+          <PhotoCounterWrapper />
+
           <ArrowBtn mobile right onClick={nextSlide}>
-            <i className="chevron right icon" />
+            <i className="small chevron right icon" />
           </ArrowBtn>
         </ActivityModal>
       ) : null}
