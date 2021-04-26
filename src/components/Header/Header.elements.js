@@ -10,18 +10,19 @@ const HeaderContainer = styled.header`
   height: 56px;
   background: #ffffff;
   width: 100vw;
+  margin: 0;
   border-bottom: 1px solid ${colors.borderColor};
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   z-index: 100;
 
   @media ${device.deviceM} {
     height: 72px;
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
   }
 
   @media ${device.deviceL} {
     height: 84px;
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
   }
 `;
 

@@ -4,18 +4,18 @@ import colors from "../../assets/colors";
 
 const MainWrap = styled.div`
   display: flex;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 130px 24px 0px 24px;
   background-color: ${(props) => (props.color ? `${colors.footer}` : "white")};
   justify-content: center;
-  box-sizing: margin-box;
+  box-sizing: border-box;
   ${(props) =>
     props.noPadding &&
     css`
       max-height: 80;
       justify-content: center;
-      padding: 0;
+      padding-top: 0;
     `}
   @media ${device.deviceM} {
     padding: 130px 40px 0px 40px;
@@ -44,7 +44,7 @@ const MainWrap = styled.div`
       css`
         max-height: 80;
         justify-content: center;
-        padding-top: 0;
+        padding: 0;
       `}
   }
 `;
@@ -155,7 +155,7 @@ const WrapGeneric = styled.div`
 
 const WrapHeader = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: start;
   width: 20%;
   max-height: 56px;
   align-items: center;
