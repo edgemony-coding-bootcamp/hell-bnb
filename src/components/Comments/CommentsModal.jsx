@@ -21,6 +21,10 @@ import {
 } from "./CommentsGuests.elements";
 
 function CommentsModal({ modalComments, isOpen, setIsOpen }) {
+  function enableScroll() {
+    setIsOpen(false);
+    document.body.style.overflow = "scroll";
+  }
   return (
     <div>
       {isOpen ? (
@@ -31,10 +35,7 @@ function CommentsModal({ modalComments, isOpen, setIsOpen }) {
               <ModalBody>
                 <ModalHead>
                   <ModalHeadBtnDiv>
-                    <ModalHeadBtn
-                      type="button"
-                      onClick={() => setIsOpen(false)}
-                    >
+                    <ModalHeadBtn type="button" onClick={() => enableScroll()}>
                       {" "}
                       <i className="chevron left icon" />{" "}
                     </ModalHeadBtn>

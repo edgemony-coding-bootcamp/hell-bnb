@@ -95,6 +95,7 @@ export const GuestImage = styled.img`
   display: block;
   width: 40px;
   height: 100%;
+  object-fit: cover;
   border-radius: 50%;
   @media ${device.deviceM} {
     width: 56px;

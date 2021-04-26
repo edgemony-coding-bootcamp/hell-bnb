@@ -18,7 +18,10 @@ import {
 function Comments({ pageId }) {
   const reviews = commentsData;
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  function disableScroll() {
+    setIsModalVisible(true);
+    document.body.style.overflow = "hidden";
+  }
   return (
     <div>
       {reviews
@@ -60,10 +63,7 @@ function Comments({ pageId }) {
                 {activityComments.length >= 5 && (
                   <ReviewBtnDiv>
                     {" "}
-                    <ReviewBtn
-                      type="button"
-                      onClick={() => setIsModalVisible(true)}
-                    >
+                    <ReviewBtn type="button" onClick={() => disableScroll()}>
                       Mostra tutte le {activityComments.length} recensioni
                     </ReviewBtn>
                   </ReviewBtnDiv>
