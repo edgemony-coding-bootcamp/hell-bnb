@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  margin-top: 50px;
+  margin-top: 80px;
   padding-left: 20px;
   @media ${device.deviceXL} {
     width: 50%;
