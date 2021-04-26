@@ -14,7 +14,7 @@ const MainWrap = styled.div`
     css`
       max-height: 80;
       justify-content: center;
-      padding-top: 0;
+      padding: 0;
     `}
   @media ${device.deviceM} {
     padding: 130px 40px 0px 40px;
@@ -23,7 +23,7 @@ const MainWrap = styled.div`
       css`
         max-height: 80;
         justify-content: center;
-        padding-top: 0;
+        padding: 0;
       `}
   }
   @media ${device.deviceL} {
@@ -33,13 +33,13 @@ const MainWrap = styled.div`
       css`
         max-height: 80;
         justify-content: center;
-        padding-top: 0;
+        padding: 0;
       `}
   }
   @media ${device.deviceXL} {
     padding: 130px auto 0px auto;
     ${(props) =>
-      props.header &&
+      props.noPadding &&
       css`
         max-height: 80;
         justify-content: center;
@@ -154,7 +154,7 @@ const WrapGeneric = styled.div`
 
 const WrapHeader = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 20%;
   max-height: 56px;
   align-items: center;
