@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
 import device from "../../assets/breakpoints";
+import colors from "../../assets/colors";
 
 const MainWrap = styled.div`
   display: flex;
   width: 100vw;
   margin: 0;
   padding: 130px 24px 0px 24px;
-  background-color: white;
+  background-color: ${(props) => (props.color ? `${colors.footer}` : "white")};
   justify-content: center;
   box-sizing: margin-box;
   ${(props) =>
@@ -23,7 +24,7 @@ const MainWrap = styled.div`
       css`
         max-height: 80;
         justify-content: center;
-        padding: 0;
+        padding-top: 0;
       `}
   }
   @media ${device.deviceL} {
@@ -33,7 +34,7 @@ const MainWrap = styled.div`
       css`
         max-height: 80;
         justify-content: center;
-        padding: 0;
+        padding-top: 0;
       `}
   }
   @media ${device.deviceXL} {

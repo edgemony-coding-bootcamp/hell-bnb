@@ -25,7 +25,7 @@ const currentYear = new Date().getFullYear();
 export default function Footer() {
   return (
     <FooterContainer>
-      <Layout noPadding="noPadding">
+      <Layout noPadding="noPadding" color>
         <TopFooterSections>
           {footerSections.map((section, index) => {
             const { sectionName, listItems } = section;
