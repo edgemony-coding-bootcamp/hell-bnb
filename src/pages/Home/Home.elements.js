@@ -8,7 +8,7 @@ export const Wrap = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  margin-top: 80px;
+  padding-top: 100px;
   padding-left: 20px;
   @media ${device.deviceXL} {
     width: 50%;
@@ -17,6 +17,7 @@ export const Wrap = styled.div`
 `;
 export const Title = styled.h1`
   color: ${colors.darkText};
+  padding-top: 10px;
   font-size: 12px;
   margin: 20px 0;
 `;
