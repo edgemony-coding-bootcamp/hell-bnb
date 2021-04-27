@@ -63,12 +63,10 @@ export const MapContainer = styled.div`
   }
 `;
 
-// Style attributes to the prop mapContainerStyle of GoogleMap
 export const containerStyle = {
   width: "100%",
   height: "100%",
 };
-// End style attributes
 
 export const MapWindowInfo = styled.div`
   display: flex;
