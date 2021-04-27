@@ -12,9 +12,7 @@ import Rank from "../Rank/Rank";
 function ActivityTitle({ title, rate, number, country }) {
   return (
     <ActivityTitleWrapper>
-      <ActivityTitleText>
-        Lezione di danza e cultura balinese{title}
-      </ActivityTitleText>
+      <ActivityTitleText>{title}</ActivityTitleText>
       <RankingWrap>
         <Rank
           light={false}

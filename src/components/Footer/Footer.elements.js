@@ -7,7 +7,7 @@ const footerFont = "Helvetica";
 export const FooterContainer = styled.main`
   width: 100vw;
   padding: 0 24px;
-  background: #f7f7f7;
+  background: ${colors.footer};
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -159,7 +159,6 @@ export const IconContainer = styled.div`
   display: none;
   justify-content: center;
   width: 100%;
-
   font-size: 18px;
 
   @media ${device.deviceM} {

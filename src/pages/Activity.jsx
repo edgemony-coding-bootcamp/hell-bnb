@@ -4,6 +4,17 @@ import { fetchActivityByUuid } from "../services/api";
 import Modal from "../components/Modal/Modal";
 import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
 import ActivitiesData from "../assets/ActivitiesData";
+import Layout from "../components/Layout/Layout";
+import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
+import Rank from "../components/Rank/Rank";
+import {
+  WrapPreviewPhoto,
+  WrapMainDetails,
+  WrapGenericInfo,
+  WrapHost,
+  WrapExperiences,
+  WrapGeneric,
+} from "../components/Layout/Layout.element";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,13 +60,47 @@ export default function Activity() {
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
         <>
-          <Modal
-            slides={ActivitiesData}
-            ModalIsOpen={ModalIsOpen}
-            toggleModal={toggleModal}
-          />
+          {selectedActivity ? (
+            <>
+              <Layout>
+                <ActivityTitle
+                  title={selectedActivity.title}
+                  rate={48}
+                  number={3}
+                  country={selectedActivity.city.country.name}
+                />
+                <WrapPreviewPhoto>
+                  <Modal
+                    slides={ActivitiesData}
+                    ModalIsOpen={ModalIsOpen}
+                    toggleModal={toggleModal}
+                  />
 
-          <PhotoPreview toggleModal={toggleModal} both top bottom zero left />
+                  <PhotoPreview
+                    toggleModal={toggleModal}
+                    both
+                    top
+                    bottom
+                    zero
+                    left
+                  />
+                </WrapPreviewPhoto>
+                <WrapMainDetails>
+                  <WrapGenericInfo />
+                  <WrapHost />
+                  {/* <WrapModalInfo /> */}
+                </WrapMainDetails>
+                <WrapExperiences />
+                <Rank />
+                <WrapGeneric comments />
+                <WrapGeneric available />
+                <WrapGeneric info />
+                <WrapGeneric carousel />
+              </Layout>
+            </>
+          ) : (
+            "Impossibile trovare l'evento selezionato."
+          )}
         </>
       )}
     </>
