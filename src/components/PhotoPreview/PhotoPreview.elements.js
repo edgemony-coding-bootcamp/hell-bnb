@@ -4,15 +4,15 @@ import device from "../../assets/breakpoints";
 
 export const PhotoPreviewContainer = styled.div`
   width: 100%;
-  margin: 200px 0;
-  padding: 0 24px;
+  margin: 32px 0px;
+  padding: 0 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   @media ${device.deviceM} {
-    padding: 0 40px;
+    padding: 0 0px;
   }
 `;
 
