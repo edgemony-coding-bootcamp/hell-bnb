@@ -26,8 +26,9 @@ export const Wrap = styled.div`
 `;
 export const Title = styled.h1`
   color: ${colors.darkText};
+  padding-top: 10px;
   font-size: 12px;
-  margin-bottom: 5px;
+  margin: 20px 0;
 `;
 export const SubTitle = styled.h2`
   color: ${colors.darkText};
