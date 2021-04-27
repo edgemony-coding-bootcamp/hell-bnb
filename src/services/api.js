@@ -19,3 +19,14 @@ export async function fetchActivityByUuid(activityUuid) {
   }
   return data;
 }
+
+export async function fetchRelatedActivity(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/related-activities`
+  );
+  const data = await response.json();
+  if (response.status >= 400) {
+    throw new Error(data.message);
+  }
+  return data;
+}

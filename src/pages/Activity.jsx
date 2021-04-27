@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchActivityByUuid } from "../services/api";
+import { fetchActivityByUuid, fetchRelatedActivity } from "../services/api";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import Rank from "../components/Rank/Rank";
@@ -16,6 +16,8 @@ import {
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
+  const [relatedActivity, setRelatedActivity] = useState();
+
   const { activityUuid } = useParams();
 
   useEffect(() => {
@@ -23,10 +25,16 @@ export default function Activity() {
     const fetchActivity = async () => {
       try {
         const activity = await fetchActivityByUuid(activityUuid);
+        const singleActivity = await fetchRelatedActivity(activityUuid);
         if (!activity) {
           throw new Error("Activity not found");
         }
+        if (!singleActivity) {
+          throw new Error("Activity not found");
+        }
+
         setSelectedActivity(activity);
+        setRelatedActivity(singleActivity);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -63,7 +71,7 @@ export default function Activity() {
                 <WrapGeneric comments />
                 <WrapGeneric available />
                 <WrapGeneric info />
-                <WrapGeneric carousel />
+                <WrapGeneric carousel relatedActivity={relatedActivity} />
               </Layout>
             </>
           ) : (
