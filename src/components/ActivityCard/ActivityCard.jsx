@@ -1,5 +1,7 @@
 import React from "react";
 import Rank from "../Rank/Rank";
+
+// assets
 import {
   CardWrapper,
   Img,
@@ -7,19 +9,28 @@ import {
   Title,
   Bold,
   Detail,
+  Country,
+  RankCountryWrapper,
+  Dot,
 } from "./ActivityCard.elements";
 
-export const ActivityCard = ({ img, rate, number, country, title, price }) => (
+const ActivityCard = ({
+  img,
+  rate,
+  number,
+  country,
+  viewCountry,
+  title,
+  price,
+}) => (
   <CardWrapper>
-    <Img src={img} alt="" />
+    <Img img={img} />
     <TextWrapper>
-      <Rank
-        rate={rate}
-        number={number}
-        country={country}
-        light
-        underline={false}
-      />
+      <RankCountryWrapper>
+        {!!rate && <Rank rate={rate} number={number} margin light />}
+        {!!rate && viewCountry && <Dot>·</Dot>}
+        {viewCountry && <Country>{country}</Country>}
+      </RankCountryWrapper>
       <Title>{title}</Title>
       <Detail>
         <Bold>A partire da {price}€</Bold> a persona

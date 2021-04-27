@@ -23,7 +23,6 @@ function Home() {
     <Wrap>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-
       {activities && (
         <>
           <ul>
