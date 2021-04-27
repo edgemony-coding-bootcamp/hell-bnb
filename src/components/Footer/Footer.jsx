@@ -22,6 +22,7 @@ const { companyDetails } = footerData;
 const disclosureLinks = companyDetails.disclosure;
 const currentYear = new Date().getFullYear();
 
+// test
 export default function Footer() {
   return (
     <FooterContainer>
