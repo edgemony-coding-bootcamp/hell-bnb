@@ -9,14 +9,13 @@ export const ActivityTitleWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: 100px;
-  width: 100vw;
-  margin: 25px 15px 15px;
+  /* height: 100px;
+  width: 100vw; */
 
   @media ${device.deviceL} {
-    width: 100vw;
-    height: 100px;
-    margin: 55px 25px 25px 125px;
+    /* width: 100vw;
+    height: 100px; */
+
     transition: all 0.2s ease-in-out;
   }
 `;
@@ -33,8 +32,8 @@ export const RankingWrap = styled.div`
   align-items: center;
 
   @media ${device.deviceL} {
-    width: 100vw;
-    height: 100px;
+    /* width: 100vw;
+    height: 100px; */
     transition: all 0.2s ease-in-out;
   }
 `;
