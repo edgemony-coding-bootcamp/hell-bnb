@@ -9,21 +9,28 @@ import {
   Title,
   Bold,
   Detail,
+  Country,
+  RankCountryWrapper,
+  Dot,
 } from "./ActivityCard.elements";
 
-const ActivityCard = ({ img, rate, number, country, title, price }) => (
+const ActivityCard = ({
+  img,
+  rate,
+  number,
+  country,
+  viewCountry,
+  title,
+  price,
+}) => (
   <CardWrapper>
-    <Img src={img} alt="" />
+    <Img img={img} />
     <TextWrapper>
-      <Rank
-        rate={rate}
-        number={number}
-        country={country}
-        margin={10}
-        // eslint-disable-next-line
-        light={true}
-        underline={false}
-      />
+      <RankCountryWrapper>
+        {!!rate && <Rank rate={rate} number={number} margin light />}
+        {!!rate && viewCountry && <Dot>·</Dot>}
+        {viewCountry && <Country>{country}</Country>}
+      </RankCountryWrapper>
       <Title>{title}</Title>
       <Detail>
         <Bold>A partire da {price}€</Bold> a persona
