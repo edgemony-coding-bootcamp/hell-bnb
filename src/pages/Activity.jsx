@@ -23,24 +23,15 @@ export default function Activity() {
 
   useEffect(() => {
     setIsLoading(true);
-    let activity;
-    let relatedActivities;
     const fetchActivity = async () => {
       try {
-        Promise.all([
-          (activity = await fetchActivityByUuid(activityUuid)),
-          (relatedActivities = await fetchRelatedActivity(activityUuid)),
+        const [{ activity }, { relatedActivities }] = await Promise.all([
+          await fetchActivityByUuid(activityUuid),
+          await fetchRelatedActivity(activityUuid),
         ]).then(() => {
-          if (!activity) {
-            throw new Error("Activity not found");
-          }
-          if (!relatedActivities) {
-            throw new Error("Activity not found");
-          }
           setSelectedActivity(activity);
           setRelatedActivity(relatedActivities);
         });
-
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
