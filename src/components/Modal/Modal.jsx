@@ -84,8 +84,6 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
                           );
 
                           setCurrent(findIndex);
-
-                          console.log(findIndex);
                         }, 1000);
                       }}
                     />
