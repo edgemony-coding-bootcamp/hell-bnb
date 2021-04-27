@@ -55,14 +55,14 @@ export default function Activity() {
 
   return (
     <>
-      {/* Content to define */}
-      {isLoading ? (
-        <h1 style={{ marginTop: "200px" }}>Loading...</h1>
-      ) : (
-        <>
-          {selectedActivity ? (
-            <>
-              <Layout>
+      <Layout>
+        {/* Content to define */}
+        {isLoading ? (
+          <h1 style={{ marginTop: "200px" }}>Loading...</h1>
+        ) : (
+          <>
+            {selectedActivity ? (
+              <>
                 <ActivityTitle
                   title={selectedActivity.title}
                   rate={48}
@@ -70,12 +70,6 @@ export default function Activity() {
                   country={selectedActivity.city.country.name}
                 />
                 <WrapPreviewPhoto>
-                  <Modal
-                    slides={ActivitiesData}
-                    ModalIsOpen={ModalIsOpen}
-                    toggleModal={toggleModal}
-                  />
-
                   <PhotoPreview
                     toggleModal={toggleModal}
                     both
@@ -96,13 +90,18 @@ export default function Activity() {
                 <WrapGeneric available />
                 <WrapGeneric info />
                 <WrapGeneric carousel />
-              </Layout>
-            </>
-          ) : (
-            "Impossibile trovare l'evento selezionato."
-          )}
-        </>
-      )}
+                <Modal
+                  slides={ActivitiesData}
+                  ModalIsOpen={ModalIsOpen}
+                  toggleModal={toggleModal}
+                />
+              </>
+            ) : (
+              "Impossibile trovare l'evento selezionato."
+            )}
+          </>
+        )}
+      </Layout>
     </>
   );
 }

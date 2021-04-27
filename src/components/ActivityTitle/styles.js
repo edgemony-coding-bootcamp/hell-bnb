@@ -9,13 +9,8 @@ export const ActivityTitleWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-<<<<<<< HEAD
-  height: 100px;
-  width: 100vw;
-=======
   /* height: 100px;
   width: 100vw; */
->>>>>>> main
 
   @media ${device.deviceL} {
     /* width: 100vw;
