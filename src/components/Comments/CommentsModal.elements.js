@@ -33,11 +33,8 @@ export const ModalHead = styled.div`
   top: 0px;
   right: 0px;
   z-index: 1;
-
-  @media ${device.deviceM} {
-    position: absolute;
-  }
 `;
+
 export const ModalHeadBtnDiv = styled.div`
   height: 25px;
   position: relative;
@@ -46,10 +43,12 @@ export const ModalHeadBtnDiv = styled.div`
   justify-content: center;
   margin-top: 4px;
   @media ${device.deviceM} {
-    align-items: flex-start;
+    width: 100%;
+    align-items: center;
     justify-content: flex-start;
   }
 `;
+
 export const ModalHeadBtn = styled.button`
   display: block;
   position: absolute;
