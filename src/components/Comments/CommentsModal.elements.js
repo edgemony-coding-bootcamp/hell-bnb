@@ -109,7 +109,7 @@ export const ModalBody = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  @media ${device.deviceXL} {
+  @media ${device.deviceL} {
     width: 780px;
   }
 `;

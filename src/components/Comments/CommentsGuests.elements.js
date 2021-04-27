@@ -25,7 +25,7 @@ export const ReviewContainer = styled.div`
     margin: 0px -8px;
   }
 
-  @media ${device.deviceXL} {
+  @media ${device.deviceL} {
     flex-direction: column;
     flex-wrap: wrap;
     min-height: 746px;
@@ -71,7 +71,7 @@ export const GuestReview = styled.div`
         margin-bottom: 32px;
       `}
   }
-  @media ${device.deviceXL} {
+  @media ${device.deviceL} {
     padding-bottom: 8px;
     min-height: 168px;
     max-width: 394px;
