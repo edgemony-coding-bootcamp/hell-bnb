@@ -4,6 +4,7 @@ import { fetchActivityByUuid, fetchRelatedActivity } from "../services/api";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import Rank from "../components/Rank/Rank";
+
 import {
   WrapPreviewPhoto,
   WrapMainDetails,
@@ -22,25 +23,29 @@ export default function Activity() {
 
   useEffect(() => {
     setIsLoading(true);
+    let activity;
+    let relatedActivities;
     const fetchActivity = async () => {
       try {
-        const activity = await fetchActivityByUuid(activityUuid);
-        const singleActivity = await fetchRelatedActivity(activityUuid);
-        if (!activity) {
-          throw new Error("Activity not found");
-        }
-        if (!singleActivity) {
-          throw new Error("Activity not found");
-        }
+        Promise.all([
+          (activity = await fetchActivityByUuid(activityUuid)),
+          (relatedActivities = await fetchRelatedActivity(activityUuid)),
+        ]).then(() => {
+          if (!activity) {
+            throw new Error("Activity not found");
+          }
+          if (!relatedActivities) {
+            throw new Error("Activity not found");
+          }
+          setSelectedActivity(activity);
+          setRelatedActivity(relatedActivities);
+        });
 
-        setSelectedActivity(activity);
-        setRelatedActivity(singleActivity);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
       }
     };
-
     fetchActivity();
   }, [activityUuid]);
 
@@ -66,7 +71,9 @@ export default function Activity() {
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
+
                 <WrapExperiences />
+
                 <Rank />
                 <WrapGeneric comments />
                 <WrapGeneric available />
