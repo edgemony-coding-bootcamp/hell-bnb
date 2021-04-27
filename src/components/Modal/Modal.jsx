@@ -24,12 +24,10 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
     };
   });
 
-  function getPhotoNumber(index) {
-    setCurrent(index);
-  }
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -64,7 +62,7 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
             </ArrowBtn>
           )}
 
-          <ImageContainer id="wrapImage" draggable>
+          <ImageContainer id="imgCont" draggable>
             {ActivitiesData.map((activity, index) => {
               const activitiesKeys = `${activity.uuid}-${index}`;
               return (
@@ -75,7 +73,21 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
                       src={activity.image}
                       alt="no-image"
                       draggable
-                      onTouchMoveCapture={() => getPhotoNumber(index)}
+                      onTouchEndCapture={() => {
+                        setTimeout(() => {
+                          const container = document.getElementById("imgCont");
+
+                          const scrollDistance = container.scrollLeft;
+
+                          const findIndex = Math.trunc(
+                            scrollDistance / container.offsetWidth
+                          );
+
+                          setCurrent(findIndex);
+
+                          console.log(findIndex);
+                        }, 1000);
+                      }}
                     />
                   ) : (
                     <>
