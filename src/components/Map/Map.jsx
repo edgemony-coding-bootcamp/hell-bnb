@@ -21,7 +21,7 @@ export default function Map({ activityData }) {
   if (!(checkCoords || meetingPoint)) {
     return null;
   }
-
+  // test
   return (
     <SectionContainer>
       <SubContainer>
