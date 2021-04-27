@@ -8,7 +8,7 @@ const footerFont = "Helvetica";
 export const FooterContainer = styled.main`
   width: 100vw;
   padding: 0 24px;
-  background: #f7f7f7;
+  background: ${colors.footer};
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -21,23 +21,7 @@ export const FooterContainer = styled.main`
 
   @media ${device.deviceXL} {
     padding: 0 80px;
-  }
-`;
-
-export const FooterSection = styled.section`
-  width: 100%;
-  padding: 32px 0;
-  border-bottom: 1px solid ${colors.borderColor};
-  padding: 32px 0;
-
-  @media ${device.deviceM} {
-    padding: 40px 0;
-  }
-
-  @media ${device.deviceXL} {
-    padding: 48px 0;
-    border-bottom: none;
-    height: 100%;
+    align-items: center;
   }
 `;
 
@@ -45,6 +29,7 @@ export const TopFooterSections = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 1624px;
 
   @media ${device.deviceXL} {
     flex-direction: row;
@@ -70,6 +55,25 @@ export const FooterBottomSection = styled.div`
     padding: 18px 0 26px 0;
     flex-direction: row-reverse;
     justify-content: space-between;
+    min-width: unset;
+    max-width: 1624px;
+  }
+`;
+
+export const FooterSection = styled.section`
+  width: 100%;
+  padding: 32px 0;
+  border-bottom: 1px solid ${colors.borderColor};
+  padding: 32px 0;
+
+  @media ${device.deviceM} {
+    padding: 40px 0;
+  }
+
+  @media ${device.deviceXL} {
+    padding: 48px 0;
+    border-bottom: none;
+    height: 100%;
   }
 `;
 
@@ -92,8 +96,7 @@ export const FooterSectionSubHeading = styled.h4`
   text-align: left;
   font-family: ${footerFont};
   color: ${colors.darkText};
-
-  margin: 22px 0;
+  margin: 0;
 `;
 
 export const LinksWrapper = styled.ul`
@@ -129,7 +132,6 @@ export const FooterLink = styled.li`
 
   @media ${device.deviceXL} {
     width: 100%;
-    margin-top: 22px;
   }
 `;
 
@@ -172,7 +174,6 @@ export const IconContainer = styled.div`
   display: none;
   justify-content: center;
   width: 100%;
-
   font-size: 18px;
 
   @media ${device.deviceM} {

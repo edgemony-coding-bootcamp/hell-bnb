@@ -2,6 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchActivityByUuid } from "../services/api";
 import Map from "../components/Map/Map";
+import Layout from "../components/Layout/Layout";
+import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
+import Rank from "../components/Rank/Rank";
+import {
+  WrapPreviewPhoto,
+  WrapMainDetails,
+  WrapGenericInfo,
+  WrapHost,
+  WrapExperiences,
+  WrapGeneric,
+} from "../components/Layout/Layout.element";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,13 +46,32 @@ export default function Activity() {
         <>
           {selectedActivity ? (
             <>
-              <h1 style={{ marginTop: "200px" }}>{selectedActivity.title}</h1>
-              <Map activityData={selectedActivity} />
+              <Layout>
+                <ActivityTitle
+                  title={selectedActivity.title}
+                  rate={48}
+                  number={3}
+                  country={selectedActivity.city.country.name}
+                />
+                <WrapPreviewPhoto />
+                <WrapGeneric>
+                  <Map activityData={selectedActivity} />
+                </WrapGeneric>
+                <WrapMainDetails>
+                  <WrapGenericInfo />
+                  <WrapHost />
+                  {/* <WrapModalInfo /> */}
+                </WrapMainDetails>
+                <WrapExperiences />
+                <Rank />
+                <WrapGeneric comments />
+                <WrapGeneric available />
+                <WrapGeneric info />
+                <WrapGeneric carousel />
+              </Layout>
             </>
           ) : (
-            <h1 style={{ marginTop: "200px" }}>
-              Impossibile trovare evento selezionato.
-            </h1>
+            "Impossibile trovare l'evento selezionato."
           )}
         </>
       )}
