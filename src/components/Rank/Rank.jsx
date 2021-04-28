@@ -1,17 +1,14 @@
 import React from "react";
-import { RateWrapper, Rate, Country } from "./Rank.elements";
+import { RateWrapper, Rate } from "./Rank.elements";
 
-function Rank({ rate, number, country, margin, light, underline }) {
+function Rank({ rate, number, margin, light }) {
   return (
     <RateWrapper>
       <i className="red star icon" />
       <Rate margin={margin}>{rate}</Rate>
       <Rate margin={margin} light={light}>
-        ({number}) &nbsp; ·&nbsp;
+        ({number})
       </Rate>
-      <Country margin={margin} light={light} underline={underline}>
-        {country}
-      </Country>
     </RateWrapper>
   );
 }

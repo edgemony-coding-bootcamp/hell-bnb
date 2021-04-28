@@ -3,7 +3,6 @@ import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
 const footerFont = "Helvetica";
-// Remove as soon as global fonts are set
 export const FooterContainer = styled.main`
   width: 100vw;
   padding: 0 24px;

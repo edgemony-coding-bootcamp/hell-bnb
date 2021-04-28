@@ -9,7 +9,7 @@ import {
   ArrowBtn,
   CloseIcon,
 } from "./Modal.elements";
-import ActivitiesData from "../../assets/ActivitiesData";
+// import ActivitiesData from "../../assets/ActivitiesData";
 
 function Modal({ ModalIsOpen, toggleModal, slides }) {
   const [current, setCurrent] = useState(0);
@@ -63,14 +63,14 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
           )}
 
           <ImageContainer id="imgCont" draggable>
-            {ActivitiesData.map((activity, index) => {
+            {slides.map((activity, index) => {
               const activitiesKeys = `${activity.uuid}-${index}`;
               return (
                 <>
                   {widthWindow < 768 ? (
                     <ModalImage
                       key={activitiesKeys}
-                      src={activity.image}
+                      src={activity.url}
                       alt="no-image"
                       draggable
                       onTouchEndCapture={() => {
@@ -90,7 +90,7 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
                   ) : (
                     <>
                       {index === current && (
-                        <ModalImage src={activity.image} alt="no-image" />
+                        <ModalImage src={activity.url} alt="no-image" />
                       )}
                     </>
                   )}
