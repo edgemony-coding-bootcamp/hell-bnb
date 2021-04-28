@@ -142,11 +142,9 @@ const WrapExperiences = styled.div`
 `;
 
 const WrapGeneric = styled.div`
+  min-height: 420px;
   width: 100%;
-  margin: 10px 0;
-  min-height: 400px;
-  display: flex;
-  align-items: flex-start;
+  margin: 20px 0;
   background-color: ${(props) =>
     (props.info && `lightpink`) ||
     (props.comments && `lightblue`) ||
