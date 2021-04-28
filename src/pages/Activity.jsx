@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchActivityByUuid } from "../services/api";
+import {
+  fetchActivityByUuid,
+  fetchRelatedActivity,
+  fetchActivityMedia,
+} from "../services/api";
+
 import Map from "../components/Map/Map";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import Rank from "../components/Rank/Rank";
+
 import {
   WrapPreviewPhoto,
   WrapMainDetails,
@@ -17,23 +23,30 @@ import {
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
+  const [relatedActivity, setRelatedActivity] = useState();
+  const [activitiesMedia, setActivitiesMedia] = useState();
+
   const { activityUuid } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
     const fetchActivity = async () => {
       try {
-        const activity = await fetchActivityByUuid(activityUuid);
-        if (!activity) {
-          throw new Error("Activity not found");
-        }
+        const [activity, relatedActivities, activityMedia] = await Promise.all([
+          fetchActivityByUuid(activityUuid),
+          fetchRelatedActivity(activityUuid),
+          fetchActivityMedia(activityUuid),
+        ]);
         setSelectedActivity(activity);
+        setRelatedActivity(relatedActivities);
+        setActivitiesMedia(activityMedia);
+
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
+        throw new Error("Something went wrong during Fetch calls");
       }
     };
-
     fetchActivity();
   }, [activityUuid]);
 
@@ -53,7 +66,8 @@ export default function Activity() {
                   number={3}
                   country={selectedActivity.city.country.name}
                 />
-                <WrapPreviewPhoto />
+                <WrapPreviewPhoto activitiesMedia={activitiesMedia} />
+
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>
@@ -62,12 +76,14 @@ export default function Activity() {
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
+
                 <WrapExperiences />
+
                 <Rank />
                 <WrapGeneric comments />
                 <WrapGeneric available />
                 <WrapGeneric info />
-                <WrapGeneric carousel />
+                <WrapGeneric carousel relatedActivity={relatedActivity} />
               </Layout>
             </>
           ) : (
