@@ -71,7 +71,6 @@ const ContentWrap = styled.div`
 `;
 
 const WrapPreviewPhoto = styled.div`
-  min-height: 420px;
   width: 100%;
   margin: 20px 0;
   display: flex;
