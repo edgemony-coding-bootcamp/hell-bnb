@@ -16,18 +16,19 @@ export const WrapContentCenter = styled.div`
   }
 `;
 export const Banner = styled.div`
-  min-height: 13vh;
+  min-height: 100px;
   background-color: #ffffff;
   width: 92%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 16px;
   position: fixed;
   bottom: 30px;
   padding: 5%;
   box-shadow: 0px 0px 10px 2px ${colors.borderColor};
   border-radius: 10px;
+  z-index: 1000;
   @media ${device.deviceL} {
     padding: 2%;
   }
@@ -38,22 +39,19 @@ export const Icon = styled.i`
 `;
 
 export const TitleCookie = styled.strong`
-  font-size: 1.1rem;
+  font-size: 18px;
   color: ${colors.darkText};
-  margin-bottom: 5%;
+  margin-bottom: 14px;
   @media ${device.deviceL} {
-    margin-bottom: 1%;
+    margin-bottom: 14px;
   }
 `;
 
 export const ParagraphCookie = styled.p`
-  font-size: 0.9rem;
+  font-size: 16px;
   color: ${colors.lightText};
   letter-spacing: 0.7px;
-  margin-bottom: 7%;
-  @media ${device.deviceL} {
-    margin-bottom: 1%;
-  }
+  margin-bottom: 12px;
 `;
 
 export const LinkPolicy = styled.a`
@@ -65,7 +63,7 @@ export const LinkPolicy = styled.a`
 `;
 
 export const BtnCookies = styled.button`
-  font-size: 1rem;
+  font-size: 16px;
   width: 90%;
   border-radius: 8px;
   padding: 10px 0;

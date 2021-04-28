@@ -14,7 +14,39 @@ export async function fetchActivities() {
 export async function fetchActivityByUuid(activityUuid) {
   const response = await fetch(`${baseURL}/activities/${activityUuid}`);
   const data = await response.json();
+  // eslint-disable-next-line
+  console.log("activityFetch", data);
   if (response.status >= 400) {
+    // eslint-disable-next-line
+    console.warn("Error: activity by fetchActivityByUiid");
+    throw new Error(data.message);
+  }
+  return data;
+}
+
+export async function fetchRelatedActivity(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/related-activities`
+  );
+  const data = await response.json();
+  // eslint-disable-next-line
+  console.log("releatedActivity", data);
+  if (response.status >= 400) {
+    // eslint-disable-next-line
+    console.warn("Error: relatedActivities by fetchRelatedActivities");
+    throw new Error(data.message);
+  }
+  return data;
+}
+
+export async function fetchActivityMedia(activityUuid) {
+  const response = await fetch(`${baseURL}/activities/${activityUuid}/media`);
+  const data = await response.json();
+  // eslint-disable-next-line
+  console.log("media", data);
+  if (response.status >= 400) {
+    // eslint-disable-next-line
+    console.warn("Error: activityMedia by fetchActivityMedia");
     throw new Error(data.message);
   }
   return data;

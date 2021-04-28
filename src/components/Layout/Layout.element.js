@@ -71,7 +71,6 @@ const ContentWrap = styled.div`
 `;
 
 const WrapPreviewPhoto = styled.div`
-  min-height: 420px;
   width: 100%;
   margin: 20px 0;
   display: flex;
@@ -145,13 +144,10 @@ const WrapGeneric = styled.div`
   width: 100%;
   margin: 10px 0;
   min-height: 400px;
-  display: flex;
-  align-items: flex-start;
   background-color: ${(props) =>
     (props.info && `lightpink`) ||
     (props.comments && `lightblue`) ||
-    (props.available && `lightcyan`) ||
-    (props.carousel && `lightGoldenRodYellow`)};
+    (props.available && `lightcyan`)};
 `;
 
 const WrapHeader = styled.div`
