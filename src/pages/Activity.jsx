@@ -19,6 +19,7 @@ import {
   WrapExperiences,
   WrapGeneric,
 } from "../components/Layout/Layout.element";
+import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -83,7 +84,11 @@ export default function Activity() {
                 <WrapGeneric comments />
                 <WrapGeneric available />
                 <WrapGeneric info />
-                <WrapGeneric carousel relatedActivity={relatedActivity} />
+                {relatedActivity && (
+                  <WrapGeneric>
+                    <CarouselActivities activities={relatedActivity} />
+                  </WrapGeneric>
+                )}
               </Layout>
             </>
           ) : (
