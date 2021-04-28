@@ -149,8 +149,7 @@ const WrapGeneric = styled.div`
   background-color: ${(props) =>
     (props.info && `lightpink`) ||
     (props.comments && `lightblue`) ||
-    (props.available && `lightcyan`) ||
-    (props.carousel && `lightGoldenRodYellow`)};
+    (props.available && `lightcyan`)};
 `;
 
 const WrapHeader = styled.div`
