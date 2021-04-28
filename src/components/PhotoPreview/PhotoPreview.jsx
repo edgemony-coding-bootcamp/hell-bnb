@@ -23,14 +23,13 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
                   const rowKey = `${singleMedia.uuid}_${index}`;
                   const activitiesMediaColumn = activitiesMedia.slice(2, 4);
                   return (
-                    <>
+                    <React.Fragment key={rowKey}>
                       {singleMedia.url && (
                         <>
                           {index < 2 || index > 3 ? (
                             <FullHeightImage
                               src={singleMedia.url}
                               alt="no-image"
-                              key={rowKey}
                             />
                           ) : (
                             <>
@@ -54,7 +53,7 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
                           )}
                         </>
                       )}
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </ImageWrapper>
