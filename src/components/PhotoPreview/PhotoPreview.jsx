@@ -20,6 +20,7 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
             <PhotoPreviewSubContainer>
               <ImageWrapper>
                 {topFivePhotoPreview.map((singleMedia, index) => {
+                  const rowKey = `${singleMedia.uuid}_${index}`;
                   const activitiesMediaColumn = activitiesMedia.slice(2, 4);
                   return (
                     <>
@@ -29,19 +30,24 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
                             <FullHeightImage
                               src={singleMedia.url}
                               alt="no-image"
+                              key={rowKey}
                             />
                           ) : (
                             <>
                               {index === 2 && (
                                 <ImageColumnContainer>
-                                  {activitiesMediaColumn.map((columnMedia) => {
-                                    return (
-                                      <HalfHeightImage
-                                        src={columnMedia.url}
-                                        alt="no-image"
-                                      />
-                                    );
-                                  })}
+                                  {activitiesMediaColumn.map(
+                                    (columnMedia, i) => {
+                                      const columnKey = `${columnMedia.uuid}_${i}`;
+                                      return (
+                                        <HalfHeightImage
+                                          src={columnMedia.url}
+                                          alt="no-image"
+                                          key={columnKey}
+                                        />
+                                      );
+                                    }
+                                  )}
                                 </ImageColumnContainer>
                               )}
                             </>

@@ -86,7 +86,7 @@ export default function Activity() {
                 </WrapMainDetails>
                 <WrapExperiences />
                 <Rank />
-                <WrapGeneric comments />
+                <WrapGeneric comments="comments" />
                 <WrapGeneric available />
                 <WrapGeneric info />
                 <WrapGeneric>
