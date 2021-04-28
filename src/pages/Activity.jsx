@@ -5,6 +5,8 @@ import {
   fetchRelatedActivity,
   fetchActivityMedia,
 } from "../services/api";
+
+import Map from "../components/Map/Map";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import Rank from "../components/Rank/Rank";
@@ -65,6 +67,10 @@ export default function Activity() {
                   country={selectedActivity.city.country.name}
                 />
                 <WrapPreviewPhoto activitiesMedia={activitiesMedia} />
+
+                <WrapGeneric>
+                  <Map activityData={selectedActivity} />
+                </WrapGeneric>
                 <WrapMainDetails>
                   <WrapGenericInfo />
                   <WrapHost />
