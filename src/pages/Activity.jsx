@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Modal from "../components/Modal/Modal";
+import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
+// import ActivitiesData from "../assets/ActivitiesData";
 import {
   fetchActivityByUuid,
   fetchRelatedActivity,
   fetchActivityMedia,
 } from "../services/api";
-
 import Map from "../components/Map/Map";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
 import Rank from "../components/Rank/Rank";
-
 import {
   WrapPreviewPhoto,
   WrapMainDetails,
@@ -28,6 +29,14 @@ export default function Activity() {
   const [activitiesMedia, setActivitiesMedia] = useState();
 
   const { activityUuid } = useParams();
+  // eslint-disable-next-line
+  console.log(selectedActivity);
+
+  const [ModalIsOpen, setModalIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalIsOpen((prev) => !prev);
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -48,26 +57,43 @@ export default function Activity() {
         throw new Error("Something went wrong during Fetch calls");
       }
     };
+
+    if (ModalIsOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
     fetchActivity();
   }, [activityUuid]);
 
   return (
     <>
-      {/* Content to define */}
-      {isLoading ? (
-        <h1 style={{ marginTop: "200px" }}>Loading...</h1>
-      ) : (
-        <>
-          {selectedActivity ? (
-            <>
-              <Layout>
+      <Layout>
+        {/* Content to define */}
+        {isLoading ? (
+          <h1 style={{ marginTop: "200px" }}>Loading...</h1>
+        ) : (
+          <>
+            {selectedActivity ? (
+              <>
                 <ActivityTitle
                   title={selectedActivity.title}
                   rate={48}
                   number={3}
                   country={selectedActivity.city.country.name}
                 />
-                <WrapPreviewPhoto activitiesMedia={activitiesMedia} />
+                <WrapPreviewPhoto>
+                  <PhotoPreview
+                    activitiesMedia={activitiesMedia}
+                    toggleModal={toggleModal}
+                    both
+                    top
+                    bottom
+                    zero
+                    left
+                  />
+                </WrapPreviewPhoto>
 
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
@@ -89,13 +115,18 @@ export default function Activity() {
                     <CarouselActivities activities={relatedActivity} />
                   </WrapGeneric>
                 )}
-              </Layout>
-            </>
-          ) : (
-            "Impossibile trovare l'evento selezionato."
-          )}
-        </>
-      )}
+                <Modal
+                  slides={activitiesMedia}
+                  ModalIsOpen={ModalIsOpen}
+                  toggleModal={toggleModal}
+                />
+              </>
+            ) : (
+              "Impossibile trovare l'evento selezionato."
+            )}
+          </>
+        )}
+      </Layout>
     </>
   );
 }

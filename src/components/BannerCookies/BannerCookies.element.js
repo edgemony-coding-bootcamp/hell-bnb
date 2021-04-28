@@ -77,7 +77,6 @@ export const BtnCookies = styled.button`
   :focus {
     outline: none;
   }
-
   ${(props) =>
     props.accept &&
     css`
