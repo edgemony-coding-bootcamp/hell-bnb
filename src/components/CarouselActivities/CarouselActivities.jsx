@@ -43,6 +43,7 @@ const CarouselActivities = ({ activities }) => {
                   {scrollNum}/{totalScroll}{" "}
                 </CounterSlide>
                 <NavBtn
+                  left
                   onClick={() => {
                     myRef.current.scrollLeft -= scrollSpace;
                     if (scrollNum > 1) {

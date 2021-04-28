@@ -20,22 +20,14 @@ export const StyledLink = styled(Link)`
 export const HeaderCarousel = styled.div`
   display: flex;
   justify-content: space-between;
-<<<<<<< HEAD
   margin-bottom: 10px;
-=======
-  margin-bottom: 2vh;
->>>>>>> main
 `;
 export const NavigatorCarousel = styled.div`
   display: flex;
   /* margin-right: 0px; */
 `;
 export const CounterSlide = styled.p`
-<<<<<<< HEAD
   font-size: 18px;
-=======
-  font-size: 1.3rem;
->>>>>>> main
   padding-right: 5px;
   padding-top: 4px;
   margin: 0px;
@@ -53,8 +45,8 @@ export const NavBtn = styled.button`
   font-size: 1.5rem;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   margin-left: 13px;
-  padding-left: 5px;
-  padding-bottom: 3px;
+  padding-left: ${(props) => (props.left ? "3px" : "5.5px")};
+  padding-bottom: 5px;
   cursor: pointer;
   :focus {
     outline: none;
@@ -62,7 +54,8 @@ export const NavBtn = styled.button`
 
   transition: transform 0.1s; //transition button
   :hover {
-    transform: scale(1.1);
+    transform: scale(1);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -75,17 +68,12 @@ export const WrapperCarousel = styled.div`
   display: flex;
   flex-direction: row;
   height: fit-content;
-<<<<<<< HEAD
   max-width: 100%;
   /* border : black solid 1px; */
   overflow-x: scroll;
-=======
-  width: 100%;
-  /* border : black solid 1px; */
-  overflow: scroll;
->>>>>>> main
   overflow-y: hidden;
   flex-wrap: nowrap;
+  margin-bottom: 60px;
   position: relative;
   ::-webkit-scrollbar {
     display: none;
