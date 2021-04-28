@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
@@ -61,7 +62,10 @@ export default function Activity() {
                 </WrapMainDetails>
                 <WrapExperiences />
                 <Rank />
-                <WrapGeneric comments />
+                <WrapGeneric comments>
+
+                  <Comments  pageId={activityUuid} />
+                </WrapGeneric>
                 <WrapGeneric available />
                 <WrapGeneric info />
                 <WrapGeneric carousel />
@@ -72,7 +76,7 @@ export default function Activity() {
           )}
         </>
       )}
-      <Comments pageId={activityUuid} />
+      {/* <Comments pageId={activityUuid} /> */}
     </>
   );
 }

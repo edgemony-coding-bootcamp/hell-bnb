@@ -2,46 +2,42 @@ import styled, { css } from "styled-components";
 import device from "../../assets/breakpoints";
 
 export const CommentsWrapper = styled.div`
-  display: flex;
+  width: 100%;
+  padding: 24px;
+  overflow: hidden;
   flex-direction: column;
-  min-height: 358px;
-  padding: 32px 0px;
-  margin-left: 24px;
-`;
-
-export const ReviewContainer = styled.div`
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-
   @media ${device.deviceM} {
-    padding: 0;
+    overflow: unset;
+  }
+`;
+export const ReviewContainer = styled.div`
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x;
+  scroll-behavior: smooth;
+  @media ${device.deviceM} {
     width: 100%;
     min-height: 648px;
     flex-direction: column;
-    flex-wrap: nowrap;
-    margin: 0px -8px;
+    max-width: unset;
   }
-
-  @media ${device.deviceL} {
+  @media ${device.deviceXL} {
     flex-direction: column;
     flex-wrap: wrap;
     min-height: 746px;
     max-height: 910px;
     padding: 48px 0px 32px 0px;
+    overflow-x: unset;
   }
 `;
-
 export const GuestReview = styled.div`
   border: 1px solid rgb(221, 221, 221);
-  border-radius: 12px;
   min-height: 202px;
-  box-sizing: border-box;
+  max-height: 236px;
+  border-radius: 12px;
   padding: 16px;
-  margin: 0px 10px 0px 0px;
-  min-width: 75%;
+  min-width: 85%;
   ${(props) =>
     props.noBorder &&
     css`
@@ -56,12 +52,8 @@ export const GuestReview = styled.div`
       margin: 0;
       min-width: 100%;
     `}  
-
-
   @media ${device.deviceM} {
-    margin-bottom: 40px;
-    min-height: 140px;
-    max-height: 140px;
+    max-width: unset;
     border: none;
     ${(props) =>
       props.modal &&
@@ -71,11 +63,11 @@ export const GuestReview = styled.div`
         margin-bottom: 32px;
       `}
   }
-  @media ${device.deviceL} {
+  @media ${device.deviceXL} {
     padding-bottom: 8px;
     min-height: 168px;
-    max-width: 394px;
-    min-width: 476px;
+    min-width: 300px;
+    max-width: 476px;
     ${(props) =>
       props.modal &&
       css`
@@ -89,14 +81,13 @@ export const GuestReview = styled.div`
 export const GuestData = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0px, 10px;
 `;
 export const GuestImage = styled.img`
-  display: block;
   width: 40px;
+  display: block;
   height: 100%;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
   @media ${device.deviceM} {
     width: 56px;
   }
@@ -143,16 +134,13 @@ export const ReviewBtnDiv = styled.div`
   width: 100%;
   max-height: 48px;
   margin-top: 24px;
-
   @media ${device.deviceM} {
-    max-width: 100%;
     margin-top: 8px;
   }
 `;
 export const ReviewBtn = styled.button`
+  width: 100%;
   display: block;
-  position: relative;
-  width: 95%;
   height: 48px;
   cursor: pointer;
   text-align: center;
@@ -169,8 +157,6 @@ export const ReviewBtn = styled.button`
   margin: 0px;
   font-weight: 400;
   @media ${device.deviceM} {
-    width: 100%;
-    padding: 13px 23px;
     max-width: 279px;
     font-weight: 600;
   }
