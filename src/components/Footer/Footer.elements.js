@@ -3,8 +3,6 @@ import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
 const footerFont = "Helvetica";
-// Remove as soon as global fonts are set
-
 export const FooterContainer = styled.main`
   width: 100vw;
   padding: 0 24px;
@@ -14,17 +12,14 @@ export const FooterContainer = styled.main`
   flex-direction: column;
   border-top: 1px solid ${colors.borderColor};
   border-bottom: 1px solid ${colors.borderColor};
-
   @media ${device.deviceM} {
     padding: 0 40px;
   }
-
   @media ${device.deviceXL} {
     padding: 0 80px;
     align-items: center;
   }
 `;
-
 export const TopFooterSections = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,7 +31,6 @@ export const TopFooterSections = styled.div`
     border-bottom: 1px solid ${colors.borderColor};
   }
 `;
-
 export const FooterBottomSection = styled.div`
   width: 100%;
   padding: 12px 0 20px 0;
@@ -50,7 +44,6 @@ export const FooterBottomSection = styled.div`
     align-items: center;
     min-width: 100%;
   }
-
   @media ${device.deviceXL} {
     padding: 18px 0 26px 0;
     flex-direction: row-reverse;
@@ -105,36 +98,30 @@ export const LinksWrapper = styled.ul`
   align-items: flex-start;
   text-align: left;
   width: 100%;
-
   @media ${device.deviceM} {
     flex-direction: row;
     flex-wrap: wrap;
   }
-
   @media ${device.deviceXL} {
     flex-direction: column;
     flex-wrap: no-wrap;
   }
 `;
-
 export const FooterLink = styled.li`
   width: 100%;
   font-size: 14px;
   font-family: ${footerFont};
   list-style: none;
   margin-top: 12px;
-
   @media ${device.deviceM} {
     width: 33%;
     padding-right: 10px;
     margin-top: 16px;
   }
-
   @media ${device.deviceXL} {
     width: 100%;
   }
 `;
-
 export const FooterLinkUrl = styled.a`
   cursor: pointer;
   text-decoration: none;
@@ -150,7 +137,6 @@ export const FooterLinkUrl = styled.a`
     text-decoration: underline;
   }
 `;
-
 export const CompanyDetails = styled.div`
   width: 100%;
   font-size: 14px;
@@ -162,14 +148,12 @@ export const CompanyDetails = styled.div`
   @media ${device.deviceM} {
     text-align: center;
   }
-
   @media ${device.deviceXL} {
     margin-top: 0;
     width: unset;
     margin-right: 20px;
   }
 `;
-
 export const IconContainer = styled.div`
   display: none;
   justify-content: center;
@@ -179,7 +163,6 @@ export const IconContainer = styled.div`
   @media ${device.deviceM} {
     display: flex;
   }
-
   @media ${device.deviceXL} {
     width: unset;
   }
