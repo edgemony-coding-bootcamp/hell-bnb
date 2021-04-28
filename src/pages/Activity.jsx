@@ -63,8 +63,7 @@ export default function Activity() {
                 <WrapExperiences />
                 <Rank />
                 <WrapGeneric comments>
-
-                  <Comments  pageId={activityUuid} />
+                  <Comments pageId={activityUuid} />
                 </WrapGeneric>
                 <WrapGeneric available />
                 <WrapGeneric info />
