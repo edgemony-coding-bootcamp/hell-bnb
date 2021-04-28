@@ -20,14 +20,22 @@ export const StyledLink = styled(Link)`
 export const HeaderCarousel = styled.div`
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
   margin-bottom: 10px;
+=======
+  margin-bottom: 2vh;
+>>>>>>> main
 `;
 export const NavigatorCarousel = styled.div`
   display: flex;
   /* margin-right: 0px; */
 `;
 export const CounterSlide = styled.p`
+<<<<<<< HEAD
   font-size: 18px;
+=======
+  font-size: 1.3rem;
+>>>>>>> main
   padding-right: 5px;
   padding-top: 4px;
   margin: 0px;
@@ -67,9 +75,15 @@ export const WrapperCarousel = styled.div`
   display: flex;
   flex-direction: row;
   height: fit-content;
+<<<<<<< HEAD
   max-width: 100%;
   /* border : black solid 1px; */
   overflow-x: scroll;
+=======
+  width: 100%;
+  /* border : black solid 1px; */
+  overflow: scroll;
+>>>>>>> main
   overflow-y: hidden;
   flex-wrap: nowrap;
   position: relative;

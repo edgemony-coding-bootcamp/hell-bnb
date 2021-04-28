@@ -71,10 +71,11 @@ const ContentWrap = styled.div`
 `;
 
 const WrapPreviewPhoto = styled.div`
-  height: 420px;
+  min-height: 420px;
   width: 100%;
   margin: 20px 0;
-  background-color: lightcoral;
+  display: flex;
+  justify-content: start;
 `;
 
 const WrapMainDetails = styled.div`
