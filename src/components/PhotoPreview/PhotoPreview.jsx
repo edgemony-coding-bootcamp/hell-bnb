@@ -9,8 +9,9 @@ import {
   OpenModalBtn,
   IconContainer,
 } from "./PhotoPreview.elements";
+import Hero from "../Hero/Hero";
 
-function PhotoPreview({ toggleModal, activitiesMedia }) {
+function PhotoPreview({ toggleModal, activitiesMedia, image }) {
   const topFivePhotoPreview = activitiesMedia.slice(0, 5);
   return (
     <>
@@ -70,7 +71,10 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
           </PhotoPreviewContainer>
         </>
       ) : (
-        <></>
+        <>
+          {/* <Hero coverUrl={cover} CoverImg="CoverImg" /> */}
+          <Hero coverUrl={image} CoverImg="CoverImg" />
+        </>
       )}
     </>
   );

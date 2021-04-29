@@ -75,7 +75,10 @@ const WrapPreviewPhoto = styled.div`
   width: 100%;
   margin: 20px 0;
   display: flex;
+  min-height: 300px;
   justify-content: start;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 `;
 
 const WrapMainDetails = styled.div`

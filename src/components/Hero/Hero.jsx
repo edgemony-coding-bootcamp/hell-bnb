@@ -1,10 +1,19 @@
 import React from "react";
-import CoverHero from "./Hero.element";
+import { CoverHero, CoverImg } from "./Hero.element";
 
-function Hero({ coverUrl }) {
+function Hero({ coverUrl, CoverImage }) {
+  console.log("CoverImage", CoverImage);
   return (
     <div>
-      <CoverHero img={coverUrl} />
+      {CoverImage === undefined ? (
+        <CoverHero>
+          <CoverImg src={coverUrl} />
+        </CoverHero>
+      ) : (
+        <>
+          <CoverHero img={coverUrl} />
+        </>
+      )}
     </div>
   );
 }
