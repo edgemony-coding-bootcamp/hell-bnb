@@ -82,21 +82,20 @@ export default function Activity() {
                     activitiesMedia={activitiesMedia}
                   />
                 </WrapPreviewPhoto>
-                <WrapParagraph>
-                  <ParagraphSection
-                    title="Cosa farete"
-                    paragraphText={selectedActivity.about}
-                    maxCharacters={450}
-                  />
-                </WrapParagraph>
-                <WrapGeneric>
-                  <Map activityData={selectedActivity} />
-                </WrapGeneric>
                 <WrapMainDetails>
-                  <WrapGenericInfo />
+                  <WrapGenericInfo>
+                    <ParagraphSection
+                      title="Cosa farete"
+                      paragraphText={selectedActivity.about}
+                      maxCharacters={2000}
+                    />
+                  </WrapGenericInfo>
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
+                <WrapGeneric>
+                  <Map activityData={selectedActivity} />
+                </WrapGeneric>
                 <WrapExperiences />
                 <Rank />
                 <WrapGeneric comments="comments" />

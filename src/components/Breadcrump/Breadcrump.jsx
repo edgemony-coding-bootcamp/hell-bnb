@@ -15,8 +15,6 @@ export default function Breadcrump({ activityInfo }) {
   const activityCategory = getCategory.name;
   const activityCategoryUrl = getCategory.url;
 
-  // const activityCategory = "getCategory.name";
-  // const activityCategoryUrl = "http://getCategory.url";
   if (
     !cityName ||
     !cityUrl ||
