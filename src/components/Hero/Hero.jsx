@@ -1,9 +1,9 @@
 import React from "react";
-import { CoverHero, CoverImg } from "./Hero.element";
+import { CoverHero, CoverImg, HeroWrapper } from "./Hero.element";
 
 function Hero({ coverUrl, CoverImage }) {
   return (
-    <div>
+    <HeroWrapper>
       {CoverImage === undefined ? (
         <CoverHero>
           <CoverImg src={coverUrl} />
@@ -13,7 +13,7 @@ function Hero({ coverUrl, CoverImage }) {
           <CoverHero img={coverUrl} />
         </>
       )}
-    </div>
+    </HeroWrapper>
   );
 }
 

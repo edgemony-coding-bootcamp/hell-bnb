@@ -73,7 +73,7 @@ function PhotoPreview({ toggleModal, activitiesMedia, image }) {
       ) : (
         <>
           {/* <Hero coverUrl={cover} CoverImg="CoverImg" /> */}
-          <Hero coverUrl={image} CoverImg="CoverImg" />
+          <Hero coverUrl={image} CoverImage="CoverImg" />
         </>
       )}
     </>
