@@ -1,5 +1,5 @@
 const device = {
-  deviceM: `(min-width: 768px)`,
+  deviceM: `(min-width: 744px)`,
   deviceL: `(min-width: 1128px)`,
   deviceXL: `(min-width: 1288px)`,
 };

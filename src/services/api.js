@@ -62,3 +62,14 @@ export async function fetchActivityMedia(activityUuid) {
   }
   return data;
 }
+
+export async function fetchActivityComments(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/comments`
+  );
+  const data = await response.json();
+  if (response.status >= 400) {
+    throw new Error(data.message);
+  }
+  return data;
+}

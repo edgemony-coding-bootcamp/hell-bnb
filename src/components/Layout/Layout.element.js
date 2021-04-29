@@ -6,7 +6,7 @@ const MainWrap = styled.div`
   display: flex;
   width: 100%;
   margin: 0;
-  padding: 130px 24px 0px 24px;
+  padding: 10px 24px 0px 24px;
   background-color: ${(props) => (props.color ? `${colors.footer}` : "white")};
   justify-content: center;
   box-sizing: border-box;
@@ -88,7 +88,7 @@ const WrapMainDetails = styled.div`
   padding: 20px 0px;
   @media ${device.deviceL} {
     margin: 40px 0px;
-    padding: 40px 40px;
+    padding: 0px 0px;
     position: relative;
     align-items: start;
   }
@@ -142,13 +142,11 @@ const WrapExperiences = styled.div`
 `;
 
 const WrapGeneric = styled.div`
-  min-height: 420px;
+  /* min-height: 100px; */
   width: 100%;
   margin: 20px 0;
   background-color: ${(props) =>
-    (props.info && `lightpink`) ||
-    (props.comments && `lightblue`) ||
-    (props.available && `lightcyan`)};
+    (props.info && `lightpink`) || (props.available && `lightcyan`)};
 `;
 
 const WrapParagraph = styled.div`
