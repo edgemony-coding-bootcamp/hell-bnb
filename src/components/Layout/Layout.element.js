@@ -88,7 +88,7 @@ const WrapMainDetails = styled.div`
   padding: 20px 0px;
   @media ${device.deviceL} {
     margin: 40px 0px;
-    padding: 40px 40px;
+    padding: 0px 0px;
     position: relative;
     align-items: start;
   }
@@ -142,7 +142,7 @@ const WrapExperiences = styled.div`
 `;
 
 const WrapGeneric = styled.div`
-  min-height: 420px;
+  /* min-height: 100px; */
   width: 100%;
   margin: 20px 0;
   background-color: ${(props) =>

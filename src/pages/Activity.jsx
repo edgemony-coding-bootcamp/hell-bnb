@@ -26,6 +26,22 @@ import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import DurationActivity from "../components/DurationActivity/DurationActivity";
+import { isoDuration, en, pl, it } from "@musement/iso-duration";
+import Languages from "../components/Languages/Languages";
+import ProposedExperience from "./../components/ProposedExperience/ProposedExperience";
+import { Wrap } from "./../components/ProposedExperience/ProposedExperience.elements";
+
+isoDuration.setLocales(
+  {
+    en,
+    pl,
+    it,
+  },
+  {
+    fallbackLocale: "en",
+  }
+);
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -101,6 +117,14 @@ export default function Activity() {
                 </WrapPreviewPhoto>
                 <WrapMainDetails>
                   <WrapGenericInfo>
+                    <ProposedExperience selectedActivity={selectedActivity}>
+                      <DurationActivity
+                        duration={selectedActivity.duration_range.max}
+                        isoDuration={isoDuration}
+                      />
+                      <Wrap center="center">-</Wrap>
+                      <Languages lang={selectedActivity.languages} />
+                    </ProposedExperience>
                     <ParagraphSection
                       title="Cosa farete"
                       paragraphText={selectedActivity.about}
