@@ -21,7 +21,7 @@ const CarouselCities = ({ cities }) => {
   const myRef = useRef(null);
   const scrollSpace = useWindowDimensions().width;
 
-  const cardWidth = 210;
+  const cardWidth = 140;
   const totalScroll = Math.ceil(
     (cities.length * cardWidth) / useWindowDimensions().width
   );
