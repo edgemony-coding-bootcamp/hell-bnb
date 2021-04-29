@@ -17,10 +17,13 @@ import {
   WrapHost,
   WrapExperiences,
   WrapGeneric,
+  WrapParagraph,
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
+import Breadcrump from "../components/Breadcrump/Breadcrump";
+import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +69,6 @@ export default function Activity() {
 
   return (
     <>
-      {console.log(widthWindow)}
       {/* Content to define */}
       {isLoading ? (
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
@@ -80,19 +82,28 @@ export default function Activity() {
           <Layout>
             {selectedActivity ? (
               <>
-                <ActivityTitle
-                  title={selectedActivity.title}
-                  rate={48}
-                  number={3}
-                  country={selectedActivity.city.country.name}
-                />
+                <WrapParagraph>
+                  <Breadcrump activityInfo={selectedActivity} />
+                  <ActivityTitle
+                    title={selectedActivity.title}
+                    rate={48}
+                    number={3}
+                    country={selectedActivity.city.country.name}
+                  />
+                </WrapParagraph>
                 <WrapPreviewPhoto>
                   <PhotoPreview
                     toggleModal={toggleModal}
                     activitiesMedia={activitiesMedia}
                   />
                 </WrapPreviewPhoto>
-
+                <WrapParagraph>
+                  <ParagraphSection
+                    title="Cosa farete"
+                    paragraphText={selectedActivity.about}
+                    maxCharacters={450}
+                  />
+                </WrapParagraph>
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>

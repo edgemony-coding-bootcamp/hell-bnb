@@ -4,38 +4,24 @@ import colors from "../../assets/colors";
 
 export const SectionContainer = styled.section`
   width: 100%;
-  padding: 32px 24px;
-
-  @media ${device.deviceM} {
-    padding: 0 40px;
-  }
-
-  @media ${device.deviceXL} {
-    padding: 0 80px;
-  }
 `;
 
 export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-bottom: 32px;
+  padding: 32px 0;
   border-top: 1px solid ${colors.borderColor};
   border-bottom: 1px solid ${colors.borderColor};
 
   @media ${device.deviceM} {
-    padding-bottom: 48px;
+    padding: 48px 0;
   }
 `;
 
 export const SectionHeader = styled.h2`
   font-family: "Helvetica";
-  padding-top: 32px;
   font-size: 22px;
-
-  @media ${device.deviceM} {
-    padding-top: 48px;
-  }
 `;
 
 export const MapWindow = styled.div`

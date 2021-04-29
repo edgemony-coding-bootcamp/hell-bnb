@@ -3,15 +3,17 @@ import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
 const footerFont = "Helvetica";
+
 export const FooterContainer = styled.main`
   width: 100vw;
   padding: 0 24px;
-  background: ${colors.footer};
+  background-color: ${colors.footer};
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   border-top: 1px solid ${colors.borderColor};
   border-bottom: 1px solid ${colors.borderColor};
+
   @media ${device.deviceM} {
     padding: 0 40px;
   }
@@ -20,6 +22,7 @@ export const FooterContainer = styled.main`
     align-items: center;
   }
 `;
+
 export const TopFooterSections = styled.div`
   display: flex;
   flex-direction: column;

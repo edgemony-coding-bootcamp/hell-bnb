@@ -59,6 +59,7 @@ const ContentWrap = styled.div`
   position: relative;
   box-sizing: border-box;
   @media ${device.deviceXL} {
+    max-width: 1128px;
     min-width: 1128px;
     ${(props) =>
       props.header &&
@@ -150,6 +151,12 @@ const WrapGeneric = styled.div`
     (props.available && `lightcyan`)};
 `;
 
+const WrapParagraph = styled.div`
+  min-height: 120px;
+  width: 100%;
+  margin: 20px 0;
+`;
+
 const WrapHeader = styled.div`
   display: flex;
   justify-content: start;
@@ -175,4 +182,5 @@ export {
   WrapExperiences,
   WrapGeneric,
   WrapHeader,
+  WrapParagraph,
 };
