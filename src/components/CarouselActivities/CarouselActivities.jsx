@@ -1,8 +1,3 @@
-// import CarouselActivities from "../CarouselActivities/CarouselActivities";
-// in Homepage
-// {activities && <CarouselActivities
-// activities = {activities}/>}
-// fetch Homepage
 import React, { useRef, useState } from "react";
 import ActivityCard from "../ActivityCard/ActivityCard";
 // assets

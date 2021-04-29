@@ -14,7 +14,7 @@ export async function fetchActivities() {
 }
 
 export async function fetchCities() {
-  const response = await fetch(`${baseURL}/cities`);
+  const response = await fetch(`${baseURL}/cities?limit=15`);
   const data = await response.json();
 
   if (response.status >= 400) {
