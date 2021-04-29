@@ -19,9 +19,9 @@ export const CityImg = styled.div`
   width: 100%;
   height: 130px;
   border-radius: 5% 5% 0% 0%;
-  border: black solid 1px;
+  /* border: black solid 1px; */
   margin: 0px;
-  /* background-image: url(${(props) => props.img}); */
+  background-image: url(${(props) => props.img});
   background-size: cover;
 `;
 export const CityName = styled.p`

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Title, Wrap, SubTitle } from "./Home.elements";
 import { fetchActivities, fetchCities } from "../../services/api";
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
-import CityCard from "../../components/CityCard/CityCard";
+import CarouselCities from "../../components/CarouselCities/CarouselCities";
 
 function Home() {
   const [activities, setActivities] = useState([]);
@@ -32,11 +32,7 @@ function Home() {
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
       {activities && <CarouselActivities activities={activities} />}
-      <CityCard />
-      {
-        // eslint-disable-next-line
-        cities && console.log(cities)
-      }
+      {cities && <CarouselCities cities={cities} />}
     </Wrap>
   );
 }

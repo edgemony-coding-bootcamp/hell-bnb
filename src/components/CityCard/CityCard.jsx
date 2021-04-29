@@ -1,10 +1,10 @@
 import React from "react";
 import { CityCardWrapper, CityImg, CityName } from "./CityCard.elements";
 
-const CityCard = () => (
+const CityCard = ({ img, city }) => (
   <CityCardWrapper>
-    <CityImg />
-    <CityName>Stromboli</CityName>
+    <CityImg img={img} />
+    <CityName>{city}</CityName>
   </CityCardWrapper>
 );
 export default CityCard;
