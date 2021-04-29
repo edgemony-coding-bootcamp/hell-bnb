@@ -26,7 +26,7 @@ function ActivityTitle({ title, rate, number, country }) {
             rate={rate}
             number={number}
           />
-          <Dot> · </Dot>
+          <Dot>·</Dot>
           <CountryTitle light={false}>{country}</CountryTitle>
         </RankingWrap>
         <ShareButton type="button">

@@ -27,7 +27,6 @@ export const Container = styled.div`
 `;
 export const RankingWrap = styled.div`
   display: flex;
-  width: 100%;
 `;
 
 export const CountryTitle = styled.a`
