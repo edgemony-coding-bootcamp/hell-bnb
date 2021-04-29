@@ -7,21 +7,23 @@ import CarouselCities from "../../components/CarouselCities/CarouselCities";
 function Home() {
   const [activities, setActivities] = useState([]);
   const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetch = async () => {
       try {
         const [dataActivities, dataCities] = await Promise.all([
           fetchActivities(),
           fetchCities(),
         ]);
-        // const dataActivities = await fetchActivities();
-        // const dataCities = await fetchCities();
         setActivities(dataActivities);
         setCities(dataCities);
+        setIsLoading(false);
       } catch (error) {
         // eslint-disable-next-line
         console.error(error);
+        setIsLoading(false);
       }
     };
     fetch();
@@ -31,8 +33,8 @@ function Home() {
     <Wrap>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-      {activities && <CarouselActivities activities={activities} />}
-      {cities && <CarouselCities cities={cities} />}
+      {!isLoading && <CarouselActivities activities={activities} />}
+      {!isLoading && <CarouselCities cities={cities} />}
     </Wrap>
   );
 }

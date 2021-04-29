@@ -1,8 +1,3 @@
-// import CarouselActivities from "../CarouselActivities/CarouselActivities";
-// in Homepage
-// {activities && <CarouselActivities
-// activities = {activities}/>}
-// fetch Homepage
 import React, { useRef, useState } from "react";
 import CityCard from "../CityCard/CityCard";
 // assets
@@ -11,7 +6,6 @@ import {
   CarouselTitle,
   HeaderCarousel,
   NavigatorCarousel,
-  CounterSlide,
   NavBtn,
 } from "./CarouselCities.elements";
 
@@ -22,7 +16,7 @@ const CarouselCities = ({ cities }) => {
   const myRef = useRef(null);
   const scrollSpace = useWindowDimensions().width;
 
-  const cardWidth = 210;
+  const cardWidth = 140;
   const totalScroll = Math.ceil(
     (cities.length * cardWidth) / useWindowDimensions().width
   );
@@ -37,11 +31,8 @@ const CarouselCities = ({ cities }) => {
             {/* window size */}
             {useWindowDimensions().width >= 768 && (
               <NavigatorCarousel>
-                <CounterSlide>
-                  {" "}
-                  {scrollNum}/{totalScroll}{" "}
-                </CounterSlide>
                 <NavBtn
+                  show={scrollNum !== 1}
                   left
                   onClick={() => {
                     myRef.current.scrollLeft -= scrollSpace;
@@ -55,6 +46,7 @@ const CarouselCities = ({ cities }) => {
                   </span>
                 </NavBtn>
                 <NavBtn
+                  show={scrollNum !== totalScroll}
                   onClick={() => {
                     myRef.current.scrollLeft += scrollSpace;
                     if (scrollNum < totalScroll) {
