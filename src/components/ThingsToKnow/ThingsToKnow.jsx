@@ -10,9 +10,12 @@ import {
   InfoLink,
   InfoSection,
 } from "./ThingsToKnow.elements";
+import UpSlideModal from "./UpSlideModal";
 
 export default function ThingsToKnow() {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+
+  const isModalOpen = !true;
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -21,8 +24,6 @@ export default function ThingsToKnow() {
       window.removeEventListener("resize", handleResize);
     };
   });
-
-  console.log(widthWindow);
 
   return (
     <InfoSection>
@@ -90,6 +91,7 @@ export default function ThingsToKnow() {
           </InfoContainer>
         )}
       </InfoWrapper>
+      <UpSlideModal modalOpen={isModalOpen} />
     </InfoSection>
   );
 }
