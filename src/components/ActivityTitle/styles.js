@@ -29,23 +29,10 @@ export const CountryTitle = styled.a`
   text-decoration: underline;
   font-weight: bold;
   padding-top: 3px;
-
-  right: 70px;
-
+  cursor: pointer;
   color: ${colors.darkText};
+
   :hover {
-    color: ${colors.darkText};
-    text-decoration: underline;
-  }
-  :focus {
-    color: ${colors.darkText};
-    text-decoration: underline;
-  }
-  :active {
-    color: ${colors.darkText};
-    text-decoration: underline;
-  }
-  :visited {
     color: ${colors.darkText};
     text-decoration: underline;
   }
@@ -73,7 +60,6 @@ export const Span = styled.span`
 
 export const Dot = styled.p`
   margin: 0;
-  right: 70px;
+  padding: 0 8px;
   padding-top: 2px;
-  text-align: center;
 `;
