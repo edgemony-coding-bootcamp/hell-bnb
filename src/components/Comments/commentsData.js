@@ -1,6 +1,6 @@
 const commentsData = [
   {
-    id: "0008df0c-20a8-41ea-91b0-d66ef55c014e",
+    id: "0002a94e-0a11-4bb1-bec2-5d2a40ae4da2",
     rate: "4.96",
     number: "7",
     comments: [
@@ -63,7 +63,7 @@ const commentsData = [
     ],
   },
   {
-    id: "000fd2a0-7d1e-42cc-9151-2eee592e3421",
+    id: "000e2935-19ac-433f-8b2c-437dc1df0851",
     rate: "4.60",
     number: "3",
     comments: [
@@ -94,7 +94,7 @@ const commentsData = [
     ],
   },
   {
-    id: "002eadf0-75f3-424b-a540-5a19e71d805b",
+    id: "000e8dbb-2c51-489f-9b24-24f77f794bc4",
     rate: "4.89",
     number: "3",
     comments: [
@@ -125,7 +125,7 @@ const commentsData = [
     ],
   },
   {
-    id: "0032c08d-49b3-43e0-a57e-c2a0a4d5940b",
+    id: "000fd2a0-7d1e-42cc-9151-2eee592e3421",
     rate: "4.89",
     number: "9",
     comments: [
@@ -204,7 +204,7 @@ const commentsData = [
     ],
   },
   {
-    id: "00403396-f4e7-430f-aa5b-8bf833a8c769",
+    id: "001025dc-bdc9-47ef-826a-f00c3fa77bc0",
     rate: "4.91",
     number: "4",
     comments: [
@@ -243,7 +243,7 @@ const commentsData = [
     ],
   },
   {
-    id: "0042fb2d-d740-4851-8845-550276062767",
+    id: "0021eada-cac1-4ef0-843f-9ee40d7970b9",
     rate: "4.96",
     number: "4",
     comments: [
@@ -282,7 +282,7 @@ const commentsData = [
     ],
   },
   {
-    id: "00506d63-6a7b-4d81-bc85-3425c5656bcb",
+    id: "0027ef90-3130-4ff6-b7ac-6de927ad4958",
     rate: "4.75",
     number: "4",
     comments: [
@@ -321,7 +321,7 @@ const commentsData = [
     ],
   },
   {
-    id: "005cdbe1-540f-47c0-ac7c-7e9173b1efac",
+    id: "00290804-5792-4546-bfb4-bbd00e7571cb",
     rate: "5",
     number: "3",
     comments: [
@@ -352,7 +352,7 @@ const commentsData = [
     ],
   },
   {
-    id: "0065995e-1726-4586-901e-06719c0af007",
+    id: "0032c08d-49b3-43e0-a57e-c2a0a4d5940b",
     rate: "5",
     number: "1",
     comments: [
@@ -367,7 +367,7 @@ const commentsData = [
     ],
   },
   {
-    id: "0078a798-4ddd-4975-8d62-75b59f0ba6cc",
+    id: "002a75dd-6d87-4fb2-b06e-e353ed56c3d3",
     rate: "4.3",
     number: "2",
     comments: [

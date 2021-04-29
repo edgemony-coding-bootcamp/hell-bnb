@@ -55,6 +55,7 @@ export const GuestReview = styled.div`
   @media ${device.deviceM} {
     max-width: unset;
     border: none;
+    max-height: fit-content;
     ${(props) =>
       props.modal &&
       css`

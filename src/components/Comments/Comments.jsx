@@ -14,6 +14,7 @@ import {
   ReviewBtnDiv,
   ReviewBtn,
 } from "./CommentsGuests.elements";
+import ParagraphSection from "../ParagraphSection/ParagraphSection";
 
 function Comments({ pageId }) {
   const reviews = commentsData;
@@ -54,7 +55,13 @@ function Comments({ pageId }) {
                               </GuestData>
                             </DataContainer>
                           </div>
-                          <GuestComment>{guest.body}</GuestComment>
+                          <ParagraphSection
+                            title=""
+                            paragraphText={guest.body}
+                            maxCharacters={100}
+                          >
+                            <GuestComment>{guest.body}</GuestComment>
+                          </ParagraphSection>
                         </GuestReview>
                       </>
                     );

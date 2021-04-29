@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
-import Modal from "../components/Modal/Modal";
-import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
-// import ActivitiesData from "../assets/ActivitiesData";
 import {
   fetchActivityByUuid,
   fetchRelatedActivity,
@@ -13,6 +10,7 @@ import {
 import Map from "../components/Map/Map";
 import Layout from "../components/Layout/Layout";
 import ActivityTitle from "../components/ActivityTitle/ActivityTitle";
+import PhotoPreview from "../components/PhotoPreview/PhotoPreview";
 import Rank from "../components/Rank/Rank";
 import {
   WrapPreviewPhoto,
@@ -23,17 +21,14 @@ import {
   WrapGeneric,
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
+import Modal from "../components/Modal/Modal";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedActivity, setSelectedActivity] = useState();
   const [relatedActivity, setRelatedActivity] = useState();
   const [activitiesMedia, setActivitiesMedia] = useState();
-
   const { activityUuid } = useParams();
-  // eslint-disable-next-line
-  console.log(selectedActivity);
-
   const [ModalIsOpen, setModalIsOpen] = useState(false);
 
   const toggleModal = () => {
@@ -52,31 +47,23 @@ export default function Activity() {
         setSelectedActivity(activity);
         setRelatedActivity(relatedActivities);
         setActivitiesMedia(activityMedia);
-
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
         throw new Error("Something went wrong during Fetch calls");
       }
     };
-
-    if (ModalIsOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
     fetchActivity();
   }, [activityUuid]);
 
   return (
     <>
-      <Layout>
-        {/* Content to define */}
-        {isLoading ? (
-          <h1 style={{ marginTop: "200px" }}>Loading...</h1>
-        ) : (
-          <>
+      {/* Content to define */}
+      {isLoading ? (
+        <h1 style={{ marginTop: "200px" }}>Loading...</h1>
+      ) : (
+        <>
+          <Layout>
             {selectedActivity ? (
               <>
                 <ActivityTitle
@@ -87,16 +74,10 @@ export default function Activity() {
                 />
                 <WrapPreviewPhoto>
                   <PhotoPreview
-                    activitiesMedia={activitiesMedia}
                     toggleModal={toggleModal}
-                    both
-                    top
-                    bottom
-                    zero
-                    left
+                    activitiesMedia={activitiesMedia}
                   />
                 </WrapPreviewPhoto>
-
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>
@@ -105,20 +86,17 @@ export default function Activity() {
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
-
                 <WrapExperiences />
-
                 <Rank />
                 <WrapGeneric comments>
                   <Comments pageId={activityUuid} />
                 </WrapGeneric>
                 <WrapGeneric available />
                 <WrapGeneric info />
-                {relatedActivity && (
-                  <WrapGeneric>
-                    <CarouselActivities activities={relatedActivity} />
-                  </WrapGeneric>
-                )}
+                <WrapGeneric>
+                  <CarouselActivities activities={relatedActivity} />
+                </WrapGeneric>
+
                 <Modal
                   slides={activitiesMedia}
                   ModalIsOpen={ModalIsOpen}
@@ -128,9 +106,9 @@ export default function Activity() {
             ) : (
               "Impossibile trovare l'evento selezionato."
             )}
-          </>
-        )}
-      </Layout>
+          </Layout>
+        </>
+      )}
     </>
   );
 }
