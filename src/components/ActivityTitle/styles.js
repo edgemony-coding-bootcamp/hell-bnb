@@ -6,9 +6,10 @@ import device from "../../assets/breakpoints";
 
 export const ActivityTitleWrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const ActivityTitleText = styled.h1`
@@ -18,10 +19,15 @@ export const ActivityTitleText = styled.h1`
 
 // Share div
 
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 export const RankingWrap = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
 `;
 
 export const CountryTitle = styled.a`
@@ -42,8 +48,7 @@ export const ShareButton = styled.button`
   display: none;
 
   @media ${device.deviceL} {
-    position: absolute;
-    left: 1028px;
+    padding-right: 13px;
     padding-top: 2px;
     display: flex;
 
