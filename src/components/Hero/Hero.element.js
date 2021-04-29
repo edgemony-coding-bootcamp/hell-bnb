@@ -11,6 +11,7 @@ export const CoverHero = styled.div`
 export const CoverImg = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 `;
 
 export const HeroWrapper = styled.div`
