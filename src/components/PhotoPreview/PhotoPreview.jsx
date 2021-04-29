@@ -14,7 +14,7 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
   const topFivePhotoPreview = activitiesMedia.slice(0, 5);
   return (
     <>
-      {activitiesMedia.length > 0 ? (
+      {activitiesMedia.length > 1 ? (
         <>
           <PhotoPreviewContainer>
             <PhotoPreviewSubContainer>
@@ -33,7 +33,7 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
                             />
                           ) : (
                             <>
-                              {index === 2 && (
+                              {index === 2 && topFivePhotoPreview.length > 3 && (
                                 <ImageColumnContainer>
                                   {activitiesMediaColumn.map(
                                     (columnMedia, i) => {

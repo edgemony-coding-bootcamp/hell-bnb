@@ -23,6 +23,7 @@ import {
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
+import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
 
@@ -33,6 +34,15 @@ export default function Activity() {
   const [activitiesMedia, setActivitiesMedia] = useState();
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
+  const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidthWindow(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const toggleModal = () => {
     setModalIsOpen((prev) => !prev);
@@ -66,6 +76,11 @@ export default function Activity() {
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
         <>
+          {widthWindow < 788 && (
+            <>
+              <Hero coverUrl={selectedActivity.cover_image_url} />
+            </>
+          )}
           <Layout>
             {selectedActivity ? (
               <>
