@@ -11,10 +11,12 @@ export default function Breadcrump({ activityInfo }) {
   const cityUrl = activityInfo.city.url;
   const countryName = activityInfo.city.country.name;
   const activityType = activityInfo.verticals[0].name;
-  const getCategory = activityInfo.categories.pop();
+  const getCategory = activityInfo.categories[0];
   const activityCategory = getCategory.name;
   const activityCategoryUrl = getCategory.url;
 
+  // const activityCategory = "getCategory.name";
+  // const activityCategoryUrl = "http://getCategory.url";
   if (
     !cityName ||
     !cityUrl ||

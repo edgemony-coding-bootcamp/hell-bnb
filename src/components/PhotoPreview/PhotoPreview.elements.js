@@ -48,6 +48,7 @@ export const FullHeightImage = styled.img`
   height: 100%;
   cursor: pointer;
   padding-right: 8px;
+  object-fit: cover;
 
   :hover {
     opacity: 0.9;
@@ -81,6 +82,7 @@ export const HalfHeightImage = styled.img`
   width: 100%;
   height: calc(50% - 4px);
   cursor: pointer;
+  object-fit: cover;
 
   display: ${(props) =>
     (props.hidden ? "none" : props.display) ? "block" : "block"};
@@ -98,6 +100,7 @@ export const HalfHeightImage = styled.img`
 
 export const IconContainer = styled.span`
   display: none;
+  margin-right: 8px;
 
   @media ${device.deviceM} {
     display: inline-block;

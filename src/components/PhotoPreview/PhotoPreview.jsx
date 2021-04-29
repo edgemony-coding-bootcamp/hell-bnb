@@ -61,8 +61,10 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
               <OpenModalBtn hide onClick={() => toggleModal()}>
                 <IconContainer>
                   <i className="expand arrows alternate icon" />
-                </IconContainer>{" "}
-                Mostra tutte le 5 foto
+                </IconContainer>
+                {activitiesMedia.length > 1
+                  ? `Mostra tutte le ${activitiesMedia.length} foto`
+                  : "Mostra foto"}
               </OpenModalBtn>
             </PhotoPreviewSubContainer>
           </PhotoPreviewContainer>
