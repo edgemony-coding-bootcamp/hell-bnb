@@ -4,7 +4,6 @@ import device from "../../assets/breakpoints";
 
 export const PhotoPreviewContainer = styled.div`
   width: 100%;
-  margin: 32px 0px;
   padding: 0 0px;
   display: flex;
   flex-direction: column;
