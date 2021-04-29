@@ -23,6 +23,7 @@ import CarouselActivities from "../components/CarouselActivities/CarouselActivit
 import Modal from "../components/Modal/Modal";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import ThingsToKnow from "../components/ThingsToKnow/ThingsToKnow";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -101,7 +102,9 @@ export default function Activity() {
                 <Rank />
                 <WrapGeneric comments="comments" />
                 <WrapGeneric available />
-                <WrapGeneric info />
+                <WrapGeneric>
+                  <ThingsToKnow />
+                </WrapGeneric>
                 <WrapGeneric>
                   <CarouselActivities activities={relatedActivity} />
                 </WrapGeneric>
