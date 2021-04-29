@@ -11,7 +11,6 @@ import {
   CarouselTitle,
   HeaderCarousel,
   NavigatorCarousel,
-  CounterSlide,
   NavBtn,
 } from "./CarouselCities.elements";
 
@@ -37,11 +36,8 @@ const CarouselCities = ({ cities }) => {
             {/* window size */}
             {useWindowDimensions().width >= 768 && (
               <NavigatorCarousel>
-                <CounterSlide>
-                  {" "}
-                  {scrollNum}/{totalScroll}{" "}
-                </CounterSlide>
                 <NavBtn
+                  show={scrollNum !== 1}
                   left
                   onClick={() => {
                     myRef.current.scrollLeft -= scrollSpace;
@@ -55,6 +51,7 @@ const CarouselCities = ({ cities }) => {
                   </span>
                 </NavBtn>
                 <NavBtn
+                  show={scrollNum !== totalScroll}
                   onClick={() => {
                     myRef.current.scrollLeft += scrollSpace;
                     if (scrollNum < totalScroll) {
