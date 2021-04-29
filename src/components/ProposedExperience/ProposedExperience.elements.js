@@ -5,6 +5,7 @@ export const Wrap = styled.div`
   width: 100%;
   align-items: center;
   min-height: 30px;
+  padding-bottom: 20px;
   ${(props) =>
     props.center &&
     css`

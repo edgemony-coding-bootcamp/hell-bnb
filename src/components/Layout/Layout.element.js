@@ -82,9 +82,8 @@ const WrapPreviewPhoto = styled.div`
 `;
 
 const WrapMainDetails = styled.div`
-  min-height: 100vh;
+  min-height: fit-content;
   width: 100%;
-  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -98,9 +97,8 @@ const WrapMainDetails = styled.div`
 `;
 
 const WrapGenericInfo = styled.div`
-  background-color: white;
-  width: 80%;
-  min-height: 600px;
+  width: 100%;
+
   @media ${device.deviceL} {
     width: 55%;
     margin: 20px 0px;
