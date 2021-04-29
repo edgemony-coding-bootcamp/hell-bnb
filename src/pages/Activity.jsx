@@ -20,6 +20,7 @@ import {
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
+import Breadcrump from "../components/Breadcrump/Breadcrump";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,6 +65,7 @@ export default function Activity() {
           <Layout>
             {selectedActivity ? (
               <>
+                <Breadcrump activityInfo={selectedActivity} />
                 <ActivityTitle
                   title={selectedActivity.title}
                   rate={48}
