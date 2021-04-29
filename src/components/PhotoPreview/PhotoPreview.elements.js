@@ -3,7 +3,7 @@ import colors from "../../assets/colors";
 import device from "../../assets/breakpoints";
 
 export const PhotoPreviewContainer = styled.div`
-  width: 99%;
+  width: 100%;
   padding: 0 0px;
   display: flex;
   flex-direction: column;
