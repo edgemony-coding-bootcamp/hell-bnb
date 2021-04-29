@@ -20,12 +20,14 @@ import {
   WrapExperiences,
   WrapGeneric,
   WrapParagraph,
+  WrapIcons,
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import IconsSection from "../components/IconsSection/IconsSection";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -99,6 +101,9 @@ export default function Activity() {
                     activitiesMedia={activitiesMedia}
                   />
                 </WrapPreviewPhoto>
+                <WrapIcons>
+                  <IconsSection activities={relatedActivity} />
+                </WrapIcons>
                 <WrapMainDetails>
                   <WrapGenericInfo>
                     <ParagraphSection

@@ -8,3 +8,8 @@
 .primaryColor {
   color: #ff385c;
 }
+
+.align {
+  text-align: center;
+  justify-self: center;
+}
