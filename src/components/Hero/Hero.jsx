@@ -2,7 +2,6 @@ import React from "react";
 import { CoverHero, CoverImg } from "./Hero.element";
 
 function Hero({ coverUrl, CoverImage }) {
-  console.log("CoverImage", CoverImage);
   return (
     <div>
       {CoverImage === undefined ? (
