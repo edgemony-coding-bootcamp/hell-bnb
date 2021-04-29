@@ -21,6 +21,7 @@ import {
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
+import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -78,6 +79,11 @@ export default function Activity() {
                     activitiesMedia={activitiesMedia}
                   />
                 </WrapPreviewPhoto>
+                <ParagraphSection
+                  title="Cosa farete"
+                  paragraphText={selectedActivity.about}
+                  maxCharacters={450}
+                />
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>

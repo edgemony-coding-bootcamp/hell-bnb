@@ -15,6 +15,17 @@ export default function Breadcrump({ activityInfo }) {
   const activityCategory = getCategory.name;
   const activityCategoryUrl = getCategory.url;
 
+  if (
+    !cityName ||
+    !cityUrl ||
+    !countryName ||
+    !activityType ||
+    !getCategory ||
+    !activityCategory ||
+    !activityCategoryUrl
+  )
+    return null;
+
   return (
     <BreadcrumpContainer>
       <AnchorTag href={cityUrl}>
@@ -26,7 +37,7 @@ export default function Breadcrump({ activityInfo }) {
       <AnchorTag href={activityCategoryUrl}>
         {activityCategory}
         <Icon>
-          <i className="small chevron right icon" />
+          <i className=" chevron right icon" />
         </Icon>
       </AnchorTag>
       <ActivityType>{activityType}</ActivityType>
