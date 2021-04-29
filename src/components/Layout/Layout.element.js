@@ -6,7 +6,7 @@ const MainWrap = styled.div`
   display: flex;
   width: 100%;
   margin: 0;
-  padding: 130px 24px 0px 24px;
+  padding: 10px 24px 0px 24px;
   background-color: ${(props) => (props.color ? `${colors.footer}` : "white")};
   justify-content: center;
   box-sizing: border-box;
