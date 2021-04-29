@@ -141,7 +141,7 @@ const WrapExperiences = styled.div`
 `;
 
 const WrapGeneric = styled.div`
-  min-height: 420px;
+  min-height: fit-content;
   width: 100%;
   margin: 20px 0;
   background-color: ${(props) =>

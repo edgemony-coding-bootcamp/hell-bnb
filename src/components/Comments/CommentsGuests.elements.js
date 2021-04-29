@@ -3,7 +3,6 @@ import device from "../../assets/breakpoints";
 
 export const CommentsWrapper = styled.div`
   width: 100%;
-  padding: 24px;
   overflow: hidden;
   flex-direction: column;
   @media ${device.deviceM} {
@@ -16,28 +15,23 @@ export const ReviewContainer = styled.div`
   overflow-x: auto;
   scroll-snap-type: x;
   scroll-behavior: smooth;
+  height: fit-content;
   @media ${device.deviceM} {
     width: 100%;
-    min-height: 648px;
     flex-direction: column;
     max-width: unset;
   }
-  @media ${device.deviceXL} {
-    flex-direction: column;
-    flex-wrap: wrap;
-    min-height: 746px;
-    max-height: 910px;
-    padding: 48px 0px 32px 0px;
-    overflow-x: unset;
+  @media ${device.deviceL} {
+    flex-flow: row wrap;
   }
 `;
 export const GuestReview = styled.div`
   border: 1px solid rgb(221, 221, 221);
-  min-height: 202px;
-  max-height: 236px;
+  min-height: 236px;
   border-radius: 12px;
   padding: 16px;
   min-width: 85%;
+  margin-right: 10px;
   ${(props) =>
     props.noBorder &&
     css`
@@ -55,7 +49,8 @@ export const GuestReview = styled.div`
   @media ${device.deviceM} {
     max-width: unset;
     border: none;
-    max-height: fit-content;
+    min-height: 116px;
+    margin: 0;
     ${(props) =>
       props.modal &&
       css`
@@ -64,11 +59,12 @@ export const GuestReview = styled.div`
         margin-bottom: 32px;
       `}
   }
-  @media ${device.deviceXL} {
-    padding-bottom: 8px;
+  @media ${device.deviceL} {
     min-height: 168px;
-    min-width: 300px;
-    max-width: 476px;
+    min-width: 394px;
+    max-width: 461px;
+    width: 50%;
+    padding: 0px calc(50% - 46%) 8px 0px;
     ${(props) =>
       props.modal &&
       css`
