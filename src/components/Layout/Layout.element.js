@@ -146,9 +146,7 @@ const WrapGeneric = styled.div`
   width: 100%;
   margin: 20px 0;
   background-color: ${(props) =>
-    (props.info && `lightpink`) ||
-    (props.comments && `lightblue`) ||
-    (props.available && `lightcyan`)};
+    (props.info && `lightpink`) || (props.available && `lightcyan`)};
 `;
 
 const WrapParagraph = styled.div`
