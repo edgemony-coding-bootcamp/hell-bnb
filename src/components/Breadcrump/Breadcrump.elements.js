@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import colors from "../../assets/colors";
+import device from "../../assets/breakpoints";
 
 export const BreadcrumpContainer = styled.section`
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: flex-start;
+  display: none;
+  padding-bottom: 32px;
+
+  @media ${device.deviceM} {
+    display: flex;
+  }
 `;
 
 export const AnchorTag = styled.a`

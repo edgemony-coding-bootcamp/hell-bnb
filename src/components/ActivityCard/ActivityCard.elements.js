@@ -75,7 +75,7 @@ export const Detail = styled.p`
   margin: 3px 0px 7px 0px;
   line-height: 0.9em;
 `;
-export const Bold = styled.p`
+export const Bold = styled.span`
   color: ${colors.darkText};
   margin: 0px;
   font-weight: bold;

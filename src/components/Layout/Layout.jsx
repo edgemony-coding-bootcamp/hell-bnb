@@ -1,10 +1,10 @@
 import React from "react";
 import { MainWrap, ContentWrap } from "./Layout.element";
 
-function Layout({ children, noPadding, color }) {
+function Layout({ children, noPadding }) {
   return (
     <>
-      <MainWrap noPadding={noPadding} color={color}>
+      <MainWrap noPadding={noPadding}>
         <ContentWrap>{children}</ContentWrap>
       </MainWrap>
     </>
