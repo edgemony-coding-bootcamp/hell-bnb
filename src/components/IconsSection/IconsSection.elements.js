@@ -41,3 +41,8 @@ export const Paragraph = styled.p`
   font-size: 14px;
   color: ${colors.lightText};
 `;
+
+export const Icon = styled.div`
+  height: 64px;
+  /* width: 24px; */
+`;

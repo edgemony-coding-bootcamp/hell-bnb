@@ -1,39 +1,49 @@
+/* eslint-disable */
+
 import React from "react";
 import {
   IconsSectionWrapper,
   IconContainer,
   TextContainer,
+  Icon,
   Title,
   Paragraph,
 } from "./IconsSection.elements";
 
-export default function IconsSection() {
+export default function IconsSection({ mobile, whenText, opsDays }) {
+  let stringToReplace = "";
+
+  whenText ? (stringToReplace = whenText.search("<ul><li>")) : "";
+
+  whenText ? whenText.replace(stringToReplace, whenText) : "";
+
   return (
     <IconsSectionWrapper>
       <IconContainer>
-        <i className="mobile icon align" />
+        <Icon>
+          <i className="mobile icon align" />
+        </Icon>
         <TextContainer>
           <Title>
-            Voucher Mobile disponibile
-            {/* Voucher Mobile {apikeyTRUE ? "disponibile" : "non disponibile"} */}
+            Voucher Mobile
+            {mobile === "MOBILE" ? "disponibile" : "non disponibile"}
           </Title>
           <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do
-            eiusmod tempor incidunt
+            {mobile
+              ? "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore"
+              : "non disponibile"}
           </Paragraph>
         </TextContainer>
       </IconContainer>
       <IconContainer>
-        <i className="calendar alternate icon align" />
+        <Icon>
+          <i className="calendar alternate icon align" />
+        </Icon>
         <TextContainer>
           <Title>
-            Operational days
-            {/* {whenText APIKEYS} */}
+            Operational days {opsDays ? opsDays : "non disponibile"}
           </Title>
-          <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do
-            eiusmod tempor incidunt
-          </Paragraph>
+          <Paragraph>{whenText}</Paragraph>
         </TextContainer>
       </IconContainer>
     </IconsSectionWrapper>

@@ -102,7 +102,11 @@ export default function Activity() {
                   />
                 </WrapPreviewPhoto>
                 <WrapIcons>
-                  <IconsSection activities={relatedActivity} />
+                  <IconsSection
+                    mobile={relatedActivity.voucher_access_usage}
+                    whenText={relatedActivity.when_text}
+                    opsDays={relatedActivity.operational_days}
+                  />
                 </WrapIcons>
                 <WrapMainDetails>
                   <WrapGenericInfo>
