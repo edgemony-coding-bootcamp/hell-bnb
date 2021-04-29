@@ -4,6 +4,8 @@ import {
   ActivityTitleText,
   ShareButton,
   Span,
+  Dot,
+  CountryTitle,
   RankingWrap,
 } from "./styles";
 
@@ -14,15 +16,9 @@ function ActivityTitle({ title, rate, number, country }) {
     <ActivityTitleWrapper>
       <ActivityTitleText>{title}</ActivityTitleText>
       <RankingWrap>
-        <Rank
-          light={false}
-          underline
-          bold
-          margin
-          rate={rate}
-          number={number}
-          country={country}
-        />
+        <Rank light={false} underline bold margin rate={rate} number={number} />
+        <Dot> &nbsp; · &nbsp; </Dot>
+        <CountryTitle light={false}> {country}</CountryTitle>
         <ShareButton type="button">
           <i className="share square icon" />
           <Span>Condividi</Span>

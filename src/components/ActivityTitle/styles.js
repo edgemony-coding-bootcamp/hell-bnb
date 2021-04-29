@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import colors from "../../assets/colors";
 import device from "../../assets/breakpoints";
 
 // Activity Title
@@ -9,15 +9,6 @@ export const ActivityTitleWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  /* height: 100px;
-  width: 100vw; */
-
-  @media ${device.deviceL} {
-    /* width: 100vw;
-    height: 100px; */
-
-    transition: all 0.2s ease-in-out;
-  }
 `;
 
 export const ActivityTitleText = styled.h1`
@@ -29,29 +20,60 @@ export const ActivityTitleText = styled.h1`
 
 export const RankingWrap = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
+`;
 
-  @media ${device.deviceL} {
-    /* width: 100vw;
-    height: 100px; */
-    transition: all 0.2s ease-in-out;
+export const CountryTitle = styled.a`
+  text-decoration: none;
+  text-decoration: underline;
+  font-weight: bold;
+  padding-top: 3px;
+
+  right: 70px;
+
+  color: ${colors.darkText};
+  :hover {
+    color: ${colors.darkText};
+    text-decoration: underline;
+  }
+  :focus {
+    color: ${colors.darkText};
+    text-decoration: underline;
+  }
+  :active {
+    color: ${colors.darkText};
+    text-decoration: underline;
+  }
+  :visited {
+    color: ${colors.darkText};
+    text-decoration: underline;
   }
 `;
 
 export const ShareButton = styled.button`
   display: none;
+
   @media ${device.deviceL} {
+    position: absolute;
+    left: 1028px;
+    padding-top: 2px;
     display: flex;
-    margin-left: 500px;
+
+    font-weight: bold;
     background-color: white;
     border: none;
   }
 `;
 
 export const Span = styled.span`
-  @media ${device.deviceL} {
-    display: flex;
-    margin-left: 5px;
-    text-decoration: underline;
-  }
+  display: flex;
+  text-decoration: underline;
+`;
+
+export const Dot = styled.p`
+  margin: 0;
+  right: 70px;
+  padding-top: 2px;
+  text-align: center;
 `;
