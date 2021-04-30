@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
@@ -103,9 +102,9 @@ export default function Activity() {
                 </WrapPreviewPhoto>
                 <WrapIcons>
                   <IconsSection
-                    mobile={relatedActivity.voucher_access_usage}
-                    whenText={relatedActivity.when_text}
-                    opsDays={relatedActivity.operational_days}
+                    mobile={selectedActivity.voucher_access_usage}
+                    features={selectedActivity.features}
+                    opsDays={selectedActivity.operational_days}
                   />
                 </WrapIcons>
                 <WrapMainDetails>

@@ -1,51 +1,50 @@
-/* eslint-disable */
-
 import React from "react";
 import {
   IconsSectionWrapper,
   IconContainer,
   TextContainer,
-  Icon,
   Title,
-  Paragraph,
 } from "./IconsSection.elements";
 
-export default function IconsSection({ mobile, whenText, opsDays }) {
-  let stringToReplace = "";
-
-  whenText ? (stringToReplace = whenText.search("<ul><li>")) : "";
-
-  whenText ? whenText.replace(stringToReplace, whenText) : "";
+export default function IconsSection({ mobile, features, opsDays }) {
+  const mapFeaturesIcons = {
+    istant: "check circle",
+    ADDVA_GUIDE: "heart",
+    ADDVA_MEAL: "beer",
+    ADDVA_ENTRAN: "bell",
+  };
 
   return (
     <IconsSectionWrapper>
       <IconContainer>
-        <Icon>
-          <i className="mobile icon align" />
-        </Icon>
+        <i className="mobile icon align" />
         <TextContainer>
           <Title>
-            Voucher Mobile
-            {mobile === "MOBILE" ? "disponibile" : "non disponibile"}
+            voucher mobile
+            {mobile === "MOBILE" ? " disponibile" : " non disponibile"}
           </Title>
-          <Paragraph>
-            {mobile
-              ? "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore"
-              : "non disponibile"}
-          </Paragraph>
         </TextContainer>
       </IconContainer>
       <IconContainer>
-        <Icon>
-          <i className="calendar alternate icon align" />
-        </Icon>
+        <i className="calendar alternate icon align" />
         <TextContainer>
           <Title>
-            Operational days {opsDays ? opsDays : "non disponibile"}
+            {opsDays
+              ? `disponibile ${opsDays.toLowerCase()}`
+              : "attività non disponibile, controlla il calendario"}
           </Title>
-          <Paragraph>{whenText}</Paragraph>
         </TextContainer>
       </IconContainer>
+
+      {features.map((feature) => (
+        <IconContainer>
+          <i className={`${mapFeaturesIcons[feature.code] || "magic"} icon`} />
+
+          <TextContainer>
+            <Title>{feature.name.toLowerCase()}</Title>
+          </TextContainer>
+        </IconContainer>
+      ))}
     </IconsSectionWrapper>
   );
 }

@@ -12,9 +12,9 @@ export const IconsSectionWrapper = styled.section`
 export const IconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   @media ${device.deviceL} {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
 `;
 
@@ -40,9 +40,4 @@ export const Paragraph = styled.p`
   font-family: "Helvetica";
   font-size: 14px;
   color: ${colors.lightText};
-`;
-
-export const Icon = styled.div`
-  height: 64px;
-  /* width: 24px; */
 `;
