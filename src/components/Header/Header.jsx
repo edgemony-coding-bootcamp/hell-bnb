@@ -1,6 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { HeaderContainer, LogoHeading, HeaderLink } from "./Header.elements";
+import {
+  HeaderContainer,
+  LogoHeading,
+  HeaderLink,
+  ImgLogo,
+} from "./Header.elements";
 import airbnbLogo from "../../assets/images/airbnb_logo.svg";
 import Layout from "../Layout/Layout";
 import { WrapHeader } from "../Layout/Layout.element";
@@ -15,7 +20,7 @@ function Header() {
         <Layout noPadding="noPadding">
           <WrapHeader>
             {useWindowDimensions().width > 743 || location.pathname === "/" ? (
-              <img src={airbnbLogo} alt="hellbnb logo" width="50px" />
+              <ImgLogo src={airbnbLogo} alt="hellbnb logo" width="50px" />
             ) : (
               <i className="black chevron left icon" />
             )}

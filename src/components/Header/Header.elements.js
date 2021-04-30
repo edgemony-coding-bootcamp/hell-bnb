@@ -45,4 +45,14 @@ const LogoHeading = styled.h1`
   }
 `;
 
-export { LogoHeading, HeaderLink, HeaderContainer };
+const ImgLogo = styled.img`
+  width: 30px;
+  @media ${device.deviceM} {
+    width: 50px;
+  }
+  @media ${device.deviceL} {
+    width: 50px;
+  }
+`;
+
+export { LogoHeading, HeaderLink, HeaderContainer, ImgLogo };
