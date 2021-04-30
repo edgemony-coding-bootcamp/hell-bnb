@@ -39,22 +39,20 @@ function Comments({ pageId }) {
                   {topFiveComments.map((guest, i) => {
                     const guestId = `${guest}_${i}`;
                     return (
-                      <>
+                      <React.Fragment key={guestId}>
                         <GuestReview>
-                          <div key={guestId}>
-                            <DataContainer>
-                              <GuestImage
-                                img
-                                src={guest.image}
-                                alt="author_avatar"
-                              />
+                          <DataContainer>
+                            <GuestImage
+                              img
+                              src={guest.image}
+                              alt="author_avatar"
+                            />
 
-                              <GuestData>
-                                <GuestName>{guest.name}</GuestName>
-                                <GuestRevDate>{guest.date}</GuestRevDate>
-                              </GuestData>
-                            </DataContainer>
-                          </div>
+                            <GuestData>
+                              <GuestName>{guest.name}</GuestName>
+                              <GuestRevDate>{guest.date}</GuestRevDate>
+                            </GuestData>
+                          </DataContainer>
                           <ParagraphSection
                             title=""
                             paragraphText={guest.body}
@@ -63,7 +61,7 @@ function Comments({ pageId }) {
                             <GuestComment>{guest.body}</GuestComment>
                           </ParagraphSection>
                         </GuestReview>
-                      </>
+                      </React.Fragment>
                     );
                   })}
                 </ReviewContainer>

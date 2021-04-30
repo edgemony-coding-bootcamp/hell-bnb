@@ -10,13 +10,9 @@ export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 0;
-  border-top: 1px solid ${colors.borderColor};
+  /* padding: 32px 0; */
+  padding-bottom: 32px;
   border-bottom: 1px solid ${colors.borderColor};
-
-  @media ${device.deviceM} {
-    padding: 48px 0;
-  }
 `;
 
 export const SectionHeader = styled.h2`

@@ -2,7 +2,11 @@ import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
+  width: 70%;
+  //Aggiunta
+  min-width: 322px;
+  flex-direction: row;
   /* align-items: center; */
   min-height: 30px;
   ${(props) =>
