@@ -9,13 +9,44 @@ import {
   SectionTitle,
   InfoLink,
   InfoSection,
+  ModalListItem,
 } from "./ThingsToKnow.elements";
 import UpSlideModal from "./UpSlideModal";
 
 export default function ThingsToKnow() {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+  const [isModalOpen, setisModalOpen] = useState(false);
 
-  const isModalOpen = !true;
+  const [cancellationPolicyContent, setCancellationPolicyContent] = useState(
+    false
+  );
+  const [guestsRequisiteContent, setGuestsRequisiteContent] = useState(false);
+  const [whatToTakeContent, setWhatToTakeContent] = useState(false);
+
+  const [modalCloseDirectives, setModalCloseDirectives] = useState({
+    contentFunc: undefined,
+    funcState: undefined,
+  });
+
+  function toggleModal(contentFunc, funcState) {
+    if (isModalOpen) {
+      document.body.style.overflow = "scroll";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+
+    setisModalOpen(!isModalOpen);
+    contentFunc(!funcState);
+    setModalCloseDirectives({ contentFunc, funcState });
+  }
+
+  function mobileOpenModalBehaviour(contentFunc, funcState) {
+    if (widthWindow < 768) {
+      toggleModal(contentFunc, funcState);
+    }
+  }
+
+  //   temp
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -27,14 +58,17 @@ export default function ThingsToKnow() {
 
   return (
     <InfoSection>
-      {widthWindow > 768 && (
-        <div>
-          <SectionTitle>Cose da sapere</SectionTitle>
-        </div>
-      )}
+      {widthWindow >= 768 && <SectionTitle>Cose da sapere</SectionTitle>}
 
       <InfoWrapper>
-        <InfoContainer>
+        <InfoContainer
+          onClick={() =>
+            mobileOpenModalBehaviour(
+              setCancellationPolicyContent,
+              cancellationPolicyContent
+            )
+          }
+        >
           <InfoSubContainer>
             <InfoTitle>Termini di cancellazione</InfoTitle>
             <InfoParagraph>
@@ -43,38 +77,57 @@ export default function ThingsToKnow() {
             </InfoParagraph>
           </InfoSubContainer>
           <LinkContainer>
-            {widthWindow > 768 && (
-              <InfoLink href="https://www.airbnb.it/experiences">
+            {widthWindow >= 768 && (
+              <InfoLink
+                reindexLDisplay
+                href="https://www.airbnb.it/experiences"
+                target="_blank"
+              >
                 Per saperne di piu
               </InfoLink>
             )}
             <i
-              className={`${widthWindow > 768 && "small "}chevron right icon`}
+              className={`${
+                widthWindow >= 768 ? "small " : ""
+              }chevron right icon`}
             />
           </LinkContainer>
         </InfoContainer>
-        <InfoContainer>
+        <InfoContainer
+          onClick={() =>
+            mobileOpenModalBehaviour(
+              setGuestsRequisiteContent,
+              guestsRequisiteContent
+            )
+          }
+        >
           <InfoSubContainer>
             <InfoTitle>Requisiti degli ospiti</InfoTitle>
             <InfoParagraph>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </InfoParagraph>
           </InfoSubContainer>
-          <LinkContainer>
-            {widthWindow > 768 && (
-              <InfoLink href="https://www.airbnb.it/experiences">
-                Mostra altro
-              </InfoLink>
-            )}
+          <LinkContainer
+            onClick={() =>
+              toggleModal(setGuestsRequisiteContent, guestsRequisiteContent)
+            }
+          >
+            {widthWindow >= 768 && <InfoLink href="">Mostra altro</InfoLink>}
             <i
-              className={`${widthWindow > 768 && "small "}chevron right icon`}
+              className={`${
+                widthWindow >= 768 ? "small " : ""
+              }chevron right icon`}
             />
           </LinkContainer>
         </InfoContainer>
-        <InfoContainer>
+        <InfoContainer
+          onClick={() =>
+            mobileOpenModalBehaviour(setWhatToTakeContent, whatToTakeContent)
+          }
+        >
           <InfoSubContainer>
             <InfoTitle>Cosa portare</InfoTitle>
-            {widthWindow > 768 && <InfoParagraph>Camera</InfoParagraph>}
+            {widthWindow >= 768 && <InfoParagraph>Camera</InfoParagraph>}
           </InfoSubContainer>
           <LinkContainer>
             {widthWindow < 768 && <i className="chevron right icon" />}
@@ -91,7 +144,77 @@ export default function ThingsToKnow() {
           </InfoContainer>
         )}
       </InfoWrapper>
-      <UpSlideModal modalOpen={isModalOpen} />
+      <UpSlideModal
+        modalOpen={isModalOpen}
+        toggleModal={toggleModal}
+        widthWindow={widthWindow}
+        buttonDirectives={modalCloseDirectives}
+      >
+        {cancellationPolicyContent && (
+          <>
+            <SectionTitle modalType>Termini di cancellazione</SectionTitle>
+
+            <InfoParagraph modalType>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+              molestias numquam quaerat impedit veniam ex velit inventore aut
+              doloribus laborum?
+            </InfoParagraph>
+
+            <InfoLink href="">Mostra i termini</InfoLink>
+          </>
+        )}
+
+        {guestsRequisiteContent && (
+          <>
+            <SectionTitle modalType>Requisiti degli ospiti</SectionTitle>
+
+            <InfoParagraph modalType>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+              molestias numquam quaerat impedit veniam ex velit inventore aut
+              doloribus laborum?
+            </InfoParagraph>
+
+            <InfoParagraph modalType>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+              molestias numquam quaerat impedit veniam ex velit inventore aut
+              doloribus laborum?
+            </InfoParagraph>
+
+            <InfoParagraph modalType>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+              molestias numquam quaerat impedit veniam ex velit inventore aut
+              doloribus laborum?
+            </InfoParagraph>
+
+            <InfoParagraph modalType>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
+              molestias numquam quaerat impedit veniam ex velit inventore aut
+              doloribus laborum?
+            </InfoParagraph>
+          </>
+        )}
+
+        {whatToTakeContent && (
+          <>
+            <SectionTitle modalType>Cosa portare</SectionTitle>
+
+            <ul>
+              <ModalListItem>
+                <i className="check circle outline icon" />
+                <InfoParagraph listType modalType>
+                  Camera
+                </InfoParagraph>
+              </ModalListItem>
+              <ModalListItem>
+                <i className="check circle outline icon" />
+                <InfoParagraph listType modalType>
+                  Zucchine
+                </InfoParagraph>
+              </ModalListItem>
+            </ul>
+          </>
+        )}
+      </UpSlideModal>
     </InfoSection>
   );
 }

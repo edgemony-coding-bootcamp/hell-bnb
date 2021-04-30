@@ -1,14 +1,34 @@
 import React from "react";
-import { ModalLayout, ModalContainer } from "./UpSlideModal.elements";
+import {
+  ModalLayout,
+  ModalContainer,
+  ModalHeader,
+  IconCont,
+  ModalBody,
+} from "./UpSlideModal.elements";
 
-export default function UpSlideModal({ children, modalOpen }) {
+export default function UpSlideModal({
+  children,
+  modalOpen,
+  toggleModal,
+  widthWindow,
+  buttonDirectives,
+}) {
+  const { contentFunc, funcState } = buttonDirectives;
+
   return (
     <ModalLayout modalOpen={modalOpen}>
-      <ModalContainer>
-        <header>
-          <button type="button">freccia sinistra</button>
-        </header>
-        <main>{children}</main>
+      <ModalContainer modalOpen={modalOpen}>
+        <ModalHeader>
+          <IconCont onClick={() => toggleModal(contentFunc, !funcState)}>
+            {widthWindow >= 768 ? (
+              <i className="large close icon" />
+            ) : (
+              <i className="large chevron left icon" />
+            )}
+          </IconCont>
+        </ModalHeader>
+        <ModalBody>{children}</ModalBody>
       </ModalContainer>
     </ModalLayout>
   );
