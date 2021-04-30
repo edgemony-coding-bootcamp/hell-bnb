@@ -9,6 +9,10 @@
   color: #ff385c;
 }
 
+.resetMargin {
+  margin: 0 !important;
+}
+
 .align {
   text-align: center;
   justify-self: center;

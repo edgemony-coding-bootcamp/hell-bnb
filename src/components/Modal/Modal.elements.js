@@ -20,8 +20,6 @@ export const CounterWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 15px;
-  height: 92px;
-  min-height: 92px;
   width: 100%;
   transition: all 0.2s ease-in-out;
 `;
