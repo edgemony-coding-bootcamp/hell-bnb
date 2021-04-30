@@ -20,6 +20,7 @@ import {
   WrapExperiences,
   WrapGeneric,
   WrapParagraph,
+  LoadingComp,
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
@@ -32,6 +33,7 @@ import { isoDuration, en, pl, it } from "@musement/iso-duration";
 import Languages from "../components/Languages/Languages";
 import ProposedExperience from "./../components/ProposedExperience/ProposedExperience";
 import { Wrap } from "./../components/ProposedExperience/ProposedExperience.elements";
+import spinner from "../assets/images/Spinner.svg";
 
 isoDuration.setLocales(
   {
@@ -91,7 +93,10 @@ export default function Activity() {
     <>
       {/* Content to define */}
       {isLoading ? (
-        <h1 style={{ marginTop: "200px" }}>Loading...</h1>
+        <LoadingComp>
+          <img src={spinner} alt="spinner logo" />
+          <h1>Loading...</h1>
+        </LoadingComp>
       ) : (
         <>
           {widthWindow < 744 && (

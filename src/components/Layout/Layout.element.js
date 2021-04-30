@@ -170,6 +170,15 @@ const WrapHeader = styled.div`
   }
 `;
 
+const LoadingComp = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export {
   MainWrap,
   ContentWrap,
@@ -182,4 +191,5 @@ export {
   WrapGeneric,
   WrapHeader,
   WrapParagraph,
+  LoadingComp,
 };
