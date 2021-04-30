@@ -18,7 +18,7 @@ const MainWrap = styled.div`
       padding-top: 0;
     `}
   @media ${device.deviceM} {
-    padding: 100px 40px 0px 40px;
+    padding: 85px 40px 0px 40px;
     ${(props) =>
       props.noPadding &&
       css`
@@ -28,7 +28,7 @@ const MainWrap = styled.div`
       `}
   }
   @media ${device.deviceL} {
-    padding: 100px 80px 0px 80px;
+    padding: 85px 80px 0px 80px;
     ${(props) =>
       props.noPadding &&
       css`
@@ -89,11 +89,11 @@ const WrapMainDetails = styled.div`
   flex-direction: column;
   align-items: start;
   padding: 20px 0px;
-  @media ${device.deviceL} {
-    margin: 40px 0px;
+  @media ${device.deviceM} {
     padding: 0px 0px;
     position: relative;
     align-items: start;
+    width: 70%;
   }
 `;
 

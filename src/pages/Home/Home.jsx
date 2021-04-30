@@ -16,7 +16,6 @@ function Home() {
     JSON.parse(localStorage.getItem("recentActivities"))
   );
   const [filterActivities, setFilterActivities] = useState(undefined);
-  const [isLoading, setIsLoading] = useState(true);
 
   /* recentActivities logic  */
   useEffect(() => {
@@ -30,7 +29,6 @@ function Home() {
 
   /* end logic recent activities */
   useEffect(() => {
-    setIsLoading(true);
     const fetch = async () => {
       try {
         if (recentActivities) {
@@ -45,14 +43,9 @@ function Home() {
         ]);
         setActivities(dataActivities);
         setCities(dataCities);
-        setIsLoading(false);
       } catch (error) {
         // eslint-disable-next-line
         console.error(error);
-        setIsLoading(false);
-
-        // eslint-disable-next-line
-        console.log("isLoading", isLoading);
       }
     };
     fetch();

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { isoDuration, it } from "@musement/iso-duration";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
+import commentsData from "../components/Comments/commentsData";
 import {
   fetchActivityByUuid,
   fetchRelatedActivity,
@@ -31,7 +32,6 @@ import DurationActivity from "../components/DurationActivity/DurationActivity";
 
 import Languages from "../components/Languages/Languages";
 import ProposedExperience from "../components/ProposedExperience/ProposedExperience";
-import { Wrap } from "../components/ProposedExperience/ProposedExperience.elements";
 
 isoDuration.setLocales(
   {
@@ -50,6 +50,8 @@ export default function Activity() {
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+  // const cover_image_url = selectedActivity.cover_image_url;
+  const reviews = commentsData.find((rev) => rev.id === activityUuid);
 
   function addRecentActivity(keyActivity) {
     const getLocalStorageActivity = JSON.parse(
@@ -118,7 +120,7 @@ export default function Activity() {
                   <ActivityTitle
                     title={selectedActivity.title}
                     rate={48}
-                    number={3}
+                    number={reviews.comments.length}
                     country={selectedActivity.city.country.name}
                   />
                 </WrapParagraph>
@@ -142,7 +144,6 @@ export default function Activity() {
                         duration={selectedActivity.duration_range.max}
                         isoDuration={isoDuration}
                       />
-                      <Wrap center="center">-</Wrap>
                       <Languages lang={selectedActivity.languages} />
                     </ProposedExperience>
 
@@ -177,10 +178,14 @@ export default function Activity() {
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>
-                <Rank />
+                {/* <WrapExperiences /> */}
+                <Rank rate={48} number={reviews.comments.length} />
                 <WrapGeneric comments>
                   <Comments pageId={activityUuid} />
                 </WrapGeneric>
+                {/* <WrapGeneric available /> */}
+                <WrapGeneric info />
+
                 <WrapGeneric available />
                 <WrapGeneric>
                   <ThingsToKnow activityUuid={activityUuid} />

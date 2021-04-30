@@ -16,7 +16,6 @@ export const ParagraphTitle = styled.h3`
     `}
 `;
 export const ParagraphBody = styled.p`
-  /* font-family: "Helvetica"; */
   font-size: 14px;
 `;
 
