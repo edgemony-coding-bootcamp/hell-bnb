@@ -8,6 +8,7 @@ import {
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
 import CarouselCities from "../../components/CarouselCities/CarouselCities";
 import Layout from "../../components/Layout/Layout";
+import { WrapGeneric } from "../../components/Layout/Layout.element";
 
 function Home() {
   const [activities, setActivities] = useState([]);
@@ -54,20 +55,22 @@ function Home() {
     <Layout>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-      {activities && (
-        <CarouselActivities
-          activities={activities}
-          setRecentActivities={setRecentActivities}
-          title="Esperienze simili"
-        />
-      )}
-      {cities && <CarouselCities cities={cities} />}
-      {filterActivities && (
-        <CarouselActivities
-          activities={filterActivities}
-          title="Attività Recenti"
-        />
-      )}
+      <WrapGeneric>
+        {activities && (
+          <CarouselActivities
+            activities={activities}
+            setRecentActivities={setRecentActivities}
+            title="Esperienze simili"
+          />
+        )}
+        {cities && <CarouselCities cities={cities} />}
+        {filterActivities && (
+          <CarouselActivities
+            activities={filterActivities}
+            title="Attività Recenti"
+          />
+        )}
+      </WrapGeneric>
     </Layout>
   );
 }
