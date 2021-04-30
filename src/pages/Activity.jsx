@@ -51,6 +51,7 @@ export default function Activity() {
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+  // const cover_image_url = selectedActivity.cover_image_url;
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -92,7 +93,7 @@ export default function Activity() {
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
         <>
-          {widthWindow < 788 && (
+          {widthWindow < 744 && (
             <>
               <Hero coverUrl={selectedActivity.cover_image_url} />
             </>
@@ -109,12 +110,18 @@ export default function Activity() {
                     country={selectedActivity.city.country.name}
                   />
                 </WrapParagraph>
-                <WrapPreviewPhoto>
-                  <PhotoPreview
-                    toggleModal={toggleModal}
-                    activitiesMedia={activitiesMedia}
-                  />
-                </WrapPreviewPhoto>
+                {widthWindow > 744 && (
+                  <>
+                    <WrapPreviewPhoto>
+                      <PhotoPreview
+                        toggleModal={toggleModal}
+                        activitiesMedia={activitiesMedia}
+                        cover={selectedActivity.cover_image_url}
+                        image={selectedActivity.city.cover_image_url}
+                      />
+                    </WrapPreviewPhoto>
+                  </>
+                )}
                 <WrapMainDetails>
                   <WrapGenericInfo>
                     <ProposedExperience selectedActivity={selectedActivity}>
@@ -130,6 +137,18 @@ export default function Activity() {
                       paragraphText={selectedActivity.about}
                       maxCharacters={2000}
                     />
+                    {widthWindow < 744 && (
+                      <>
+                        <WrapPreviewPhoto>
+                          <PhotoPreview
+                            toggleModal={toggleModal}
+                            activitiesMedia={activitiesMedia}
+                            cover={selectedActivity.cover_image_url}
+                            image={selectedActivity.city.cover_image_url}
+                          />
+                        </WrapPreviewPhoto>
+                      </>
+                    )}
                   </WrapGenericInfo>
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
