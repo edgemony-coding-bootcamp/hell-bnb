@@ -54,7 +54,21 @@ export default function Activity() {
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
-  // const cover_image_url = selectedActivity.cover_image_url;
+  const [recentActivities, setRecentActivities] = useState([]);
+
+  function addRecentActivity(keyActivity) {
+    const getLocalStorageActivity = JSON.parse(
+      localStorage.getItem("recentActivities")
+    );
+    if (!getLocalStorageActivity.includes(keyActivity)) {
+      getLocalStorageActivity.push(keyActivity);
+      localStorage.setItem(
+        "recentActivities",
+        JSON.stringify(getLocalStorageActivity)
+      );
+    }
+    setRecentActivities(JSON.parse(localStorage.getItem("recentActivities")));
+  }
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -86,6 +100,8 @@ export default function Activity() {
         throw new Error("Something went wrong during Fetch calls");
       }
     };
+    addRecentActivity(activityUuid);
+    console.log(recentActivities);
     fetchActivity();
   }, [activityUuid]);
 
