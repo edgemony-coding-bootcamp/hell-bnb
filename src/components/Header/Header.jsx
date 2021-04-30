@@ -16,18 +16,18 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <HeaderLink to="/">
-        <Layout noPadding="noPadding">
-          <WrapHeader>
+      <Layout noPadding="noPadding">
+        <WrapHeader>
+          <HeaderLink to="/">
             {useWindowDimensions().width > 743 || location.pathname === "/" ? (
               <ImgLogo src={airbnbLogo} alt="hellbnb logo" width="50px" />
             ) : (
               <i className="black chevron left icon" />
             )}
-            <LogoHeading>hellbnb</LogoHeading>
-          </WrapHeader>
-        </Layout>
-      </HeaderLink>
+          </HeaderLink>
+          <LogoHeading>hellbnb</LogoHeading>
+        </WrapHeader>
+      </Layout>
     </HeaderContainer>
   );
 }

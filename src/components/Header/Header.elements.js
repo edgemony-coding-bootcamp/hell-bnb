@@ -31,7 +31,7 @@ const HeaderLink = styled(Link)`
 `;
 const LogoHeading = styled.h1`
   color: ${colors.primaryColor};
-  margin: 0 10px;
+  margin: 5px 10px;
   font-size: 1.5rem;
   font-family: "Helvetica";
   display: none;
@@ -47,6 +47,8 @@ const LogoHeading = styled.h1`
 
 const ImgLogo = styled.img`
   width: 30px;
+  margin: 10px 0px;
+
   @media ${device.deviceM} {
     width: 50px;
   }
