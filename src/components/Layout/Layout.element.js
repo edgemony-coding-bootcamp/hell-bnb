@@ -150,6 +150,11 @@ const WrapGeneric = styled.div`
     (props.info && `lightpink`) || (props.available && `lightcyan`)};
 `;
 
+const WrapIcons = styled.div`
+  width: 100%;
+  margin: 20px 0;
+`;
+
 const WrapParagraph = styled.div`
   min-height: 120px;
   width: 100%;
@@ -182,4 +187,5 @@ export {
   WrapGeneric,
   WrapHeader,
   WrapParagraph,
+  WrapIcons,
 };
