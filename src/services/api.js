@@ -8,8 +8,21 @@ async function callAPI(endpoint) {
   }
   return data.data;
 }
+
 export async function fetchActivities() {
   return callAPI("activities");
+}
+
+export async function fetchCities() {
+  const response = await fetch(`${baseURL}/cities?limit=15`);
+  const data = await response.json();
+
+  if (response.status >= 400) {
+    // eslint-disable-next-line
+    console.warn("Error: cities by fetchCities");
+    throw new Error(data.message);
+  }
+  return data;
 }
 
 export async function fetchActivityByUuid(activityUuid) {
@@ -55,4 +68,15 @@ export async function fetchActivityRefundPolicy(activityUuid) {
     `${baseURL}/activities/${activityUuid}/refund-policies`
   );
   return response;
+}
+
+export async function fetchActivityComments(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/comments`
+  );
+  const data = await response.json();
+  if (response.status >= 400) {
+    throw new Error(data.message);
+  }
+  return data;
 }

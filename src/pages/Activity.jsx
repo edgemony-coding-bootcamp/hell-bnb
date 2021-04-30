@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comments from "../components/Comments/Comments";
 import {
   fetchActivityByUuid,
   fetchRelatedActivity,
@@ -21,9 +23,26 @@ import {
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
+import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
 import ThingsToKnow from "../components/ThingsToKnow/ThingsToKnow";
+import DurationActivity from "../components/DurationActivity/DurationActivity";
+import { isoDuration, en, pl, it } from "@musement/iso-duration";
+import Languages from "../components/Languages/Languages";
+import ProposedExperience from "./../components/ProposedExperience/ProposedExperience";
+import { Wrap } from "./../components/ProposedExperience/ProposedExperience.elements";
+
+isoDuration.setLocales(
+  {
+    en,
+    pl,
+    it,
+  },
+  {
+    fallbackLocale: "en",
+  }
+);
 
 export default function Activity() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +51,16 @@ export default function Activity() {
   const [activitiesMedia, setActivitiesMedia] = useState();
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
+  const [widthWindow, setWidthWindow] = useState(window.innerWidth);
+  // const cover_image_url = selectedActivity.cover_image_url;
+
+  useEffect(() => {
+    const handleResize = () => setWidthWindow(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const toggleModal = () => {
     setModalIsOpen((prev) => !prev);
@@ -65,6 +94,11 @@ export default function Activity() {
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
         <>
+          {widthWindow < 744 && (
+            <>
+              <Hero coverUrl={selectedActivity.cover_image_url} />
+            </>
+          )}
           <Layout>
             {selectedActivity ? (
               <>
@@ -77,30 +111,57 @@ export default function Activity() {
                     country={selectedActivity.city.country.name}
                   />
                 </WrapParagraph>
-                <WrapPreviewPhoto>
-                  <PhotoPreview
-                    toggleModal={toggleModal}
-                    activitiesMedia={activitiesMedia}
-                  />
-                </WrapPreviewPhoto>
-                <WrapParagraph>
-                  <ParagraphSection
-                    title="Cosa farete"
-                    paragraphText={selectedActivity.about}
-                    maxCharacters={450}
-                  />
-                </WrapParagraph>
-                <WrapGeneric>
-                  <Map activityData={selectedActivity} />
-                </WrapGeneric>
+                {widthWindow > 744 && (
+                  <>
+                    <WrapPreviewPhoto>
+                      <PhotoPreview
+                        toggleModal={toggleModal}
+                        activitiesMedia={activitiesMedia}
+                        cover={selectedActivity.cover_image_url}
+                        image={selectedActivity.city.cover_image_url}
+                      />
+                    </WrapPreviewPhoto>
+                  </>
+                )}
                 <WrapMainDetails>
-                  <WrapGenericInfo />
+                  <WrapGenericInfo>
+                    <ProposedExperience selectedActivity={selectedActivity}>
+                      <DurationActivity
+                        duration={selectedActivity.duration_range.max}
+                        isoDuration={isoDuration}
+                      />
+                      <Wrap center="center">-</Wrap>
+                      <Languages lang={selectedActivity.languages} />
+                    </ProposedExperience>
+                    <ParagraphSection
+                      title="Cosa farete"
+                      paragraphText={selectedActivity.about}
+                      maxCharacters={2000}
+                    />
+                    {widthWindow < 744 && (
+                      <>
+                        <WrapPreviewPhoto>
+                          <PhotoPreview
+                            toggleModal={toggleModal}
+                            activitiesMedia={activitiesMedia}
+                            cover={selectedActivity.cover_image_url}
+                            image={selectedActivity.city.cover_image_url}
+                          />
+                        </WrapPreviewPhoto>
+                      </>
+                    )}
+                  </WrapGenericInfo>
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
+                <WrapGeneric>
+                  <Map activityData={selectedActivity} />
+                </WrapGeneric>
                 <WrapExperiences />
                 <Rank />
-                <WrapGeneric comments="comments" />
+                <WrapGeneric comments>
+                  <Comments pageId={activityUuid} />
+                </WrapGeneric>
                 <WrapGeneric available />
                 <WrapGeneric>
                   <ThingsToKnow activityUuid={activityUuid} />

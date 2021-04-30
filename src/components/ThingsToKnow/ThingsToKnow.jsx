@@ -67,7 +67,6 @@ export default function ThingsToKnow({ activityUuid }) {
     const fetchActivityRefundInfo = async () => {
       try {
         const response = await fetchActivityRefundPolicy(activityUuid);
-        console.log(response.status);
         if (response.status < 400) {
           setRefundResponse(true);
         } else {
