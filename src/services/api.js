@@ -63,6 +63,13 @@ export async function fetchActivityMedia(activityUuid) {
   return data;
 }
 
+export async function fetchActivityRefundPolicy(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/refund-policies`
+  );
+  return response;
+}
+
 export async function fetchActivityComments(activityUuid) {
   const response = await fetch(
     `${baseURL}/activities/${activityUuid}/comments`

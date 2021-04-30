@@ -26,6 +26,7 @@ import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import ThingsToKnow from "../components/ThingsToKnow/ThingsToKnow";
 import DurationActivity from "../components/DurationActivity/DurationActivity";
 import { isoDuration, en, pl, it } from "@musement/iso-duration";
 import Languages from "../components/Languages/Languages";
@@ -162,7 +163,9 @@ export default function Activity() {
                   <Comments pageId={activityUuid} />
                 </WrapGeneric>
                 <WrapGeneric available />
-                <WrapGeneric info />
+                <WrapGeneric>
+                  <ThingsToKnow activityUuid={activityUuid} />
+                </WrapGeneric>
                 <WrapGeneric>
                   <CarouselActivities activities={relatedActivity} />
                 </WrapGeneric>
