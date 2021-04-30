@@ -12,3 +12,10 @@
 .resetMargin {
   margin: 0 !important;
 }
+
+.align {
+  text-align: center;
+  justify-self: center;
+  height: 30px;
+  width: 100px;
+}

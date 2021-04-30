@@ -18,7 +18,7 @@ const MainWrap = styled.div`
       padding-top: 0;
     `}
   @media ${device.deviceM} {
-    padding: 130px 40px 0px 40px;
+    padding: 100px 40px 0px 40px;
     ${(props) =>
       props.noPadding &&
       css`
@@ -28,7 +28,7 @@ const MainWrap = styled.div`
       `}
   }
   @media ${device.deviceL} {
-    padding: 130px 80px 0px 80px;
+    padding: 100px 80px 0px 80px;
     ${(props) =>
       props.noPadding &&
       css`
@@ -38,7 +38,7 @@ const MainWrap = styled.div`
       `}
   }
   @media ${device.deviceXL} {
-    padding: 130px auto 0px auto;
+    padding: 100px auto 0px auto;
     ${(props) =>
       props.noPadding &&
       css`
@@ -58,6 +58,7 @@ const ContentWrap = styled.div`
   align-items: flex-start;
   position: relative;
   box-sizing: border-box;
+  overflow-x: hidden;
   @media ${device.deviceXL} {
     max-width: 1128px;
     min-width: 1128px;
@@ -150,6 +151,11 @@ const WrapGeneric = styled.div`
     (props.info && `lightpink`) || (props.available && `lightcyan`)};
 `;
 
+const WrapIcons = styled.div`
+  width: 100%;
+  margin: 20px 0;
+`;
+
 const WrapParagraph = styled.div`
   min-height: 120px;
   width: 100%;
@@ -182,4 +188,5 @@ export {
   WrapGeneric,
   WrapHeader,
   WrapParagraph,
+  WrapIcons,
 };

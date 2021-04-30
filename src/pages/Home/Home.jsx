@@ -1,18 +1,44 @@
 import React, { useState, useEffect } from "react";
-import { Title, Wrap, SubTitle } from "./Home.elements";
-import { fetchActivities, fetchCities } from "../../services/api";
+import { Title, SubTitle } from "./Home.elements";
+import {
+  fetchActivities,
+  fetchCities,
+  fetchActivityByUuid,
+} from "../../services/api";
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
 import CarouselCities from "../../components/CarouselCities/CarouselCities";
+import Layout from "../../components/Layout/Layout";
 
 function Home() {
   const [activities, setActivities] = useState([]);
   const [cities, setCities] = useState([]);
+  const [recentActivities, setRecentActivities] = useState(
+    JSON.parse(localStorage.getItem("recentActivities"))
+  );
+  const [filterActivities, setFilterActivities] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
+  /* recentActivities logic  */
+  useEffect(() => {
+    const recentlyActivities = () => {
+      if (!recentActivities) {
+        localStorage.setItem("recentActivities", JSON.stringify([]));
+      }
+    };
+    recentlyActivities();
+  }, [recentActivities]);
+
+  /* end logic recent activities */
   useEffect(() => {
     setIsLoading(true);
     const fetch = async () => {
       try {
+        if (recentActivities) {
+          const allRecentActivities = await Promise.all(
+            recentActivities.map((recent) => fetchActivityByUuid(recent))
+          );
+          setFilterActivities(allRecentActivities);
+        }
         const [dataActivities, dataCities] = await Promise.all([
           fetchActivities(),
           fetchCities(),
@@ -24,19 +50,32 @@ function Home() {
         // eslint-disable-next-line
         console.error(error);
         setIsLoading(false);
+
+        // eslint-disable-next-line
+        console.log("isLoading", isLoading);
       }
     };
     fetch();
   }, []);
-
   return (
-    <Wrap>
+    <Layout>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-      {!isLoading && <CarouselActivities activities={activities} />}
-      {!isLoading && <CarouselCities cities={cities} />}
-    </Wrap>
+      {activities && (
+        <CarouselActivities
+          activities={activities}
+          setRecentActivities={setRecentActivities}
+          title="Esperienze simili"
+        />
+      )}
+      {cities && <CarouselCities cities={cities} />}
+      {filterActivities && (
+        <CarouselActivities
+          activities={filterActivities}
+          title="Attività Recenti"
+        />
+      )}
+    </Layout>
   );
 }
-
 export default Home;
