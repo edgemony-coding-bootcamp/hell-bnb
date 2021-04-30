@@ -75,29 +75,30 @@ const WrapPreviewPhoto = styled.div`
   width: 100%;
   margin: 20px 0;
   display: flex;
+  min-height: 300px;
   justify-content: start;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 `;
 
 const WrapMainDetails = styled.div`
-  min-height: 100vh;
+  min-height: fit-content;
   width: 100%;
-  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 20px 0px;
   @media ${device.deviceL} {
     margin: 40px 0px;
-    padding: 40px 40px;
+    padding: 0px 0px;
     position: relative;
     align-items: start;
   }
 `;
 
 const WrapGenericInfo = styled.div`
-  background-color: white;
-  width: 80%;
-  min-height: 600px;
+  width: 100%;
+
   @media ${device.deviceL} {
     width: 55%;
     margin: 20px 0px;
@@ -142,7 +143,7 @@ const WrapExperiences = styled.div`
 `;
 
 const WrapGeneric = styled.div`
-  min-height: 420px;
+  min-height: fit-content;
   width: 100%;
   margin: 20px 0;
   background-color: ${(props) =>
@@ -150,11 +151,8 @@ const WrapGeneric = styled.div`
 `;
 
 const WrapIcons = styled.div`
-  min-height: 220px;
   width: 100%;
   margin: 20px 0;
-  background-color: ${(props) =>
-    (props.info && `lightpink`) || (props.available && `lightcyan`)};
 `;
 
 const WrapParagraph = styled.div`

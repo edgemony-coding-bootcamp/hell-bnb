@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import colors from "../../assets/colors";
 
 export const ParagraphContainer = styled.section`
@@ -9,6 +9,11 @@ export const ParagraphTitle = styled.h3`
   font-family: "Helvetica";
   font-size: 20px;
   margin-bottom: 18px;
+  ${(props) =>
+    props.noMarginBottom &&
+    css`
+      margin-bottom: 0px;
+    `}
 `;
 export const ParagraphBody = styled.p`
   /* font-family: "Helvetica"; */

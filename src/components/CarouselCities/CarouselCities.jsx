@@ -1,43 +1,38 @@
 import React, { useRef, useState } from "react";
-import ActivityCard from "../ActivityCard/ActivityCard";
+import CityCard from "../CityCard/CityCard";
 // assets
 import {
   WrapperCarousel,
   CarouselTitle,
   HeaderCarousel,
   NavigatorCarousel,
-  CounterSlide,
   NavBtn,
-  StyledLink,
-} from "./CarouselActivities.elements";
+} from "./CarouselCities.elements";
 
 // function getting dinamic window size
-import useWindowDimensions from "./WindowSize";
+import useWindowDimensions from "../CarouselActivities/WindowSize";
 
-const CarouselActivities = ({ activities }) => {
+const CarouselCities = ({ cities }) => {
   const myRef = useRef(null);
   const scrollSpace = useWindowDimensions().width;
 
-  const cardWidth = 210;
+  const cardWidth = 140;
   const totalScroll = Math.ceil(
-    (activities.length * cardWidth) / useWindowDimensions().width
+    (cities.length * cardWidth) / useWindowDimensions().width
   );
 
   const [scrollNum, setScrollNum] = useState(1);
   return (
     <div>
-      {activities ? (
+      {cities ? (
         <div>
           <HeaderCarousel>
-            <CarouselTitle>Esperienze simili</CarouselTitle>
+            <CarouselTitle>Esperienze in altre città</CarouselTitle>
             {/* window size */}
             {useWindowDimensions().width >= 768 && (
               <NavigatorCarousel>
-                <CounterSlide>
-                  {" "}
-                  {scrollNum}/{totalScroll}{" "}
-                </CounterSlide>
                 <NavBtn
+                  show={scrollNum !== 1}
                   left
                   onClick={() => {
                     myRef.current.scrollLeft -= scrollSpace;
@@ -51,6 +46,7 @@ const CarouselActivities = ({ activities }) => {
                   </span>
                 </NavBtn>
                 <NavBtn
+                  show={scrollNum !== totalScroll}
                   onClick={() => {
                     myRef.current.scrollLeft += scrollSpace;
                     if (scrollNum < totalScroll) {
@@ -66,23 +62,18 @@ const CarouselActivities = ({ activities }) => {
             )}
           </HeaderCarousel>
           <WrapperCarousel ref={myRef}>
-            {activities.map((activity) => {
-              const path = `/activities/${activity.uuid}`;
-              return (
-                <StyledLink to={path} key={activity.uuid}>
-                  <ActivityCard
-                    key={activity.uuid}
-                    img={activity.cover_image_url}
-                    rate={activity.reviews_avg}
-                    number={activity.reviews_number}
-                    country={activity.city.country.name}
-                    viewCountry
-                    title={activity.title}
-                    price={activity.retail_price.formatted_value}
-                  />
-                </StyledLink>
-              );
-            })}
+            {cities.map((city) => (
+              //   const path = `/activities/${activity.uuid}`;
+              //   return (
+              // <StyledLink to={path} key={activity.uuid}>
+              <CityCard
+                key={city.uuid}
+                img={city.cover_image_url}
+                city={city.name}
+              />
+              // </StyledLink>
+              //   );
+            ))}
           </WrapperCarousel>{" "}
         </div>
       ) : (
@@ -91,4 +82,4 @@ const CarouselActivities = ({ activities }) => {
     </div>
   );
 };
-export default CarouselActivities;
+export default CarouselCities;

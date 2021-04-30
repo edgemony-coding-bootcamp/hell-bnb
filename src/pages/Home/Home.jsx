@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Title, Wrap, SubTitle } from "./Home.elements";
-import { fetchActivities } from "../../services/api";
+import { fetchActivities, fetchCities } from "../../services/api";
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
+import CarouselCities from "../../components/CarouselCities/CarouselCities";
 
 function Home() {
   const [activities, setActivities] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetch = async () => {
       try {
-        const data = await fetchActivities();
-        setActivities(data);
+        const [dataActivities, dataCities] = await Promise.all([
+          fetchActivities(),
+          fetchCities(),
+        ]);
+        setActivities(dataActivities);
+        setCities(dataCities);
+        setIsLoading(false);
       } catch (error) {
         // eslint-disable-next-line
         console.error(error);
+        setIsLoading(false);
       }
     };
     fetch();
@@ -23,7 +33,8 @@ function Home() {
     <Wrap>
       <Title>ESPERIENZE HELLBNB</Title>
       <SubTitle>Attività uniche organizzate da esperti</SubTitle>
-      {activities && <CarouselActivities activities={activities} />}
+      {!isLoading && <CarouselActivities activities={activities} />}
+      {!isLoading && <CarouselCities cities={cities} />}
     </Wrap>
   );
 }
