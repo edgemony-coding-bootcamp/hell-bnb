@@ -3,13 +3,14 @@ import styled, { css } from "styled-components";
 export const Wrap = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
+  /* align-items: center; */
   min-height: 30px;
   ${(props) =>
     props.center &&
     css`
       width: 2%;
       justify-content: center;
+      padding-bottom: 0px;
     `}/* flex-direction: column; */
 `;
 

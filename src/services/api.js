@@ -14,7 +14,7 @@ export async function fetchActivities() {
 }
 
 export async function fetchCities() {
-  const response = await fetch(`${baseURL}/cities`);
+  const response = await fetch(`${baseURL}/cities?limit=15`);
   const data = await response.json();
 
   if (response.status >= 400) {
@@ -61,6 +61,13 @@ export async function fetchActivityMedia(activityUuid) {
     throw new Error(data.message);
   }
   return data;
+}
+
+export async function fetchActivityRefundPolicy(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/refund-policies`
+  );
+  return response;
 }
 
 export async function fetchActivityComments(activityUuid) {

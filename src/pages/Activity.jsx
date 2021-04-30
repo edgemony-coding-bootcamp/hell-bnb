@@ -26,6 +26,7 @@ import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import ThingsToKnow from "../components/ThingsToKnow/ThingsToKnow";
 import DurationActivity from "../components/DurationActivity/DurationActivity";
 import { isoDuration, en, pl, it } from "@musement/iso-duration";
 import Languages from "../components/Languages/Languages";
@@ -109,7 +110,7 @@ export default function Activity() {
         <h1 style={{ marginTop: "200px" }}>Loading...</h1>
       ) : (
         <>
-          {widthWindow < 788 && (
+          {widthWindow < 744 && (
             <>
               <Hero coverUrl={selectedActivity.cover_image_url} />
             </>
@@ -126,12 +127,18 @@ export default function Activity() {
                     country={selectedActivity.city.country.name}
                   />
                 </WrapParagraph>
-                <WrapPreviewPhoto>
-                  <PhotoPreview
-                    toggleModal={toggleModal}
-                    activitiesMedia={activitiesMedia}
-                  />
-                </WrapPreviewPhoto>
+                {widthWindow > 744 && (
+                  <>
+                    <WrapPreviewPhoto>
+                      <PhotoPreview
+                        toggleModal={toggleModal}
+                        activitiesMedia={activitiesMedia}
+                        cover={selectedActivity.cover_image_url}
+                        image={selectedActivity.city.cover_image_url}
+                      />
+                    </WrapPreviewPhoto>
+                  </>
+                )}
                 <WrapMainDetails>
                   <WrapGenericInfo>
                     <ProposedExperience selectedActivity={selectedActivity}>
@@ -147,6 +154,18 @@ export default function Activity() {
                       paragraphText={selectedActivity.about}
                       maxCharacters={2000}
                     />
+                    {widthWindow < 744 && (
+                      <>
+                        <WrapPreviewPhoto>
+                          <PhotoPreview
+                            toggleModal={toggleModal}
+                            activitiesMedia={activitiesMedia}
+                            cover={selectedActivity.cover_image_url}
+                            image={selectedActivity.city.cover_image_url}
+                          />
+                        </WrapPreviewPhoto>
+                      </>
+                    )}
                   </WrapGenericInfo>
                   <WrapHost />
                   {/* <WrapModalInfo /> */}
@@ -160,7 +179,9 @@ export default function Activity() {
                   <Comments pageId={activityUuid} />
                 </WrapGeneric>
                 <WrapGeneric available />
-                <WrapGeneric info />
+                <WrapGeneric>
+                  <ThingsToKnow activityUuid={activityUuid} />
+                </WrapGeneric>
                 <WrapGeneric>
                   <CarouselActivities activities={relatedActivity} />
                 </WrapGeneric>

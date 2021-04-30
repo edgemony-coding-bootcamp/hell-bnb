@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import device from "../../assets/breakpoints";
+// import device from "../../assets/breakpoints";
 import colors from "../../assets/colors";
 
 export const StyledLink = styled(Link)`
@@ -19,23 +19,21 @@ export const StyledLink = styled(Link)`
 `;
 
 export const HeaderCarousel = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 10px;
+  max-height: 30px;
 `;
 
 export const NavigatorCarousel = styled.div`
   display: flex;
-`;
-
-export const CounterSlide = styled.p`
-  font-size: 18px;
-  padding-right: 5px;
-  padding-top: 4px;
-  margin: 0px;
+  z-index: 5;
+  position: relative;
+  top: 100px;
+  justify-content: space-between;
+  margin: 0px -17px 0px -17px;
 `;
 
 export const NavBtn = styled.button`
+  visibility: ${(props) => (props.show ? "visible" : "hidden")};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +45,6 @@ export const NavBtn = styled.button`
   height: 30px;
   font-size: 1.5rem;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-left: 13px;
   padding-left: ${(props) => (props.left ? "3px" : "5.5px")};
   padding-bottom: 5px;
   cursor: pointer;
@@ -79,9 +76,5 @@ export const WrapperCarousel = styled.div`
 
   ::-webkit-scrollbar {
     display: none;
-  }
-
-  @media ${device.deviceM} {
-    overflow: hidden;
   }
 `;
