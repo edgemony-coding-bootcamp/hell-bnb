@@ -9,20 +9,17 @@ const HeaderContainer = styled.header`
   top: 0;
   height: 56px;
   background: #ffffff;
-  width: 100vw;
+  width: 100%;
   margin: 0;
-  border-bottom: 1px solid ${colors.borderColor};
-  /* padding: 10px 20px; */
   z-index: 100;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 
   @media ${device.deviceM} {
     height: 72px;
-    /* padding: 15px 30px; */
   }
 
   @media ${device.deviceL} {
     height: 84px;
-    /* padding: 20px 40px; */
   }
 `;
 

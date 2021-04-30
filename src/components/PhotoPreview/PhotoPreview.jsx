@@ -9,12 +9,13 @@ import {
   OpenModalBtn,
   IconContainer,
 } from "./PhotoPreview.elements";
+import Hero from "../Hero/Hero";
 
-function PhotoPreview({ toggleModal, activitiesMedia }) {
-  const topFivePhotoPreview = activitiesMedia.slice(0, 6);
+function PhotoPreview({ toggleModal, activitiesMedia, image }) {
+  const topFivePhotoPreview = activitiesMedia.slice(0, 5);
   return (
     <>
-      {activitiesMedia.length > 0 ? (
+      {activitiesMedia.length > 1 ? (
         <>
           <PhotoPreviewContainer>
             <PhotoPreviewSubContainer>
@@ -33,7 +34,7 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
                             />
                           ) : (
                             <>
-                              {index === 2 && (
+                              {index === 2 && topFivePhotoPreview.length > 3 && (
                                 <ImageColumnContainer>
                                   {activitiesMediaColumn.map(
                                     (columnMedia, i) => {
@@ -61,14 +62,19 @@ function PhotoPreview({ toggleModal, activitiesMedia }) {
               <OpenModalBtn hide onClick={() => toggleModal()}>
                 <IconContainer>
                   <i className="expand arrows alternate icon" />
-                </IconContainer>{" "}
-                Mostra tutte le 5 foto
+                </IconContainer>
+                {activitiesMedia.length > 1
+                  ? `Mostra tutte le ${activitiesMedia.length} foto`
+                  : "Mostra foto"}
               </OpenModalBtn>
             </PhotoPreviewSubContainer>
           </PhotoPreviewContainer>
         </>
       ) : (
-        <></>
+        <>
+          {/* <Hero coverUrl={cover} CoverImg="CoverImg" /> */}
+          <Hero coverUrl={image} CoverImage="CoverImg" />
+        </>
       )}
     </>
   );
