@@ -17,8 +17,6 @@ export const ActivityTitleText = styled.h1`
   align-items: flex-start;
 `;
 
-// Share div
-
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -47,13 +45,16 @@ export const ShareButton = styled.button`
   display: none;
 
   @media ${device.deviceL} {
-    padding-right: 13px;
-    padding-top: 2px;
     display: flex;
-
-    font-weight: bold;
+    cursor: pointer;
+    padding: 8px;
     background-color: white;
     border: none;
+
+    :hover {
+      background-color: ${colors.footer};
+      border-radius: 5px;
+    }
   }
 `;
 
