@@ -11,6 +11,7 @@ async function callAPI(endpoint) {
 export async function fetchActivities() {
   return callAPI("activities");
 }
+
 export async function fetchActivityByUuid(activityUuid) {
   const response = await fetch(`${baseURL}/activities/${activityUuid}`);
   const data = await response.json();
@@ -47,4 +48,12 @@ export async function fetchActivityMedia(activityUuid) {
     throw new Error(data.message);
   }
   return data;
+}
+
+export async function fetchActivityRefundPolicy(activityUuid) {
+  const response = await fetch(
+    `${baseURL}/activities/${activityUuid}/refund-policies`
+  );
+  console.log(response.status);
+  return response;
 }

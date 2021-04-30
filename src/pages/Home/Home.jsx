@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Title, Wrap, SubTitle } from "./Home.elements";
-import { fetchActivities } from "../../services/api";
+import { fetchActivities, fetchActivityRefundPolicy } from "../../services/api";
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
 
 function Home() {
   const [activities, setActivities] = useState([]);
+
+  function policy() {
+    activities.forEach((act) => {
+      try {
+        const data = fetchActivityRefundPolicy(act.uuid);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
 
   useEffect(() => {
     const fetch = async () => {
@@ -17,6 +28,7 @@ function Home() {
       }
     };
     fetch();
+    policy();
   }, []);
 
   return (

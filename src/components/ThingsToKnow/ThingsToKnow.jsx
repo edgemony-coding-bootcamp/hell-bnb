@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import CancellationPolicy from "./CancellationPolicy";
+import GuestRequisite from "./GuestRequisite";
 import {
   InfoContainer,
   InfoSubContainer,
@@ -9,24 +11,28 @@ import {
   SectionTitle,
   InfoLink,
   InfoSection,
-  ModalListItem,
 } from "./ThingsToKnow.elements";
 import UpSlideModal from "./UpSlideModal";
+import WhatToBring from "./WhatToBring";
 
 export default function ThingsToKnow() {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [isModalOpen, setisModalOpen] = useState(false);
-
+  const [modalCloseDirectives, setModalCloseDirectives] = useState({
+    contentFunc: undefined,
+    funcState: undefined,
+  });
   const [cancellationPolicyContent, setCancellationPolicyContent] = useState(
     false
   );
   const [guestsRequisiteContent, setGuestsRequisiteContent] = useState(false);
   const [whatToTakeContent, setWhatToTakeContent] = useState(false);
 
-  const [modalCloseDirectives, setModalCloseDirectives] = useState({
-    contentFunc: undefined,
-    funcState: undefined,
-  });
+  const cancellationLink =
+    "https://www.airbnb.it/help/article/1593/quali-sono-i-termini-di-cancellazione-delle-esperienze-airbnb";
+
+  const cancellationInfo =
+    "È possibile cancellare e ottenere il rimborso totale di qualsiasi esperienza entro 24 ore dall'acquisto o almeno 7 giorni prima dell'inizio dell'esperienza stessa.";
 
   function toggleModal(contentFunc, funcState) {
     if (isModalOpen) {
@@ -45,8 +51,6 @@ export default function ThingsToKnow() {
       toggleModal(contentFunc, funcState);
     }
   }
-
-  //   temp
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -71,18 +75,11 @@ export default function ThingsToKnow() {
         >
           <InfoSubContainer>
             <InfoTitle>Termini di cancellazione</InfoTitle>
-            <InfoParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-              nisi architecto consequatur?
-            </InfoParagraph>
+            <InfoParagraph>{cancellationInfo}</InfoParagraph>
           </InfoSubContainer>
           <LinkContainer>
             {widthWindow >= 768 && (
-              <InfoLink
-                reindexLDisplay
-                href="https://www.airbnb.it/experiences"
-                target="_blank"
-              >
+              <InfoLink reindexLDisplay href={cancellationLink} target="_blank">
                 Per saperne di piu
               </InfoLink>
             )}
@@ -93,6 +90,7 @@ export default function ThingsToKnow() {
             />
           </LinkContainer>
         </InfoContainer>
+
         <InfoContainer
           onClick={() =>
             mobileOpenModalBehaviour(
@@ -104,7 +102,8 @@ export default function ThingsToKnow() {
           <InfoSubContainer>
             <InfoTitle>Requisiti degli ospiti</InfoTitle>
             <InfoParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Possono partecipare fino a 6 ospiti di almeno 4 anni. Inoltre, i
+              genitori possono portare figli di età inferiore a 2 anni.
             </InfoParagraph>
           </InfoSubContainer>
           <LinkContainer
@@ -120,6 +119,7 @@ export default function ThingsToKnow() {
             />
           </LinkContainer>
         </InfoContainer>
+
         <InfoContainer
           onClick={() =>
             mobileOpenModalBehaviour(setWhatToTakeContent, whatToTakeContent)
@@ -127,12 +127,18 @@ export default function ThingsToKnow() {
         >
           <InfoSubContainer>
             <InfoTitle>Cosa portare</InfoTitle>
-            {widthWindow >= 768 && <InfoParagraph>Camera</InfoParagraph>}
+            {widthWindow >= 768 && (
+              <>
+                <InfoParagraph>Camera</InfoParagraph>
+                <InfoParagraph>Mancia per lo sviluppatore</InfoParagraph>
+              </>
+            )}
           </InfoSubContainer>
           <LinkContainer>
             {widthWindow < 768 && <i className="chevron right icon" />}
           </LinkContainer>
         </InfoContainer>
+
         {widthWindow < 768 && (
           <InfoContainer>
             <InfoSubContainer>
@@ -144,6 +150,7 @@ export default function ThingsToKnow() {
           </InfoContainer>
         )}
       </InfoWrapper>
+
       <UpSlideModal
         modalOpen={isModalOpen}
         toggleModal={toggleModal}
@@ -151,69 +158,15 @@ export default function ThingsToKnow() {
         buttonDirectives={modalCloseDirectives}
       >
         {cancellationPolicyContent && (
-          <>
-            <SectionTitle modalType>Termini di cancellazione</SectionTitle>
-
-            <InfoParagraph modalType>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-              molestias numquam quaerat impedit veniam ex velit inventore aut
-              doloribus laborum?
-            </InfoParagraph>
-
-            <InfoLink href="">Mostra i termini</InfoLink>
-          </>
+          <CancellationPolicy
+            link={cancellationLink}
+            content={cancellationInfo}
+          />
         )}
 
-        {guestsRequisiteContent && (
-          <>
-            <SectionTitle modalType>Requisiti degli ospiti</SectionTitle>
+        {guestsRequisiteContent && <GuestRequisite />}
 
-            <InfoParagraph modalType>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-              molestias numquam quaerat impedit veniam ex velit inventore aut
-              doloribus laborum?
-            </InfoParagraph>
-
-            <InfoParagraph modalType>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-              molestias numquam quaerat impedit veniam ex velit inventore aut
-              doloribus laborum?
-            </InfoParagraph>
-
-            <InfoParagraph modalType>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-              molestias numquam quaerat impedit veniam ex velit inventore aut
-              doloribus laborum?
-            </InfoParagraph>
-
-            <InfoParagraph modalType>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
-              molestias numquam quaerat impedit veniam ex velit inventore aut
-              doloribus laborum?
-            </InfoParagraph>
-          </>
-        )}
-
-        {whatToTakeContent && (
-          <>
-            <SectionTitle modalType>Cosa portare</SectionTitle>
-
-            <ul>
-              <ModalListItem>
-                <i className="check circle outline icon" />
-                <InfoParagraph listType modalType>
-                  Camera
-                </InfoParagraph>
-              </ModalListItem>
-              <ModalListItem>
-                <i className="check circle outline icon" />
-                <InfoParagraph listType modalType>
-                  Zucchine
-                </InfoParagraph>
-              </ModalListItem>
-            </ul>
-          </>
-        )}
+        {whatToTakeContent && <WhatToBring />}
       </UpSlideModal>
     </InfoSection>
   );
