@@ -14,7 +14,7 @@ import {
 // function getting dinamic window size
 import useWindowDimensions from "./WindowSize";
 
-const CarouselActivities = ({ activities }) => {
+const CarouselActivities = ({ activities, title }) => {
   const myRef = useRef(null);
   const scrollSpace = useWindowDimensions().width;
 
@@ -29,7 +29,7 @@ const CarouselActivities = ({ activities }) => {
       {activities ? (
         <div>
           <HeaderCarousel>
-            <CarouselTitle>Esperienze simili</CarouselTitle>
+            <CarouselTitle>{title}</CarouselTitle>
             {/* window size */}
             {useWindowDimensions().width >= 768 && (
               <NavigatorCarousel>
@@ -75,7 +75,7 @@ const CarouselActivities = ({ activities }) => {
                     img={activity.cover_image_url}
                     rate={activity.reviews_avg}
                     number={activity.reviews_number}
-                    country={activity.city.country.name}
+                    country={activity.city?.country.name}
                     viewCountry
                     title={activity.title}
                     price={activity.retail_price.formatted_value}

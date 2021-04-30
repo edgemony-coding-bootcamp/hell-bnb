@@ -31,7 +31,7 @@ const HeaderLink = styled(Link)`
 `;
 const LogoHeading = styled.h1`
   color: ${colors.primaryColor};
-  margin: 0 10px;
+  margin: 5px 10px;
   font-size: 1.5rem;
   font-family: "Helvetica";
   display: none;
@@ -45,4 +45,16 @@ const LogoHeading = styled.h1`
   }
 `;
 
-export { LogoHeading, HeaderLink, HeaderContainer };
+const ImgLogo = styled.img`
+  width: 30px;
+  margin: 10px 0px;
+
+  @media ${device.deviceM} {
+    width: 50px;
+  }
+  @media ${device.deviceL} {
+    width: 50px;
+  }
+`;
+
+export { LogoHeading, HeaderLink, HeaderContainer, ImgLogo };

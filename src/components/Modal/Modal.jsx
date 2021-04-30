@@ -54,11 +54,12 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
               {current + 1}&nbsp;/&nbsp;{slides.length}
             </PhotoCounterNum>
           </CounterWrapper>
+
           {current === 0 ? (
             <ArrowBtn none />
           ) : (
             <ArrowBtn mobile left onClick={prevSlide}>
-              <i className="small chevron left icon" />
+              <i className="small chevron left icon resetMargin" />
             </ArrowBtn>
           )}
 
@@ -98,12 +99,11 @@ function Modal({ ModalIsOpen, toggleModal, slides }) {
               );
             })}
           </ImageContainer>
-          <CounterWrapper />
           {current === length - 1 ? (
             <ArrowBtn none />
           ) : (
             <ArrowBtn mobile right onClick={nextSlide}>
-              <i className="small chevron right icon" />
+              <i className="small chevron right icon resetMargin" />
             </ArrowBtn>
           )}
         </ActivityModal>

@@ -38,7 +38,7 @@ export const ImageWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 8px;
   overflow: hidden;
 `;
 
@@ -114,10 +114,11 @@ export const OpenModalBtn = styled.button`
   border-radius: 8px;
   padding: 13px 0;
   cursor: pointer;
-  font-weight: 600;
-  border: 1.3px solid ${colors.darkText};
+  font-weight: 400;
+  border: 1px solid ${colors.darkText};
   :hover {
     transition: box-shadow 0.2s ease 0s, transform 0.1s ease 0s;
+    background-color: ${colors.footer};
   }
   :focus {
     outline: none;
