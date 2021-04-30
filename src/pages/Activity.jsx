@@ -103,7 +103,7 @@ export default function Activity() {
                 <WrapGeneric comments="comments" />
                 <WrapGeneric available />
                 <WrapGeneric>
-                  <ThingsToKnow />
+                  <ThingsToKnow activityUuid={activityUuid} />
                 </WrapGeneric>
                 <WrapGeneric>
                   <CarouselActivities activities={relatedActivity} />

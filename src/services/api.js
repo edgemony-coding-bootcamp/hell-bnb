@@ -54,6 +54,5 @@ export async function fetchActivityRefundPolicy(activityUuid) {
   const response = await fetch(
     `${baseURL}/activities/${activityUuid}/refund-policies`
   );
-  console.log(response.status);
   return response;
 }

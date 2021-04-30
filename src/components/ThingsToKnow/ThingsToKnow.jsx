@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchActivityRefundPolicy } from "../../services/api";
 import CancellationPolicy from "./CancellationPolicy";
 import GuestRequisite from "./GuestRequisite";
 import {
@@ -15,13 +16,14 @@ import {
 import UpSlideModal from "./UpSlideModal";
 import WhatToBring from "./WhatToBring";
 
-export default function ThingsToKnow() {
+export default function ThingsToKnow({ activityUuid }) {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [isModalOpen, setisModalOpen] = useState(false);
   const [modalCloseDirectives, setModalCloseDirectives] = useState({
     contentFunc: undefined,
     funcState: undefined,
   });
+  const [refundResponse, setRefundResponse] = useState(undefined);
   const [cancellationPolicyContent, setCancellationPolicyContent] = useState(
     false
   );
@@ -31,8 +33,9 @@ export default function ThingsToKnow() {
   const cancellationLink =
     "https://www.airbnb.it/help/article/1593/quali-sono-i-termini-di-cancellazione-delle-esperienze-airbnb";
 
-  const cancellationInfo =
-    "È possibile cancellare e ottenere il rimborso totale di qualsiasi esperienza entro 24 ore dall'acquisto o almeno 7 giorni prima dell'inizio dell'esperienza stessa.";
+  const cancellationInfo = refundResponse
+    ? "È possibile cancellare e ottenere il rimborso totale di qualsiasi esperienza entro 24 ore dall'acquisto o almeno 7 giorni prima dell'inizio dell'esperienza stessa."
+    : "Non è possibile cancellare e ottenere il rimborso.";
 
   function toggleModal(contentFunc, funcState) {
     if (isModalOpen) {
@@ -59,6 +62,23 @@ export default function ThingsToKnow() {
       window.removeEventListener("resize", handleResize);
     };
   });
+
+  useEffect(() => {
+    const fetchActivityRefundInfo = async () => {
+      try {
+        const response = await fetchActivityRefundPolicy(activityUuid);
+        console.log(response.status);
+        if (response.status < 400) {
+          setRefundResponse(true);
+        } else {
+          setRefundResponse(false);
+        }
+      } catch (error) {
+        throw new Error("Something went wrong during Fetch calls");
+      }
+    };
+    fetchActivityRefundInfo();
+  }, []);
 
   return (
     <InfoSection>
