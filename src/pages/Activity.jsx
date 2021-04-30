@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { isoDuration, it } from "@musement/iso-duration";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
-import commentsData from "../components/Comments/commentsData";
+// import commentsData from "../components/Comments/commentsData";
 import {
   fetchActivityByUuid,
   fetchRelatedActivity,
@@ -50,14 +50,15 @@ export default function Activity() {
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
-  // const cover_image_url = selectedActivity.cover_image_url;
-  const reviews = commentsData.find((rev) => rev.id === activityUuid);
 
   function addRecentActivity(keyActivity) {
     const getLocalStorageActivity = JSON.parse(
       localStorage.getItem("recentActivities")
     );
-    if (!getLocalStorageActivity.includes(keyActivity)) {
+    if (
+      getLocalStorageActivity &&
+      !getLocalStorageActivity.includes(keyActivity)
+    ) {
       getLocalStorageActivity.push(keyActivity);
       localStorage.setItem(
         "recentActivities",
@@ -120,7 +121,7 @@ export default function Activity() {
                   <ActivityTitle
                     title={selectedActivity.title}
                     rate={48}
-                    number={reviews.comments.length}
+                    number={9}
                     country={selectedActivity.city.country.name}
                   />
                 </WrapParagraph>
@@ -179,7 +180,7 @@ export default function Activity() {
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>
                 {/* <WrapExperiences /> */}
-                <Rank rate={48} number={reviews.comments.length} />
+                <Rank rate={48} number={9} />
                 <WrapGeneric comments>
                   <Comments pageId={activityUuid} />
                 </WrapGeneric>
