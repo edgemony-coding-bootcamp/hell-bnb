@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { isoDuration, en, pl, it } from "@musement/iso-duration";
+import { isoDuration, it } from "@musement/iso-duration";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
 import {
@@ -16,8 +16,6 @@ import {
   WrapPreviewPhoto,
   WrapMainDetails,
   WrapGenericInfo,
-  WrapHost,
-  WrapExperiences,
   WrapGeneric,
   WrapParagraph,
   WrapIcons,
@@ -37,8 +35,6 @@ import { Wrap } from "../components/ProposedExperience/ProposedExperience.elemen
 
 isoDuration.setLocales(
   {
-    en,
-    pl,
     it,
   },
   {
@@ -176,13 +172,11 @@ export default function Activity() {
                       </>
                     )}
                   </WrapGenericInfo>
-                  <WrapHost />
                   {/* <WrapModalInfo /> */}
                 </WrapMainDetails>
                 <WrapGeneric>
                   <Map activityData={selectedActivity} />
                 </WrapGeneric>
-                <WrapExperiences />
                 <Rank />
                 <WrapGeneric comments>
                   <Comments pageId={activityUuid} />

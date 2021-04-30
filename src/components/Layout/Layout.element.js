@@ -123,26 +123,6 @@ const WrapModalInfo = styled.div`
   }
 `;
 
-const WrapHost = styled.div`
-  width: 100%;
-  background-color: lightyellow;
-  margin: 10px 0;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const WrapExperiences = styled.div`
-  width: 100%;
-  background-color: lightgreen;
-  margin: 10px 0;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
 const WrapGeneric = styled.div`
   min-height: fit-content;
   width: 100%;
@@ -183,8 +163,6 @@ export {
   WrapGenericInfo,
   WrapMainDetails,
   WrapModalInfo,
-  WrapHost,
-  WrapExperiences,
   WrapGeneric,
   WrapHeader,
   WrapParagraph,
