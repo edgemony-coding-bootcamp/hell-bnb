@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React, { useState, useEffect } from "react";
+import { isoDuration, en, pl, it } from "@musement/iso-duration";
 import { useParams } from "react-router-dom";
 import Comments from "../components/Comments/Comments";
 import {
@@ -21,18 +21,20 @@ import {
   WrapGeneric,
   WrapParagraph,
   LoadingComp,
+  WrapIcons,
 } from "../components/Layout/Layout.element";
 import CarouselActivities from "../components/CarouselActivities/CarouselActivities";
 import Modal from "../components/Modal/Modal";
 import Hero from "../components/Hero/Hero";
 import Breadcrump from "../components/Breadcrump/Breadcrump";
 import ParagraphSection from "../components/ParagraphSection/ParagraphSection";
+import IconsSection from "../components/IconsSection/IconsSection";
 import ThingsToKnow from "../components/ThingsToKnow/ThingsToKnow";
 import DurationActivity from "../components/DurationActivity/DurationActivity";
-import { isoDuration, en, pl, it } from "@musement/iso-duration";
+
 import Languages from "../components/Languages/Languages";
-import ProposedExperience from "./../components/ProposedExperience/ProposedExperience";
-import { Wrap } from "./../components/ProposedExperience/ProposedExperience.elements";
+import ProposedExperience from "../components/ProposedExperience/ProposedExperience";
+import { Wrap } from "../components/ProposedExperience/ProposedExperience.elements";
 import spinner from "../assets/images/Spinner.svg";
 
 isoDuration.setLocales(
@@ -54,7 +56,21 @@ export default function Activity() {
   const { activityUuid } = useParams();
   const [ModalIsOpen, setModalIsOpen] = useState(false);
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
-  // const cover_image_url = selectedActivity.cover_image_url;
+  const [recentActivities, setRecentActivities] = useState([]);
+
+  function addRecentActivity(keyActivity) {
+    const getLocalStorageActivity = JSON.parse(
+      localStorage.getItem("recentActivities")
+    );
+    if (!getLocalStorageActivity.includes(keyActivity)) {
+      getLocalStorageActivity.push(keyActivity);
+      localStorage.setItem(
+        "recentActivities",
+        JSON.stringify(getLocalStorageActivity)
+      );
+    }
+    setRecentActivities(JSON.parse(localStorage.getItem("recentActivities")));
+  }
 
   useEffect(() => {
     const handleResize = () => setWidthWindow(window.innerWidth);
@@ -86,6 +102,8 @@ export default function Activity() {
         throw new Error("Something went wrong during Fetch calls");
       }
     };
+    addRecentActivity(activityUuid);
+    console.log(recentActivities);
     fetchActivity();
   }, [activityUuid]);
 
@@ -128,6 +146,7 @@ export default function Activity() {
                     </WrapPreviewPhoto>
                   </>
                 )}
+
                 <WrapMainDetails>
                   <WrapGenericInfo>
                     <ProposedExperience selectedActivity={selectedActivity}>
@@ -138,6 +157,15 @@ export default function Activity() {
                       <Wrap center="center">-</Wrap>
                       <Languages lang={selectedActivity.languages} />
                     </ProposedExperience>
+
+                    <WrapIcons>
+                      <IconsSection
+                        mobile={selectedActivity.voucher_access_usage}
+                        features={selectedActivity.features}
+                        opsDays={selectedActivity.operational_days}
+                      />
+                    </WrapIcons>
+
                     <ParagraphSection
                       title="Cosa farete"
                       paragraphText={selectedActivity.about}
