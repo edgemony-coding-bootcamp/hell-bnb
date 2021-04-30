@@ -103,6 +103,7 @@ export default function Activity() {
       }
     };
     addRecentActivity(activityUuid);
+    // eslint-disable-next-line
     console.log(recentActivities);
     fetchActivity();
   }, [activityUuid]);
