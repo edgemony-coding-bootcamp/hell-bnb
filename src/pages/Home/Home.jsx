@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Title, Wrap, SubTitle } from "./Home.elements";
-import {
-  fetchActivities,
-  fetchActivityRefundPolicy,
-  fetchCities,
-} from "../../services/api";
+import { fetchActivities, fetchCities } from "../../services/api";
 import CarouselActivities from "../../components/CarouselActivities/CarouselActivities";
 import CarouselCities from "../../components/CarouselCities/CarouselCities";
 
@@ -12,17 +8,6 @@ function Home() {
   const [activities, setActivities] = useState([]);
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  function policy() {
-    activities.forEach((act) => {
-      try {
-        const data = fetchActivityRefundPolicy(act.uuid);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -42,7 +27,6 @@ function Home() {
       }
     };
     fetch();
-    policy();
   }, []);
 
   return (
